@@ -1,0 +1,53 @@
+This is using websocket.
+https://www.google.com/search?q=chat+app+with+django+with+django&oq=chat+app+with+django+with+django&aqs=chrome..69i57j33i160l2.25656j1j4&sourceid=chrome&ie=UTF-8#kpvalbx=_0zy5YpDKOMDVkPIPptqpSA67
+https://www.section.io/engineering-education/building-chat-application-with-django-channel/#prerequisites
+
+// This is using AJAX
+https://www.youtube.com/watch?v=IpAk1Eu52GU (part 1)
+https://www.youtube.com/watch?v=ynyk1z8NLr8 (part 2)
+
+// youtube
+https://www.youtube.com/watch?v=SF1k_Twr9cg
+https://www.youtube.com/watch?v=205tbCUl4Uk
+
+https://www.youtube.com/watch?v=cw8-KFVXpTE
+
+
+//steps
+
+1. Create A Nav bar that will incluse sign up, login/logout
+2. Sign up functionality
+3. Loutout functionality
+4. Login functionality
+
+5. Create room app for rooms
+6. Create super user
+7. Show list of rooms/groups
+8. Create room detail view
+9. Create a consumer
+10. Joining a chat
+
+11. Sending messages
+12. Storing messages
+13. Scrolling to the bottom
+
+
+ // this projetc we are going to use channels and Websocket to establish 2 way communication
+
+Channels     +      WebSocket
+========            =========
+Server               lient
+
+
+ There are 4 key steps to setup django connection:
+
+ 1. Configure ASGI
+ 2. COnsummers
+ 3. Routing 
+ 4. WebSocket
+
+
+
+
+
+
