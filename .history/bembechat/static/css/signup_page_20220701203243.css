@@ -1,0 +1,65 @@
+/* .btn {
+    width: 100px;
+    margin-top: 1rem;
+    
+} */
+.sign-up-form-button{
+    background-color: rgb(54, 128, 165);
+}
+
+h1 {
+    text-align: center;
+    color: antiquewhite;
+}
+
+.container {
+    margin: 0 auto;
+    margin-top: 50vh;
+    position: relative;
+    top: -240px;
+}
+
+ .form {
+      background-color: antiquewhite;
+      flex-direction: column;
+      /* justify-content: center; */
+      align-items: center;
+      gap: 1rem;
+      display: flex;
+      width: 20rem;
+      margin: 0 auto;
+      margin-top: 50vh;
+      position: relative;
+      top: -200px;
+      padding: 1rem 0rem;
+      border-radius: 10%;
+
+      box-shadow: 20px 20px 20px 20px rgb(12, 13, 0);
+  }
+  
+/* Labels */
+label{
+    font-size: 1.5em;
+    color: black;
+}
+
+#password, #username{
+    font-size: 1.5em;
+    border: 1px solid green;
+}
+
+button {
+    margin-top: 1rem;
+}
+
+/* .form {
+    padding: 20px;
+    background-color: antiquewhite;
+    width: 20rem;
+    margin: 0 auto;
+    margin-top: 50vh;
+    position: relative;
+    top: -200px;
+
+    
+} */

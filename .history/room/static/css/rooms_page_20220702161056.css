@@ -1,0 +1,23 @@
+.single-room{
+      justify-content: center;
+      flex-direction: column;
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.5);
+}
+
+.join{
+      font-size: 1.5rem;
+      background-color: green;
+      text-align: center;
+      margin: 0.5em 0.5em 0.5em 0.5em;
+      border-radius: 2rem;
+      background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(34, 255, 0, 0) 70.71%),
+}
+
+.container{
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+      display: flex;
+}

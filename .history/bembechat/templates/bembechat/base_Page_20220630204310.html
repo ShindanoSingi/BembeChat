@@ -1,0 +1,17 @@
+{% comment %} Add "load static so the stylesheet can be used" {% endcomment %}
+{% comment %}  used django material for styling: https://pypi.org/project/django-material/0.5.1/#forms {% endcomment %}
+{% load static %}
+{% include 'material/includes/material_css.html' %}
+{% include 'material/includes/material_js.html' %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>BembeChat</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/base_Page.css'%}" />
+    </head>
+<body>
+      <h1>Hello World!</h1>
+</body>
+</html>

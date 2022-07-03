@@ -1,0 +1,66 @@
+
+/* Room name */
+.title {
+      font-size: 3rem;
+      text-align: center;
+      color: rgb(205, 220, 235);
+      position: relative;
+      top: 2rem;
+
+}
+
+.username-text{
+      font-size: 1.3rem;      
+}
+
+.user-icon{
+      text-align: center;
+      font-size: 2rem;
+      position: relative;
+      background-color:aliceblue;
+      padding: 0.5rem;
+      height: 3rem;
+      width: 3rem;
+      border-radius: 100rem;
+      color: rgb(162, 157, 157);
+}
+
+.user{
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      display: flex;
+}
+
+/* single card */
+.card1, .card2{
+      font-size: 1.3rem;
+      width: 65rem;
+      background-color: rgb(247, 212, 151);
+      padding: 1rem;
+      border-radius: 1rem; 
+}
+
+/* single card */
+.card2{
+      font-size: 1.3rem;
+      width: 65rem;
+      background-color: rgb(70, 127, 226);
+      padding: 1rem; 
+}
+
+/* card and person icon */
+.card-container{
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      padding: 1rem;
+      gap: 1.5rem;
+      position: relative;
+      top: 2rem;
+}
+
+body{
+      background-color: rgb(2, 9, 60);
+      }
+

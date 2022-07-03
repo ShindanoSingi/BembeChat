@@ -1,0 +1,41 @@
+{% extends 'bembechat/base_page.html' %}
+{% block title %}Sign up | {% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+{% comment %} Add "load static so the stylesheet can be used" {% endcomment %}
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/signup_page.css'%}" />
+    </head>
+    <body>
+        <form method="post" action="."> 
+            {% csrf_token %}
+            <div class="form">
+                <div>
+                    <label for="">Username</label><br>
+                    <input type="textselect" id="username" placeholder="Username" name="username" autocomplete="off">
+                </div>
+                
+                <div>
+                    <label for="">Password</label><br>
+                    <input type="textselect" id="password1" placeholder="password1" name="password1" autocomplete="off">
+                </div>
+                
+                <div>
+                    <label for="">Confirm Password</label><br>
+                    <input type="textselect" id="password2" placeholder="Username" name="username" autocomplete="off">
+                </div>
+                
+                <button type="submit"  href="/">Sign Up</button>
+            </div>
+            
+            
+        </form
+    </body>
+</html>
+
+{% endblock %}

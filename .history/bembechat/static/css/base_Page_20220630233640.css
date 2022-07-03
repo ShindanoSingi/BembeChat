@@ -1,0 +1,30 @@
+
+/* Nav-bar */
+.nav-wrapper{
+      padding: 0 0.5rem 0 1rem;
+      justify-content: center;
+      background-color: rgb(204, 106, 106);
+}
+
+/* app logo in the nav-bar */
+.app-logo{
+      height: 50px;
+      width: 50px;
+      margin: 5px 0 5px 2px;
+      border-radius: 10px;
+}
+
+/* user circle*/
+.user-circle{
+     font-size: 40px;
+}
+
+/* Texts in the nav bar */
+#texts-in-nav{
+      font-size: 18px;
+}
+
+/* Body */
+body{
+background-color: rgb(85, 98, 116);
+}

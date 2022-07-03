@@ -1,0 +1,66 @@
+
+/* Nav-bar */
+.nav-wrapper{
+      padding: 0 0.5rem 0 1rem;
+      justify-content: center;
+      background-color: rgb(204, 106, 106);
+}
+
+/* app logo in the nav-bar */
+.app-logo{
+      height: 50px;
+      width: 50px;
+      margin: 5px 0 5px 2px;
+      border-radius: 10px;
+}
+
+/* user circle*/
+.user-circle{
+     font-size: 40px;
+}
+
+/* Texts in the nav bar */
+#texts-in-nav{
+      font-size: 18px;
+}
+
+/* App name */
+h1{
+      font-size: 3em;
+      color: rgb(214, 240, 21);
+  }
+  
+  /* App's logo */
+  /* Source: https://www.tech-wiki.online/en/rotate-image.html */
+  .app-logo{
+      animation: rotation 60s infinite linear;
+  }
+  
+  @keyframes rotation {
+      from {
+          transform: rotate(0deg);
+      }
+      to {
+          transform: rotate(359deg);
+      }
+  }
+  
+  /* This contains the App's name and logo */
+  .container{
+      justify-items: center;
+      align-items: center;
+      flex-direction: column;
+      display: flex;
+      margin: 0 auto;
+      padding: 5rem;
+  }
+  
+  /* Add a background image to the welcome page */
+  body {
+      background-color: rgb(85, 98, 116);
+  }
+
+/* Body */
+body{
+background-color: rgb(85, 98, 116);
+}

@@ -1,0 +1,302 @@
+This is using websocket.
+https://www.google.com/search?q=chat+app+with+django+with+django&oq=chat+app+with+django+with+django&aqs=chrome..69i57j33i160l2.25656j1j4&sourceid=chrome&ie=UTF-8#kpvalbx=_0zy5YpDKOMDVkPIPptqpSA67
+https://www.section.io/engineering-education/building-chat-application-with-django-channel/#prerequisites
+
+// This is using AJAX
+https://www.youtube.com/watch?v=IpAk1Eu52GU (part 1)
+https://www.youtube.com/watch?v=ynyk1z8NLr8 (part 2)
+
+// youtube
+https://www.youtube.com/watch?v=SF1k_Twr9cg
+https://www.youtube.com/watch?v=205tbCUl4Uk
+
+https://www.youtube.com/watch?v=cw8-KFVXpTE
+
+
+//steps
+
+1. Create A Nav bar that will incluse sign up, login/logout
+2. Sign up functionality
+3. Loutout functionality
+4. Login functionality
+
+5. Create room app for rooms with python manage.py startapp room
+    
+    create the models in room/models.py
+        class Room(models.Model):
+        name = models.CharField(max_length=255)
+        slug = models.SlugField(unique=True) 
+        
+        go to room/admin.py, and register the room model
+            from django.contrib import admin
+            from .models import Room
+
+            # Register your models here.
+            admin.site.register(Room)
+    
+    make migrations
+        python manage.py makemigrations
+    
+    migrate
+        python manage.py migrate  
+        
+       
+    
+6. Create super user
+        python manage.py createsuperuser
+    
+        go to browser address, and enter 1270.0.01:8000/admin
+
+        add a few rooms manually.
+
+
+
+7. Show list of rooms/groups
+8. Create room detail view
+9. Create a consumer
+10. Joining a chat
+
+11. Sending messages
+12. Storing messages
+13. Scrolling to the bottom
+ 
+
+ // this projetc we are going to use channels and Websocket to establish 2 way communication
+
+Channels     +      WebSocket
+========            =========
+Server               Client
+
+
+ There are 4 key steps to setup django connection:
+
+ 1. Configure ASGI
+ 2. COnsummers
+ 3. Routing
+ 4. WebSocket
+
+
+Steps:
+I followed installation process (https://git.generalassemb.ly/seir-1018/django-installation/blob/master/README.md)
+
+1. python -V
+
+2. brew install python3
+
+3. mkdir bembechat_django
+
+4. cd bembechat_django
+
+5. brew install pipenv
+
+6. pipenv shell
+
+7. pipenv install django
+
+8. pipenv install psycopg2-binary
+
+8. pipenv run django-admin startproject bembechat_django .
+
+9. django-admin startapp bembechat
+
+10. INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'bembechat'
+]
+
+11. brew services list
+
+12. touch settings.sql
+
+13. -- settings.sql
+    CREATE DATABASE bembechat;
+    CREATE USER bembechatuser WITH PASSWORD 'bembechat';
+    GRANT ALL PRIVILEGES ON DATABASE bembechat TO bembechatuser;
+
+14. psql postgres -f settings.sql
+
+15. DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tunr',
+        'USER': 'tunruser',
+        'PASSWORD': 'tunr',
+        'HOST': 'localhost'
+    }
+}
+
+16. python3 manage.py runserver
+
+================================================================================================================================
+
+17. Add "channels" to INSTALLED_APPS
+
+18. Create a folder in bembechat bembechat/templates
+
+19. Create a folder in bembechat bembechat/templates/bembechat
+
+20. Create a base.html in bembechat/templates/bembechat ==> bembechat/templates/bembechat/base.html
+
+21. Add "ASGI_APPLICATION = 'bembechat.asgi.application' to settings.py below WSGI_APPLICATION = 'django.........'
+
+22. pip install websocket-client
+
+23. Add these lines in bembechat_django/urls.py to be able to load "css" in "html"
+    from django.conf import settings
+    from django.conf.urls.static import static
+
+    urlpatterns = [
+       ......
+    ]
+
+    static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+24. I installed font awesome ==> 'fontawesomefree', and placed it in 
+
+    INSTALLED_APPS = [
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'channels',
+        'bembechat',
+        'material',
+        'fontawesomefree',
+    ]
+
+25. If the page is not affected by the CSS after changes in the CSS page, got to web page console, click on the network tab, and refresh the page.
+ 
+ 1. Install virtual environment
+ 2. pip install django channels
+ 3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    "editor.accessibilitySupport": "off",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "workbench.statusBar.visible": false,
+    "code-boilerplate.notice": false,
+    "kite.showWelcomeNotificationOnStartup": false,
+    "html.format.indentHandlebars": true,
+    "html.format.indentInnerHtml": true,
+    "extensions.autoCheckUpdates": false,
+    "files.autoSaveDelay": 500,
+    "editor.autoClosingQuotes": "always",
+    "workbench.colorTheme": "βui - Ayu Mirage",
+    "debug.autoExpandLazyVariables": true,
+    "editor.autoClosingBrackets": "always",
+    "editor.defaultFormatter": "kiteco.kite",
+    "tabnine.experimentalAutoImports": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.largeFileOptimizations": false,
+    "editor.tabSize": 6,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.renderLineHighlightOnlyWhenFocus": true,
+    "editor.formatOnSave": true,
+    "editor.renderLineHighlight": "all",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "[ignore]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "python.linting.pylintArgs": [
+    "--load-plugins=pylint_django",
+    "--disable=missing-docstring,invalid-name"
+],
+"[django-html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"html.format.contentUnformatted": "",
+"html.format.templating": true,
+"[sql]": {
+    "editor.defaultFormatter": "remimarsal.prettier-now"
+},
+"editor.wordBasedSuggestions": false,
+"files.associations": {
+   "**/*.html": "html",
+   "**/templates/*/*.html": "django-html",
+   "**/templates/*": "django-txt",
+   "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+},
+"emmet.includeLanguages": {
+   "django-html": "html"
+},
+"beautify.language": {
+   "html": [
+       "htm",
+       "html",
+       "django-html"
+   ]
+},
+"importBeautify.tabSize": 6,
+"prettier.tabWidth": 6,
+"Prettier-SQL.tabSizeOverride": 7,
+"terminal.integrated.tabs.enableAnimation": false,
+"sqltools.tableTreeItemsExpanded": true,
+"Prettier-SQL.tabulateAlias": true,
+"indentRainbow.colorOnWhiteSpaceOnly": true,
+"editor.tabCompletion": "on",
+"window.zoomLevel": 1,
+"js-beautify.indent_with_tabs": true,
+"emmet.triggerExpansionOnTab": true,
+"js-beautify.wrap_attributes_indent_size": 6,
+"js-beautify.indent_size": 6,
+"js-beautify.indent_inner_html": true,
+"emptyIndent.removeIndent": false,
+"js-beautify.indent_level": 6,
+"extension.bracket_char": true,
+"html.format.wrapAttributesIndentSize": 6,
+"indentRainbow.lightIndicatorStyleLineWidth": 6,
+"files.autoSave": "afterDelay",
+}
+
+
+
+
+
+

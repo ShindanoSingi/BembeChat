@@ -1,0 +1,34 @@
+.single-room{
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 20rem;
+      border-radius: 0.5rem;
+}
+
+.title{
+      text-align: center;
+      position: relative;
+      top: 20rem;
+      
+}
+
+.join{
+      font-size: 1.5rem;
+      background-color: rgb(92, 128, 0);
+      text-align: center;
+      margin: 0.5em 0.5em 0.5em 0.5em;
+      border-radius: 0.5rem;
+      width: 10rem;
+      color: antiquewhite
+}
+
+.container{
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+      display: flex;
+}
