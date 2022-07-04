@@ -47,7 +47,7 @@ label{
     color: black;
 }
 
-#password, #username{
+#password1, #password2, #username{
     font-size: 1.5em;
     border: 1px solid rgb(14, 14, 14);
     width: 15rem;
@@ -56,7 +56,15 @@ label{
     width: 25rem;
 }
 
+/* The eye for the password */
+.eye1{
+    transform: translate(53.5rem, -14.2rem);
+  }
 
+/* The eye for the repeat password */
+.eye2{
+    transform: translate(51.6rem, -7.8rem);
+  }
 
 button {
     margin-top: 0.5rem;
