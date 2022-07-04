@@ -134,7 +134,16 @@ I followed installation process (https://git.generalassemb.ly/seir-1018/django-i
 
 ================================================================================================================================
 
-17. Add "channels" to INSTALLED_APPS
+17. Add "channels" layer to INSTALLED_APPS
+    Set channels in settings.py
+        WSGI_APPLICATION = 'bembechat_django.wsgi.application'
+        ASGI_APPLICATION = 'bembechat_django.asgi.application'
+
+    CHANNEL_LAYER = {
+        'default': {
+            'BACKEND': 'channels.layers.InMemoryChannelLayer',
+        }
+    }
 
 18. Create a folder in bembechat bembechat/templates
 
@@ -173,6 +182,7 @@ I followed installation process (https://git.generalassemb.ly/seir-1018/django-i
 
 25. If the page is not affected by the CSS after changes in the CSS page, got to web page console, click on the network tab, and refresh the page.
  
+ 
  1. Install virtual environment
  2. pip install django channels
  3.
@@ -180,7 +190,13 @@ I followed installation process (https://git.generalassemb.ly/seir-1018/django-i
 
 
 
+TAKE AWAY
+=========
 
+When trouble shooting for the problem; it is better to start reading the error message from the beginning.
+ spent so much time to read the error message from the niddle, and couldn't figure out the issue.
+
+Typos errors. google was my friend.
 
 
 

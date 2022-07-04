@@ -1,4 +1,3 @@
-
 /* Room name */
 .title {
       font-size: 3rem;
@@ -9,18 +8,19 @@
 
 }
 
-.username-text{
-      font-size: 1.3rem;      
-}
-
-.date{
+.date {
       color: white;
 }
 
-.user-icon{
+.username-text {
+      font-size: 1.3rem;
+      color: rgb(183, 178, 178);
+}
+
+.user-icon {
       text-align: center;
       font-size: 2rem;
-      background-color:aliceblue;
+      background-color: aliceblue;
       padding: 0.5rem;
       height: 3rem;
       width: 3rem;
@@ -28,52 +28,104 @@
       color: rgb(162, 157, 157);
 }
 
+/*  input box at the bottom of the page */
+#chat-message-input {
+      font-size: 1.3rem;
+      color: lightgray;
+      width: 50rem;
+      padding: 1rem;
+      color: rgb(23, 33, 207);
+      border-radius: 1rem;
+}
+
 /* card and date */
-.card-and-date{
-      justify-content: center;
-      align-items: center;
+.card-and-date {
+       justify-content: flex-start;
+      /* align-items: center;  */
       flex-direction: column;
       display: flex;
 }
 
-.user{
+/* user icon and username */
+.user {
       justify-content: center;
       align-items: center;
       flex-direction: column;
       display: flex;
       position: relative;
-      top: 1rem;
+      top: 0.5rem;
+
+}
+
+.send-button {
+      font-size: 2.5rem;
+      padding: 0.5rem;
+
+}
+
+/* All Chat messages container */
+ .chat-messages {
+      background-color: rgb(65, 89, 65);
+      width: fit-content;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      margin-top: 5rem;
+      border-radius: 1rem;
+      padding: 0 1rem;
+      max-height: 68vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      /* width: 80rem; */
+      padding-top: 1rem;
+
+} 
+
+/* Remove the verticale scroll bar */
+.chat-messages::-webkit-scrollbar {
+      display: none;
 }
 
 /* single card */
-.card1, .card2{
+.card1,
+.card2 {
       font-size: 1.3rem;
-      width: 65rem;
+      width: 50rem;
       background-color: rgb(247, 212, 151);
       padding: 1rem;
-      border-radius: 1rem; 
+      border-radius: 1rem;
 }
 
 /* single card */
-.card2{
-      font-size: 1.3rem;
-      width: 65rem;
+.card2 {
       background-color: rgb(70, 127, 226);
-      padding: 1rem; 
+      padding: 1rem;
 }
 
 /* card and person icon */
-.card-container{
+.card-container {
+      /* justify-content: center; */
+      align-items: center;
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.3rem;
+}
+
+.input-and-button {
       justify-content: center;
       align-items: center;
       display: flex;
-      padding: 1rem;
-      gap: 1.5rem;
-      position: relative;
-      top: 2rem;
+      position: fixed;
+      gap: 0.5rem;
+      bottom: 2rem;
+      /* width: 100%; */
 }
 
-body{
-      background-color: rgb(2, 9, 60);
-      }
+.send{
+      border-radius: 10rem;
+}
 
+
+body {
+      background-color: rgb(2, 9, 60);
+}

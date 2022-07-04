@@ -1,8 +1,0 @@
-/* Add a background image to the welcome page */
-body{
-    background-image: url("home_screen.png");
-    /* background-color: aquamarine; */
-}
-h1{
-    color: red
-}
