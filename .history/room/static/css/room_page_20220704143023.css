@@ -104,10 +104,8 @@
 
 /* Online button */
 .online-button{
-      font-size: 1.2rem;
-      color: rgb(243, 2, 2);
-      transform: translate(1.4rem, -1rem);
-
+      font-size: 1rem;
+      color: greenyellow;
 }
 
 /* card and person icon */

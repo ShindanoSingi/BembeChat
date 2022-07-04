@@ -57,12 +57,12 @@
   }
   
   .eye{
-    transform: translate(11.5rem, -5.8rem);
+    transform: translate(11.5rem, -6.8rem);
   }
   
   button {
       margin-top: 0.5rem;
-      margin-bottom: -0.5rem;
+      margin-bottom: -1rem;
   }
   
   .error-message{

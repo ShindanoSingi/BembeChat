@@ -27,7 +27,9 @@
                     
                     <div>
                         <label class="label">Password</label><br>
-                        <input type="password" id="password" placeholder="Password" name="password">
+                        <input type="password" id="password" placeholder="Password" name="password"><span class="material-icons eye">
+                            visibility
+                            </span>
                     </div>
 
                     <script>
@@ -36,12 +38,11 @@
                         
                         {% comment %} eclare a function that shows the password by changing the type from password to text {% endcomment %}
                         function showPassword(){
-                            if (eye.type === 'password'){
-                                eye.type = 'text';
-                            } else{
-                                 eye.type = "password";
-                            }
-                           
+                            eye.type = "text";
+                        }
+                        
+                        function hidePassword(){
+                            eye.type = "password";
                         }
                         
                     </script>
@@ -59,9 +60,6 @@
                     
                     
                    <button class="btn btn-primary sign-up-form-button">Log in</button>
-                   <span class="material-icons eye" onclick={showPassword()}>
-                    visibility
-                    </span>
                 </div>
             </div>
             
