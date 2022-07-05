@@ -12,6 +12,21 @@ https://www.youtube.com/watch?v=205tbCUl4Uk
 
 https://www.youtube.com/watch?v=cw8-KFVXpTE
 
+// To remove the background
+https://www.remove.bg/
+
+//Mega reator
+https://icons8.com/mega-creator/illustration/62bcd6094b3ea300168d7a97
+
+//Imagegur
+https://imgur.com/a/PylAyDg
+
+//Writing README document_roothttps://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+// How to destructor the form in jango
+https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html
+
+// Check "disable cache" if CSS does not affect HTML
 
 //steps
 
@@ -21,30 +36,30 @@ https://www.youtube.com/watch?v=cw8-KFVXpTE
 4. Login functionality
 
 5. Create room app for rooms with python manage.py startapp room
-    
+
     create the models in room/models.py
         class Room(models.Model):
         name = models.CharField(max_length=255)
-        slug = models.SlugField(unique=True) 
-        
+        slug = models.SlugField(unique=True)
+
         go to room/admin.py, and register the room model
             from django.contrib import admin
             from .models import Room
 
             # Register your models here.
             admin.site.register(Room)
-    
+
     make migrations
         python manage.py makemigrations
-    
+
     migrate
-        python manage.py migrate  
-        
-       
-    
+        python manage.py migrate
+
+
+
 6. Create super user
         python manage.py createsuperuser
-    
+
         go to browser address, and enter 1270.0.01:8000/admin
 
         add a few rooms manually.
@@ -59,7 +74,7 @@ https://www.youtube.com/watch?v=cw8-KFVXpTE
 11. Sending messages
 12. Storing messages
 13. Scrolling to the bottom
- 
+
 
  // this projetc we are going to use channels and Websocket to establish 2 way communication
 
@@ -165,7 +180,7 @@ I followed installation process (https://git.generalassemb.ly/seir-1018/django-i
 
     static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-24. I installed font awesome ==> 'fontawesomefree', and placed it in 
+24. I installed font awesome ==> 'fontawesomefree', and placed it in
 
     INSTALLED_APPS = [
         'django.contrib.admin',
@@ -181,8 +196,8 @@ I followed installation process (https://git.generalassemb.ly/seir-1018/django-i
     ]
 
 25. If the page is not affected by the CSS after changes in the CSS page, got to web page console, click on the network tab, and refresh the page.
- 
- 
+
+
  1. Install virtual environment
  2. pip install django channels
  3.

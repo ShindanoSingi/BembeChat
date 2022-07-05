@@ -1,6 +1,8 @@
 import json
 from os import sync
 
+import django
+
 from channels.generic.websocket import AsyncWebsocketConsumer
 from asgiref.sync import sync_to_async
 
@@ -62,3 +64,4 @@ class ChatConsumer(AsyncWebsocketConsumer):
             room = Room.objects.get(slug=room)
             
             Message.objects.create(user=user, room=room, content=message)
+            
