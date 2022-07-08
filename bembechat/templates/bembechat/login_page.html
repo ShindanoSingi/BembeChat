@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="{% static 'css/login_page.css'%}" />
     </head>
     <body>
-        <form method="post" action="."> 
+        <form method="post" action=".">
             <div class="form-container">
                 <h1 id="title">Login</h1>
                 {% csrf_token %}
@@ -24,7 +24,7 @@
                         <label for="">Username</label><br>
                         <input type="text" id="username" placeholder="Username" name="username">
                     </div>
-                    
+
                     <div>
                         <label class="label">Password</label><br>
                         <input type="password" id="password" placeholder="Password" name="password">
@@ -33,7 +33,7 @@
                     <script>
                         {% comment %} Grab the password field {% endcomment %}
                         const eye = document.getElementById("password");
-                        
+
                         {% comment %} eclare a function that shows the password by changing the type from password to text {% endcomment %}
                         function showPassword(){
                             if (eye.type === 'password'){
@@ -41,31 +41,19 @@
                             } else{
                                  eye.type = "password";
                             }
-                           
+
                         }
-                        
+
                     </script>
-                    
-                    {% comment %} Djano will   {% endcomment %}
-                    {% if form.errors %}
-                        {% for field in form %}
-                            {% for error in field.errors %}
-                                <div class="alert alert-danger error-message">
-                                    <p>{{ error|escape }}</p>
-                                </div>
-                            {% endfor %}
-                        {% endfor %}
-                    {% endif %}
-                    
-                    
+
                    <button class="btn btn-primary sign-up-form-button">Log in</button>
                    <span class="material-icons eye" onclick={showPassword()}>
                     visibility
                     </span>
                 </div>
             </div>
-            
-          
+
+
         </form
     </body>
 </html>

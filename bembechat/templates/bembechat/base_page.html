@@ -26,11 +26,9 @@ Source: https://www.um.es/docencia/barzana/materializecss/buttons.html
                         <img class="app-logo" src="https://i.imgur.com/bLsbDoC.png" alt="app-logo">
                   </a>
                   <ul class="right hide-on-med-and-down">
-
-
                         {% comment %} check if the user has signed in {% endcomment %}
                         {% if request.user.is_authenticated %}
-                              {% comment %} <li><a class="waves-effect waves-light btn" href="/rooms/new/">Add Room</a></li> {% endcomment %}
+                              <li><a class="waves-effect waves-light btn" href="/rooms/new/">Add Room</a></li>
                               <li><a class="waves-effect waves-light btn" href="/rooms/">Rooms</a></li>
                               <li><a class="waves-effect waves-light btn" href="/logout/">Logout</a></li>
                               <li><a id="texts-in-nav">{{user}}</a></li>
@@ -48,7 +46,6 @@ Source: https://www.um.es/docencia/barzana/materializecss/buttons.html
 
      {% block scripts %}
      {% endblock %}
-
 </body>
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

@@ -4,7 +4,7 @@
   text-align: center;
   color: rgb(205, 220, 235);
   position: relative;
-  top: 2rem;
+  top: 0rem;
 }
 
 .date {
@@ -75,7 +75,7 @@ button {
   margin-top: 3rem;
   border-radius: 1rem;
   padding: 0 1rem;
-  max-height: 70vh;
+  max-height: 68vh;
   overflow-y: auto;
   overflow-x: hidden;
   width: 60rem;
@@ -103,7 +103,7 @@ button {
 .card2 {
   margin-right: 15rem;
   background-color: rgb(70, 127, 226);
-   padding: 1rem;
+  padding: 1rem;
 }
 
 /* Online button */
@@ -123,21 +123,71 @@ button {
 }
 
 .input-and-button {
-  position: fixed;
-  gap: 0.5rem;
-  bottom: 2rem;
-  /* right: 31rem; */
   justify-content: center;
-  align-items: center;
+  gap: 0.5rem;
   display: flex;
-
+    width:100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 2rem;
 }
 
-.body{
+.body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
   display: flex;
+}
+
+/* Edit and Delete  buttons container*/
+.editAndDeleteRoom {
+  position: relative;
+  top: 3rem;
+  left: 23rem;
+  gap: 2rem;
+  display: flex;
+}
+
+.edit-room, .delete-room{
+  background-color: rgb(172, 108, 83);
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}
+
+/* Date, delete and edit massage buttons container */
+.date-and-delete-buttons {
+  gap: 35.5rem;
+  display: flex;
+}
+
+/* Edit and delete massage buttons */
+.edit-and-delete-message {
+  gap: 2rem;
+  display: flex;
+  text-decoration: none;
+  z-index: -1;
+}
+
+
+.edit-and-delete-message:hover{
+  z-index: 1;
+}
+
+
+/* Edit message button */
+.edit-message {
+  color: lightgray;
+}
+
+/* Delete message button */
+.delete-message {
+  color: lightgray;
+}
+
+a {
+  color: lightgray;
+  text-decoration: none;
 }
 
 body {

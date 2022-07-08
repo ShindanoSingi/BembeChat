@@ -4,13 +4,15 @@ from .models import Room
 
 class RoomForm(forms.ModelForm):
 
+    name: forms.CharField(widget=forms.TextInput(attrs={'class': 'room-name'}))
+    slug: forms.SlugField(widget=forms.TextInput(attrs={'class': 'room-slug'}))
+
     class Meta:
         model = Room
         fields = ('name', 'slug',)
 
 
-# class CommentForm(forms.ModelForm):
 
-#     class Meta:
-#         model = Comment
-#         fields = ('author', 'body')
+
+
+

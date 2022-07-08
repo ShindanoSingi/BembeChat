@@ -21,39 +21,41 @@
                 <div class="form">
                     <div>
                         <label for="">Username</label><br>
-                        <input type="text" id="username" placeholder="Username" name="username">
+                        <input type="text" id="username" placeholder="Username" name="username" required>
                     </div>
 
                     <div>
                         <label class="label">Password</label><br>
-                        <input type="password" id="password1" placeholder="Password" name="password1">
+                        <input type="password" id="password1" placeholder="Password" name="password1" required>
                     </div>
 
                     <div>
                         <label class="label" >Repeat Password</label><br>
-                        <input type="password" id="password2" placeholder="Repeat password" name="password2">
+                        <input type="password" id="password2" placeholder="Repeat password" name="password2" required>
                     </div>
 
-                    {% comment %} Djano will   {% endcomment %}
-                    {% if form.errors %}
+
+
+        {% comment %} Djano will authenticate the room name and password   {% endcomment %}
+                     {% if form.errors %}
                         {% for field in form %}
                             {% for error in field.errors %}
-                                <div class="alert alert-danger error-message">
+                                <div class="alert alert-danger error-message absolute top-20">
                                     <p>{{ error|escape }}</p>
                                 </div>
                             {% endfor %}
                         {% endfor %}
                     {% endif %}
-
-
+    </body>
+                   
                    <button class="btn btn-primary sign-up-form-button">Sign up</button>
                    <span class="material-icons eye1" onclick={showPassword1()}>visibility</span>
                     <span class="material-icons eye2" onclick={showPassword2()}>visibility</span>
                 </div>
             </div>
 
-        </form
-    </body>
+        </form>
+
 
     <script>
             {% comment %} Grab the password field {% endcomment %}

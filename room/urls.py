@@ -5,6 +5,11 @@ from . import views
 # The urls below refer to the path in bembe_django/urls.py
 urlpatterns = [
       path('', views.rooms, name='rooms'),
+      path('new/', views.RoomCreate.as_view(), name='roomNew'),
+      path('<slug:slug>/update', views.RoomUpdate.as_view(), name='room_update'),
+      path('<slug:slug>/delete', views.RoomDelete.as_view(), name='room_delete'),
+      # path('<pk:pk>/update', views.MessageUpdate.as_view(), name='message_update'),
       path('<slug:slug>/', views.room, name='room'),
-      path('rooms/new/', views.RoomCreate.as_view(), name='room_form'),
+
+
 ]

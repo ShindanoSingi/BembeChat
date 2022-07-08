@@ -29,42 +29,36 @@
 			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 			crossorigin="anonymous"
 		/>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		{% comment %} <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> {% endcomment %}
 
-		<link rel="stylesheet" href="{% static 'css/room_form.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/room_update_form.css' %}" />
 	</head>
 	<body>
-
-
-
-		<form method="post" action=".">
-            <div class="form-container">
-                <h1 id="title">Add Room</h1>
-                {% csrf_token %}
-                <div class="form">
-                    <div>
-                        <label for="">Enter room name</label><br>
-                        <input type="text" id="username" placeholder="Username" name="name" required>
-                    </div>
-
-                    <div>
-                        <label class="label">Enter Password</label><br>
-                        <input type="password" id="password" placeholder="Password" name="slug" required>
-                    </div>
-
-                   <button class="btn btn-primary sign-up-form-button">Submit</button>
-                   <span class="material-icons eye" onclick={showPassword()}>visibility</span>
-
-                </div>
-            </div>
+		<div class="form-container">
+			<h1>Update Room</h1>
+				<form method="POST" class="form" validate>
+					{% csrf_token %}
+					{% for hidden_field in form.hidden_fields %}
+					{{ hidden_field }}
+					{% endfor %}
+					{% for field in form.visible_fields %}
+					<div class="form-group">
+						{{ field.label_tag }}
+						{% render_field field class="form-control" %}
+						{% if field.help_text %}
+						  <small class="form-text text-muted">{{ field.help_text }}</small>
+						{% endif %}
+					  </div>
+					{% endfor %}
+					<button type="submit" class="btn btn-primary" href="post/<int:pk pk=post.pk">Update
+				</button>
+			</form>
+		</div>
         </form>
 	</body>
-
 	<script>
-
 		{% comment %} Grab the password field {% endcomment %}
 		const eye = document.getElementById("password");
-
 
 		{% comment %} eclare a function that shows the password by changing the type from password to text {% endcomment %}
 		function showPassword(){
@@ -73,10 +67,9 @@
 			} else{
 				 eye.type = "password";
 			}
-
 		}
 	</script>
-
 </html>
 
 {% endblock %}
+

@@ -36,3 +36,13 @@
       display: flex;
       margin: 0 1rem;
 }
+
+/* Room name input */
+#room-name-input{
+      width: 20rem;
+      background-color: yellow;
+}
+
+body {
+      background-color: rgb(108, 115, 119);
+  }

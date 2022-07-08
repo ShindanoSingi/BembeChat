@@ -26,6 +26,11 @@ https://imgur.com/a/PylAyDg
 // How to destructor the form in jango
 https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html
 
+//I used CMS for web styling
+https://docs.django-cms.org/en/latest/how_to/install.html
+
+
+
 // Check "disable cache" if CSS does not affect HTML
 
 //steps

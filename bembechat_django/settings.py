@@ -39,7 +39,6 @@ LOGIN_REDIRECT_URL = '/rooms/'
 # if the user tries to login when he/she is not authenticated, he/she will be redirected to the the login page.
 LOGIN_URL = '/login/'
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -54,6 +53,8 @@ INSTALLED_APPS = [
     'material',
     'fontawesomefree',
     'room',
+    'widget_tweaks',
+
 ]
 
 MIDDLEWARE = [
@@ -133,8 +134,6 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = "America/New_York"
-
-# TIME_ZONE = "America/Chicago"
 
 USE_I18N = True
 

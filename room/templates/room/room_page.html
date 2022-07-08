@@ -16,6 +16,12 @@
       </head>
       <body>
             <div class="body">
+
+                  <div class="editAndDeleteRoom">
+                        <a href="{% url 'room_update' slug=room.slug %}" class="edit-room">Edit Room</a>
+                        <a href="{% url 'room_delete' slug=room.slug %}" type="submit" class="delete-room">Delete Room</a>
+                  </div>
+
                   <h1 class="title"> {{ room.name }} </h1>
                   <div class="chat-messages" id="chat-messages">
                         {% for message in messages %}
@@ -27,55 +33,28 @@
                                     </div>
                                     <div class="card-and-date">
                                           <div class="card2">{{ message.content }}</div>
-                                          <div class="date">{{ message.date_added }}</div>
+                                          <div class="date-and-delete-buttons">
+                                                <div class="date">{{ message.date_added }}</div>
+                                                <div class="edit-and-delete-message">
+                                                      <a href="#" class="edit-message material-icons">edit</a>
+                                                      <a href="#" type="submit" class="delete-message material-icons">delete</a>
+                                                </div>
+                                          </div>
                                     </div>
-
                               </div><span class="material-icons online-button">circle</span>
                         {% endfor %}
-
-
-                        {% comment %} <div class="card-container">
-                              <div class="card-and-date">
-                                    <div class="card1">
-                                          This is some text within a card body.
-                                    </div>
-                                    <div class="date">
-                                          Tuesday, January 2, 2015
-                                    </div>
-                              </div>
-
-                              <div class="user">
-                                    <i class="fa-solid fa-user user-icon"></i>
-                                    <p class="username-text">Username</p>
-                              </div>
-                        </div> {% endcomment %}
-
-                        {% comment %} <div class="card-container">
-                              <div class="user">
-                                    <i class="fa-solid fa-user user-icon"></i>
-                                    <p class="username-text">Username</p>
-                              </div>
-                              <div class="card-and-date">
-                                    <div class="card2">
-                                          This is some text within a card body.
-                                    </div>
-                                    <div class="date">
-                                          Tuesday, January 2, 2015
-                                    </div>
-                              </div>
-                         </div> {% endcomment %}
                   </div>
-
-                  <form method="post" action=".">
-                        {% csrf_token %}
-                        <div class="input-and-button">
-                              <div class="input-message">
-                                   <input type="inputtext" name="content" placeholder="Type your message" id="chat-message-input">
-                              </div>
-                              <button onclick={refreshPage()} class="btn-primary material-icons send-button" type="submit" name="action" id='chat-message-submit'>send</button>
-                        </div>
-                  </form>
             </div>
+
+            <form method="post" action=".">
+                  {% csrf_token %}
+                  <div class="input-and-button">
+                        <div class="input-message">
+                              <input type="inputtext" name="content" placeholder="Type your message" id="chat-message-input">
+                        </div>
+                        <button class="btn-primary material-icons send-button" type="submit" name="action" id='chat-message-submit'>send</button>
+                  </div>
+            </form>
       </body>
       </html>
 
@@ -104,26 +83,48 @@
 
             const data = JSON.parse(event.data);
 
+            //console.log(event);
+
+            // Capture the the time when the message is sent.
+            const formattedDate = new Date()
+
+            // Format time and add it to the date field
+            const newDate = formattedDate.toLocaleDateString("en-US") + " " + formattedDate.toLocaleTimeString("en-US")
+
+            const arrayMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+            const month = arrayMonths[parseInt(newDate.charAt(0)) - 1]
+            let day;
+
+            if(newDate.substring(3,4) === '/'){
+                  day = newDate.substring(2,3)
+            }
+
+            if(newDate.substring(3,4) !== '/'){
+                  day = newDate.substring(2,4)
+            }
+
+            const year = newDate.substring(4,8)
+            const time = newDate.substring(8,13)
+            const ampm = newDate.substring(17,18).toLowerCase() + '.' + newDate.substring(18,19).toLowerCase() + '.';
+
+            const fullTime = `${month} ${day}, ${year},${time} ${ampm}`
+            console.log(newDate)
+            console.log(fullTime)
+
             if (data.message){
                   let html = '<div class="chat-messagess" id="chat-messagess">'
                         html += '<div class="card-container">'
                         html += '<div class="user"> <i class="fa-solid fa-user user-icon"></i><p class="username-text">' + data.username + '</p></div>';
                         html += '<div class="card-and-date"><div class="card2">' + data.message + '</div>'
-                        html += '<div class="date">'+ data.date + '</div></div>';
+                        html += '<div class="date">' + fullTime + '</div></div>';
 
                   document.querySelector('#chat-messages').innerHTML += html;
 
-                  {% comment %} When the message comesfrom the server, call the scrollBottom function {% endcomment %}
+                  //When the message comesfrom the server, call the scrollBottom function
                   scrollBottom();
-                  refreshPage();
 
             }  else {
                  alert('The message input was empty!');
-            }
-
-            {% comment %} Reload the page on submit to update the date_added {% endcomment %}
-            function refreshPage() {
-                  location.reload();
             }
       }
 
@@ -149,13 +150,11 @@
             return false;
       }
 
-      {% comment %} Scroll the message to the botton {% endcomment %}
+      // Scroll the message to the botton
       function scrollBottom(){
             const objDiv = document.querySelector('#chat-messages');
             objDiv.scrollTop = objDiv.scrollHeight;
       }
-
-      scrollBottom();
 
 </script>
 {% endblock %}
