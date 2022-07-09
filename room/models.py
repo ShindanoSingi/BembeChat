@@ -1,6 +1,12 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+# To check if the otehr user is online
+from django.core.cache import cache
+import datetime
+from bembechat_django import settings
+
+
 # from room.views import room
 
 # Room model.
@@ -20,3 +26,8 @@ class  Message(models.Model):
 
       class Meta:
             ordering = ('date_added',)
+
+# Declare fields for online
+class UserProfile(models.Model):
+       user_profile = models.ForeignKey(User, related_name='profile', on_delete = models.CASCADE)
+       is_online = models.BooleanField(default=False)

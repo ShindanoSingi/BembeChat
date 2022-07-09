@@ -8,7 +8,7 @@
 }
 
 .date {
-  color: white;
+  color: #aaa;
 }
 
 .username-text {
@@ -88,29 +88,33 @@ button {
 }
 
 /* single card */
-.card1,
 .card2 {
+  color:aliceblue;
   font-size: 1.3rem;
-  width: fit-content;
+  /* width: fit-content; */
   width: 53.2rem;
-  background-color: rgb(247, 212, 151);
+  /* background-color: rgb(247, 212, 151); */
   padding: 1rem;
   border-radius: 1rem;
   overflow-wrap: break-word;
-}
-
-/* single card */
-.card2 {
-  margin-right: 15rem;
-  background-color: rgb(70, 127, 226);
-  padding: 1rem;
 }
 
 /* Online button */
 .online-button {
   font-size: 1rem;
   color: greenyellow;
-  transform: translate(2rem, -3.1rem);
+  position: relative;
+  left:1.3rem;
+  top: -3.7rem
+}
+
+/* Online button */
+.offline-button {
+  font-size: 1rem;
+  color: rgb(246, 5, 5);
+  position: relative;
+  left:1.3rem;
+  top: -3.7rem
 }
 
 /* card and person icon */
@@ -120,6 +124,16 @@ button {
   display: flex;
   gap: 1rem;
   margin-top: 0.3rem;
+}
+
+/* The entire card */
+#card-container {
+  border: 2px solid #5c80a0;
+  background-color: #aedede;
+  background-color: rgba(0,0,0,.5);
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 10px 0;
 }
 
 .input-and-button {
@@ -166,7 +180,7 @@ button {
   gap: 2rem;
   display: flex;
   text-decoration: none;
-  z-index: -1;
+  z-index: 1;
 }
 
 

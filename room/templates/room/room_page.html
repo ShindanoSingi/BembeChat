@@ -25,11 +25,22 @@
                   <h1 class="title"> {{ room.name }} </h1>
                   <div class="chat-messages" id="chat-messages">
                         {% for message in messages %}
-                        <div class="chat-messagess" id="chat-messagess">
-                              <div class="card-container">
+
+                              <div class="card-container" id="card-container">
                                     <div class="user">
                                           <i class="fa-solid fa-user user-icon"></i>
                                           <p class="username-text">{{ message.user.username }}</p>
+
+                                           {% comment %} hange the online status {% endcomment %}
+                                          {% if not message.user.username %}
+                                          <span class="material-icons online-button">circle</span>
+                                          {% comment %} <span class="material-icons online-button">circle</span> {% endcomment %}
+                                          {% comment %} {{user.profile.is_online}} {% endcomment %}
+                                          {% else %}
+                                          <span class="material-icons offline-button">circle</span>
+                                          {% comment %} {{user.profile.is_online}} {% endcomment %}
+                                          {% comment %} <span class="material-icons offline-button">circle</span> {% endcomment %}
+                                          {% endif %}
                                     </div>
                                     <div class="card-and-date">
                                           <div class="card2">{{ message.content }}</div>
@@ -41,7 +52,9 @@
                                                 </div>
                                           </div>
                                     </div>
-                              </div><span class="material-icons online-button">circle</span>
+                              </div>
+
+
                         {% endfor %}
                   </div>
             </div>
@@ -112,19 +125,24 @@
             console.log(fullTime)
 
             if (data.message){
-                  let html = '<div class="chat-messagess" id="chat-messagess">'
-                        html += '<div class="card-container">'
+
+                       let html = '<div class="card-container">'
                         html += '<div class="user"> <i class="fa-solid fa-user user-icon"></i><p class="username-text">' + data.username + '</p></div>';
                         html += '<div class="card-and-date"><div class="card2">' + data.message + '</div>'
                         html += '<div class="date">' + fullTime + '</div></div>';
 
-                  document.querySelector('#chat-messages').innerHTML += html;
+                  document.querySelector('#card-container').innerHTML += html;
 
                   //When the message comesfrom the server, call the scrollBottom function
                   scrollBottom();
+                  scrollBottom();
+                  scrollBottom();
+                  scrollBottom();
 
             }  else {
+                  scrollBottom();
                  alert('The message input was empty!');
+
             }
       }
 
