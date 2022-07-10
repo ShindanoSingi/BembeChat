@@ -4,11 +4,19 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 # from zmq import Message
-from .models import Room, Message, UserProfile
+from .models import Room, Message, Profile
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import RoomForm
 from django.contrib.auth.signals import user_logged_in, user_logged_out
 from django.dispatch import receiver
+
+from django.http import HttpResponse
+import datetime
+
+import online_users.models
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
 
 # Ensure the user is logged in before showing the room list.
 @login_required
@@ -26,6 +34,32 @@ def room(request, slug):
 
 
       return render(request, 'room/room_page.html', {'room': room, 'messages': messages})
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+      try:
+            instance.profile.save()
+      except ObjectDoesNotExist:
+            Profile.objects.create(user=instance)
+
+# Check if the user is already online
+# @receiver(user_logged_in)
+# def got_online(sender, user, request, **kwargs):
+#       user.profile.is_online = True
+#       user.profile.save()
+#       profile = Profile.objects.create(user=request.user)
+
+# @receiver(user_logged_out)
+# def got_offline(sender, user, request, **kwargs):
+
+#       user.profile.is_online = False
+#       user.profile.save()
+#       profile = Profile.objects.create(user=request.user)
+
+def see_users(self):
+      user_status = online_users.models.OnlineUserActivity.get_user_activities(timedelta(seconds=60))
+      users = (user for user in  user_status)
+      context = {"online_users"}
 
 # Methods for checking if the other user is online or offline.
 # @receiver(user_logged_in)
@@ -51,16 +85,17 @@ class RoomCreate(CreateView):
 
 # Update a room
 class RoomUpdate(UpdateView):
-    model = Room
-    fields = '__all__'
-    template_name = 'room/room_update_form.html'
-    success_url = '/rooms/'
+      model = Room
+      fields = '__all__'
+      template_name = 'room/room_update_form.html'
+      success_url = '/rooms/'
 
 # Update a room
 class RoomDelete(DeleteView):
-    model = Room
-    template_name = 'room/room_delete_form.html'
-    success_url = '/'
+      model = Room
+      template_name = 'room/room_delete_form.html'
+      success_url = '/'
+
 
 
 # # Update the message
@@ -69,3 +104,10 @@ class RoomDelete(DeleteView):
 #       fields = '__all__'
 #       template_name = 'room/message_update_form.html'
 #       success_url = '/rooms/'
+
+
+def current_datetime(request):
+    now = datetime.datetime.now()
+    online = UserProfile.objects.get(is_online=True)
+#     html = "<html><body>It is now %s.</body></html>" % now
+    return render(request, 'room/room_page.html', {'html': "Thank you"})

@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'fontawesomefree',
     'room',
     'widget_tweaks',
+    'online_users',
 
 ]
 
@@ -65,7 +66,23 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'room.middleware.ActiveUserMiddleware',
+    'online_users.middleware.OnlineNowMiddleware',
 ]
+
+CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': '127.0.0.1:11211',
+        }
+    }
+
+# Number of seconds of inactivity before a user is marked offline
+USER_ONLINE_TIMEOUT = 300
+
+# Number of seconds that we will keep track of inactive users for before
+# their last seen is removed from the cache
+USER_LASTSEEN_TIMEOUT = 60 * 60 * 24 * 7
 
 ROOT_URLCONF = 'bembechat_django.urls'
 

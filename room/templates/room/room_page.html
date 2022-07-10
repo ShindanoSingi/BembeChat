@@ -13,17 +13,35 @@
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet">
            <link rel="stylesheet" href="{% static 'css/room_page.css' %}" />
+
+
+  {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> {% endcomment %}
       </head>
       <body>
             <div class="body">
 
                   <div class="editAndDeleteRoom">
-                        <a href="{% url 'room_update' slug=room.slug %}" class="edit-room">Edit Room</a>
-                        <a href="{% url 'room_delete' slug=room.slug %}" type="submit" class="delete-room">Delete Room</a>
-                  </div>
 
+                        <a href="{% url 'room_update' slug=room.slug %}" id="@applicant.Id" class="btn btn-outline purple-sharp edit-room  uppercase     delete-confirmation" data-btn-ok-label="Bəli"  data-toggle="confirmation"  data-placement="bottom" data-original-title="" title="Are you sure?" aria-describedby="confirmation64993">
+                        <i class="fa fa-pencil" ></i> Edit Room</a>
+
+                        <a href="{% url 'room_delete' slug=room.slug %}" id="@applicant.Id"  class="btn btn-outline purple-sharp delete-room  uppercase delete-confirmation" data-btn-ok-label="Bəli"  data-toggle="confirmation"  data-placement="right" data-original-title="" title="Are you sure?" aria-describedby="confirmation64993"><i class="fa fa-trash" ></i> Delete Room</a>
+
+                  </div>
+                        {% for user in users %}
+                        {{user}}
+                        {% endfor %}
                   <h1 class="title"> {{ room.name }} </h1>
                   <div class="chat-messages" id="chat-messages">
+                        <table>
+                              <tr><th>Last Seen</th><td>{% if user.last_seen %}{{ userlast_seen|timesince }}{% else %}awhile{% endif %} ago</td></tr>
+                              <tr><th>Online</th><td>{{ user.online }}</td></tr>
+                            </table>
+
+
+
                         {% for message in messages %}
 
                               <div class="card-container" id="card-container">
@@ -31,8 +49,8 @@
                                           <i class="fa-solid fa-user user-icon"></i>
                                           <p class="username-text">{{ message.user.username }}</p>
 
-                                           {% comment %} hange the online status {% endcomment %}
-                                          {% if not message.user.username %}
+                                          {% comment %} hange the online status {% endcomment %}
+                                          {% if message %}
                                           <span class="material-icons online-button">circle</span>
                                           {% comment %} <span class="material-icons online-button">circle</span> {% endcomment %}
                                           {% comment %} {{user.profile.is_online}} {% endcomment %}
@@ -78,10 +96,12 @@
 
 {{ room.slug|json_script:"json-roomname" }}
 {{ request.user.username|json_script:"json-username" }}
+{{ request.userprofile.is_online|json_script:"json-is_online" }}
 
 <script>
       const roomName = JSON.parse(document.getElementById("json-roomname").textContent);
       const userName = JSON.parse(document.getElementById("json-username").textContent);
+      const is_online = JSON.parse(document.getElementById("json-is_online").textContent);
 
       const chatSocket = new WebSocket(
             'ws://'
@@ -96,7 +116,7 @@
 
             const data = JSON.parse(event.data);
 
-            //console.log(event);
+            console.log(event);
 
             // Capture the the time when the message is sent.
             const formattedDate = new Date()
@@ -135,9 +155,6 @@
 
                   //When the message comesfrom the server, call the scrollBottom function
                   scrollBottom();
-                  scrollBottom();
-                  scrollBottom();
-                  scrollBottom();
 
             }  else {
                   scrollBottom();
@@ -169,10 +186,11 @@
       }
 
       // Scroll the message to the botton
-      function scrollBottom(){
-            const objDiv = document.querySelector('#chat-messages');
+      const scrollBottom = () => {
+            const objDiv = document.querySelector('.chat-messages');
             objDiv.scrollTop = objDiv.scrollHeight;
       }
 
 </script>
+
 {% endblock %}

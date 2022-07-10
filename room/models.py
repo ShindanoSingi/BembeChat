@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
-from django.db import models
+from django.db import connections, models
 
-# To check if the otehr user is online
+# To check if the other user is online
 from django.core.cache import cache
 import datetime
 from bembechat_django import settings
@@ -28,6 +28,9 @@ class  Message(models.Model):
             ordering = ('date_added',)
 
 # Declare fields for online
-class UserProfile(models.Model):
-       user_profile = models.ForeignKey(User, related_name='profile', on_delete = models.CASCADE)
-       is_online = models.BooleanField(default=False)
+class Profile(models.Model):
+      user = models.OneToOneField(User, related_name='profile', on_delete = models.CASCADE)
+      room = models.ManyToManyField(Room, related_name='profile')
+      message = models.ManyToManyField(Message, related_name='profile')
+      is_online = models.BooleanField(default=False)
+

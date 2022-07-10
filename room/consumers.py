@@ -8,7 +8,7 @@ from asgiref.sync import sync_to_async
 
 from django.contrib.auth.models import User
 
-from .models import Room, Message
+from .models import Room, Message, Profile
 
 class ChatConsumer(AsyncWebsocketConsumer):
       async def connect(self):
@@ -52,6 +52,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             username = event['username']
             room = event['room']
 
+            # Send the message to the room so every user in the room can see it.
             await self.send(text_data=json.dumps({
                   'message': message,
                   'username': username,
@@ -64,3 +65,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
             room = Room.objects.get(slug=room)
 
             Message.objects.create(user=user, room=room, content=message)
+
+
+      @sync_to_async
+      def update_user_incr(self, user):
+            UserProfile.objects.filter(pk=user.pk).update(online=True)
+
+      @sync_to_async
+      def update_user_decr(self, user):
+            UserProfile.objects.filter(pk=user.pk).update(online=False)
