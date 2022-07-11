@@ -21,10 +21,6 @@ h1{
     top: 15rem;
 }
 
-body{
-    background-color: rgb(85, 98, 116);
-    }
-
 button {
     margin-top: 1rem;
 }
@@ -39,3 +35,6 @@ button {
    border-radius: 1rem;
 }
 
+body {
+    background-color: rgb(2, 9, 60);
+  }

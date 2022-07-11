@@ -261,37 +261,27 @@
 
             //console.log(e.closest('#card-container'))
 
-            let userText = document.querySelector('p.username-text').innerHTML;
+            // Grab the username
+            let username = document.querySelector('p.username-text').innerHTML;
             //console.log(userText);
 
-            let username = userText;
-
-            // Check if t
-            if(e.innerHTML !== ''){
-
-
-
-
+                  // manupilate the usernamestring to bring a new username string.
                   let individualUserColor = usernameColor(e.innerHTML);
                   let name = individualUserColor;
                   let s = 30;
                   let l = 30;
 
+                  // call the usernameColor function to give us the color for the username.
                   let userColor = usernameColor(name, s, l);
                   console.log(userColor);
 
-
+                  // assign the background color to the card containing the username.
                   e.closest('.card-container').style.backgroundColor = userColor;
 
                   // Get the position of the first character in the username string.
                   console.log(e.innerHTML);
                   console.log((e.innerHTML.charCodeAt(0)) + (e.innerHTML.charCodeAt(0) - 96) +  (e.innerHTML.charCodeAt(1)) +  (e.innerHTML.charCodeAt(1) - 96) + (e.innerHTML.charCodeAt(2))  +  (e.innerHTML.charCodeAt(2) - 96));
-
-                  //let div = document.querySelector('.card-container');
-                  //e.style.backgroundColor = 'yellow';
-
-            }
-            console.log(e);
+            //console.log(e);
       })
 
 </script>

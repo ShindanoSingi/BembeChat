@@ -76,7 +76,7 @@ button {
 
 /* All Chat messages container */
 .chat-messages {
-  background-color: rgb(65, 89, 65);
+  /* background-color: rgb(65, 89, 65); */
   /* width: fit-content; */
   justify-content: center;
   align-items: center;
