@@ -44,6 +44,14 @@ def room(request, slug):
 #       except ObjectDoesNotExist:
 #             Profile.objects.create(user=instance)
 
+#  Create a profile for the user when a new user is created.
+@receiver(post_save, sender=User, dispatch_uid='save_new_user_profile')
+def save_profile(sender, instance, created, **kwargs):
+      user = instance
+      if created:
+            profile = Profile(user=user)
+            profile.save()
+
 # Check if the user is already online
 @receiver(user_logged_in)
 def got_online(sender, user, request, **kwargs):
