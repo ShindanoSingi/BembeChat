@@ -12,6 +12,8 @@ https://www.youtube.com/watch?v=205tbCUl4Uk
 
 https://www.youtube.com/watch?v=cw8-KFVXpTE
 
+accessing ancesters and grand children
+
 //Add voive and video call
 Youtube
 Title: Real time video chat tutorial using django and webrtc

@@ -192,27 +192,11 @@
             return false;
       }
 
-
       // Scroll the message to the botton
       function scrollBottom(){
             const objDiv = document.querySelector('.chat-messages');
             objDiv.scrollTop = objDiv.scrollHeight;
       }
-
-      // change the backgroung to the message cards
-      const arraycolor = ['#E6D690', '#969992', '#B0A8B9', '#4B4453', '#D5CABD', '#D5CABD', '#C493FF', '#ADC5CF', '#296073', '#4E7D94']
-      let colors = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
-      '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
-      '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
-      '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
-      '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC',
-      '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
-      '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680',
-      '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
-      '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3',
-      '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
-      {% comment %} let message_container = document.querySelector('#card-container');
-      message_container.style.backgroundColor = `${colors[9]}`; {% endcomment %}
 
       let userText = document.querySelector('.username-text').innerHTML;
       console.log(userText);
@@ -234,10 +218,29 @@
       // Source: https://medium.com/@pppped/compute-an-arbitrary-color-for-user-avatar-starting-from-his-username-with-javascript-cd0675943b66
       function usernameColor(str, s, l) {
             let hash = 0;
-            for (var i = 0; i < str.length; i++) {
-                  hash = str.charCodeAt(i) + ((hash << 5) - hash);
+
+            // eclare a global substring
+            let newString = '';
+
+            // The username has less than 3 charachers, use the all of them in the computation of colors.
+            // insert the new string after the second character.
+            if (str.length < 3) {
+                  let globalSubstring = str.substring(0, 1).toLowerCase();
+                  newString = str.substring(0, str.length - 1) + string1 + str.substring(1);
             }
 
+            // else user take the first 3 characters in the username, place the 3 charachers after the third character, and do computation of colors.
+            else {
+                  let globalSubstring = str.substring(0, 3).toLowerCase();
+                  newString = str.substring(0, str.length - 1) + newString + str.substring(1);
+            }
+
+            // loop over all characters in the new username, convert them to a nummbers and all of them.
+            for (var i = 0; i < newString.length; i++) {
+                  hash = newString.charCodeAt(i) + ((hash << 5) - hash);
+            }
+
+            // return a coded color value
             let h = hash % 360;
             return 'hsl('+h+', '+s+'%, '+l+'%)';
       }
@@ -265,6 +268,10 @@
 
             // Check if t
             if(e.innerHTML !== ''){
+
+
+
+
                   let individualUserColor = usernameColor(e.innerHTML);
                   let name = individualUserColor;
                   let s = 30;
@@ -276,6 +283,9 @@
 
                   e.closest('.card-container').style.backgroundColor = userColor;
 
+                  // Get the position of the first character in the username string.
+                  console.log(e.innerHTML);
+                  console.log((e.innerHTML.charCodeAt(0)) + (e.innerHTML.charCodeAt(0) - 96) +  (e.innerHTML.charCodeAt(1)) +  (e.innerHTML.charCodeAt(1) - 96) + (e.innerHTML.charCodeAt(2))  +  (e.innerHTML.charCodeAt(2) - 96));
 
                   //let div = document.querySelector('.card-container');
                   //e.style.backgroundColor = 'yellow';
