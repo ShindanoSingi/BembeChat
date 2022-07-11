@@ -39,6 +39,9 @@ LOGIN_REDIRECT_URL = '/rooms/'
 # if the user tries to login when he/she is not authenticated, he/she will be redirected to the the login page.
 LOGIN_URL = '/login/'
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -175,6 +178,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR/'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -18,6 +18,7 @@
   {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> {% endcomment %}
+            {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
       </head>
       <body>
             <div class="body">
@@ -30,23 +31,32 @@
                         <a href="{% url 'room_delete' slug=room.slug %}" id="@applicant.Id"  class="btn btn-outline purple-sharp delete-room  uppercase delete-confirmation" data-btn-ok-label="Bəli"  data-toggle="confirmation"  data-placement="right" data-original-title="" title="Are you sure?" aria-describedby="confirmation64993"><i class="fa fa-trash" ></i> Delete Room</a>
 
                   </div>
+                        {% comment %} <h6>{{context}}</h6>
+                        {% if user.profile.is_online %}
+                       <h6>Online</h6>
+                       {{user}}
+                        {% else %}
+                        <h6>Offline</h6>
+                        {% endif %}
+
                         {% for user in users %}
-                        {{user}}
-                        {% endfor %}
+                        <h6>{{user}}</h6>
+                        {% endfor %} {% endcomment %}
+
+                  {% comment %} style="background-color:{{message.profile.message_color}};" {% endcomment %}
+
+                  <h2>{{name}}</h2>
                   <h1 class="title"> {{ room.name }} </h1>
-                  <div class="chat-messages" id="chat-messages">
-                        <table>
-                              <tr><th>Last Seen</th><td>{% if user.last_seen %}{{ userlast_seen|timesince }}{% else %}awhile{% endif %} ago</td></tr>
-                              <tr><th>Online</th><td>{{ user.online }}</td></tr>
-                            </table>
-
-
+                  <div class="chat-messages">
 
                         {% for message in messages %}
-
-                              <div class="card-container" id="card-container">
+                              {% if message.user.username != name %}
+                              <div  class="card-container" id="card-container">
                                     <div class="user">
-                                          <i class="fa-solid fa-user user-icon"></i>
+                                          {% comment %} <i class="fa-solid fa-user user-icon"></i> {% endcomment %}
+                                          <div class="main-user">
+                                                <img class="avatar main-user" src="https://i.imgur.com/bLsbDoC.png" alt="profile picture">
+                                          </div>
                                           <p class="username-text">{{ message.user.username }}</p>
 
                                           {% comment %} hange the online status {% endcomment %}
@@ -71,8 +81,7 @@
                                           </div>
                                     </div>
                               </div>
-
-
+                              {% endif %}
                         {% endfor %}
                   </div>
             </div>
@@ -112,11 +121,12 @@
       );
 
       chatSocket.onmessage = function(event){
+
             console.log('onmessage')
 
             const data = JSON.parse(event.data);
 
-            console.log(event);
+            // console.log(data);
 
             // Capture the the time when the message is sent.
             const formattedDate = new Date()
@@ -141,43 +151,40 @@
             const ampm = newDate.substring(17,18).toLowerCase() + '.' + newDate.substring(18,19).toLowerCase() + '.';
 
             const fullTime = `${month} ${day}, ${year},${time} ${ampm}`
-            console.log(newDate)
-            console.log(fullTime)
+            // console.log(newDate)
+            // console.log(fullTime)
 
             if (data.message){
-
-                       let html = '<div class="card-container">'
-                        html += '<div class="user"> <i class="fa-solid fa-user user-icon"></i><p class="username-text">' + data.username + '</p></div>';
-                        html += '<div class="card-and-date"><div class="card2">' + data.message + '</div>'
-                        html += '<div class="date">' + fullTime + '</div></div>';
-
+                   let html = '<div class="card-container">'
+                  html += '<div class="user"> <i class="fa-solid fa-user user-icon"></i><p class="username-text">' + data.username + '</p></div>';
+                  html += '<div class="card-and-date"><div class="card2">' + data.message + '</div>'
+                  html += '<div class="date">' + fullTime + '</div></div>';
                   document.querySelector('#card-container').innerHTML += html;
 
                   //When the message comesfrom the server, call the scrollBottom function
                   scrollBottom();
 
             }  else {
-                  scrollBottom();
-                 alert('The message input was empty!');
-
+                  alert('The message input was empty!');
             }
       }
+
+      scrollBottom();
 
       chatSocket.onclose = function(event){
             console.log('onclose')
       };
 
       document.querySelector('#chat-message-submit').onclick = function(event){
-
             event.preventDefault();
 
             const messageInput = document.querySelector('#chat-message-input');
             const message = messageInput.value;
 
-            chatSocket.send(JSON.stringify({
-                  'message' : message,
-                  'username' : userName,
-                  'room' : roomName,
+      chatSocket.send(JSON.stringify({
+            'message' : message,
+            'username' : userName,
+            'room' : roomName,
             }));
 
             messageInput.value = '';
@@ -185,11 +192,97 @@
             return false;
       }
 
+
       // Scroll the message to the botton
-      const scrollBottom = () => {
+      function scrollBottom(){
             const objDiv = document.querySelector('.chat-messages');
             objDiv.scrollTop = objDiv.scrollHeight;
       }
+
+      // change the backgroung to the message cards
+      const arraycolor = ['#E6D690', '#969992', '#B0A8B9', '#4B4453', '#D5CABD', '#D5CABD', '#C493FF', '#ADC5CF', '#296073', '#4E7D94']
+      let colors = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
+      '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+      '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
+      '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+      '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC',
+      '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+      '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680',
+      '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+      '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3',
+      '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
+      {% comment %} let message_container = document.querySelector('#card-container');
+      message_container.style.backgroundColor = `${colors[9]}`; {% endcomment %}
+
+      let userText = document.querySelector('.username-text').innerHTML;
+      console.log(userText);
+
+      let name = userText;
+      let s = 30;
+      let l = 30;
+
+      let userColor = usernameColor(name, s, l);
+      console.log(userColor);
+
+      let message_container = document.querySelector('#card-container');
+      message_container.style.backgroundColor = userColor;
+
+      {% comment %} let cards_container = document.querySelector('.chat-messages').innerHTML;
+      console.log(cards_container); {% endcomment %}
+
+
+      // Source: https://medium.com/@pppped/compute-an-arbitrary-color-for-user-avatar-starting-from-his-username-with-javascript-cd0675943b66
+      function usernameColor(str, s, l) {
+            let hash = 0;
+            for (var i = 0; i < str.length; i++) {
+                  hash = str.charCodeAt(i) + ((hash << 5) - hash);
+            }
+
+            let h = hash % 360;
+            return 'hsl('+h+', '+s+'%, '+l+'%)';
+      }
+
+      // Iterate over all elements of the body
+      // Source: https://bobbyhadz.com/blog/javascript-loop-through-all-dom-elements
+      let allElementsInBody = document.querySelectorAll('.chat-messages > *');
+      allElementsInBody.forEach(function(element){
+            // element.style.backgroundColor='blue'
+            // console.log(element);
+            // console.log(allElementsMessagesontainer.length);
+      }
+      )
+
+      // Grab all grand children/the "p" elements
+      let allElementsMessagesontainer = document.querySelectorAll('.card-container > .user > p ');
+      allElementsMessagesontainer.forEach(function(e){
+
+            //console.log(e.closest('#card-container'))
+
+            let userText = document.querySelector('p.username-text').innerHTML;
+            //console.log(userText);
+
+            let username = userText;
+
+            // Check if t
+            if(e.innerHTML !== ''){
+                  let individualUserColor = usernameColor(e.innerHTML);
+                  let name = individualUserColor;
+                  let s = 30;
+                  let l = 30;
+
+                  let userColor = usernameColor(name, s, l);
+                  console.log(userColor);
+
+
+                  e.closest('.card-container').style.backgroundColor = userColor;
+
+
+                  //let div = document.querySelector('.card-container');
+                  //e.style.backgroundColor = 'yellow';
+
+            }
+            console.log(e);
+      })
 
 </script>
 

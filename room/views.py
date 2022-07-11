@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 # from zmq import Message
 from .models import Room, Message, Profile
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 from .forms import RoomForm
 from django.contrib.auth.signals import user_logged_in, user_logged_out
 from django.dispatch import receiver
@@ -16,7 +17,10 @@ import datetime
 import online_users.models
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.signals import post_save
+from datetime import timedelta
 from django.contrib.auth.models import User
+
+from django.views.generic import ListView
 
 # Ensure the user is logged in before showing the room list.
 @login_required
@@ -29,37 +33,35 @@ def rooms(request):
 @login_required
 def room(request, slug):
       room = Room.objects.get(slug=slug)
-
       messages = Message.objects.filter(room=room).order_by('date_added')
+      profile = Profile.objects.all()
+      return render(request, 'room/room_page.html', {'room': room, 'messages': messages, 'profile': profile})
 
-
-      return render(request, 'room/room_page.html', {'room': room, 'messages': messages})
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-      try:
-            instance.profile.save()
-      except ObjectDoesNotExist:
-            Profile.objects.create(user=instance)
+# @receiver(post_save, sender=User)
+# def create_user_profile(sender, instance, created, **kwargs):
+#       try:
+#             instance.profile.save()
+#       except ObjectDoesNotExist:
+#             Profile.objects.create(user=instance)
 
 # Check if the user is already online
-# @receiver(user_logged_in)
-# def got_online(sender, user, request, **kwargs):
-#       user.profile.is_online = True
-#       user.profile.save()
-#       profile = Profile.objects.create(user=request.user)
+@receiver(user_logged_in)
+def got_online(sender, user, request, **kwargs):
+      user.profile.is_online = True
+      user.profile.save()
+      # return render(request, 'room/room_page.html', {'user': user})
 
-# @receiver(user_logged_out)
-# def got_offline(sender, user, request, **kwargs):
+@receiver(user_logged_out)
+def got_offline(sender, user, request, **kwargs):
+      user.profile.is_online = False
+      user.profile.save()
+      # return render(request, 'room/room_page.html', {'user': user})
 
-#       user.profile.is_online = False
-#       user.profile.save()
-#       profile = Profile.objects.create(user=request.user)
-
-def see_users(self):
+def see_users(request, self):
       user_status = online_users.models.OnlineUserActivity.get_user_activities(timedelta(seconds=60))
       users = (user for user in  user_status)
       context = {"online_users"}
+      # return render(request, 'room/room_page.html', {'user_status': user_status, 'users': users, context: context,})
 
 # Methods for checking if the other user is online or offline.
 # @receiver(user_logged_in)
@@ -96,6 +98,10 @@ class RoomDelete(DeleteView):
       template_name = 'room/room_delete_form.html'
       success_url = '/'
 
+# View the image from database
+class HomePageView(ListView):
+    model = Message
+    template_name = "room_page.html"
 
 
 # # Update the message
@@ -108,6 +114,6 @@ class RoomDelete(DeleteView):
 
 def current_datetime(request):
     now = datetime.datetime.now()
-    online = UserProfile.objects.get(is_online=True)
-#     html = "<html><body>It is now %s.</body></html>" % now
-    return render(request, 'room/room_page.html', {'html': "Thank you"})
+    online = Profile.objects.get(is_online=True)
+    html = "<html><body>It is now %s.</body></html>" % now
+    return render(request, 'room/room_page.html', {'html': html})

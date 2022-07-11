@@ -51,7 +51,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             message = event['message']
             username = event['username']
             room = event['room']
-
+            
             # Send the message to the room so every user in the room can see it.
             await self.send(text_data=json.dumps({
                   'message': message,
@@ -69,8 +69,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
       @sync_to_async
       def update_user_incr(self, user):
-            UserProfile.objects.filter(pk=user.pk).update(online=True)
-
+            Profile.objects.filter(pk=user.pk).update(online=True)
+      
       @sync_to_async
       def update_user_decr(self, user):
-            UserProfile.objects.filter(pk=user.pk).update(online=False)
+            Profile.objects.filter(pk=user.pk).update(online=False)
