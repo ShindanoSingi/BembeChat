@@ -1,4 +1,4 @@
-.single-room {
+div.single-room {
       justify-content: center;
       align-items: center;
       flex-direction: column;
@@ -6,27 +6,31 @@
       background-color: rgba(255, 255, 255, 0.5);
       width: 20rem;
       border-radius: 0.5rem;
-}
-
-.title {
-      font-size: 3rem;
-      text-align: center;
-      color: rgb(16, 179, 146);
-
+      position: relative;
+      left: 0.2rem;
+      top: -20rem;
+      display: none;
 }
 
 .room-name {
       font-size: 2rem;
 }
 
-.join {
+#join {
       font-size: 1.5rem;
       background-color: rgb(92, 128, 0);
-      text-align: center;
-      margin: 0.5em 0.5em 0.5em 0.5em;
+      margin: 0 auto;
+      margin-bottom: 0.5rem;
       border-radius: 0.5rem;
       width: 10rem;
-      color: antiquewhite
+      color: antiquewhite;
+      text-align: center;
+}
+
+/*  remove style from anchor tags */
+a{
+      color: blanchedalmond;
+      text-decoration: none;
 }
 
 .rooms-container {
@@ -37,32 +41,96 @@
       margin: 0 1rem;
 }
 
+/* Join text below the join div */
+.join-text{
+      text-align: center;
+}
+
+/* Labels on the form */
+label{
+      font-size: 1.2rem;
+      color: white;
+}
+
+
 /* Room name input */
-#room-name-input{
+#room-name-input, #password{
+      font-size: 1.1rem;
+      color: white;
       width: 20rem;
-      background-color: yellow;
+      padding-left: 1rem;
+      background-color: rgb(77, 77, 9);
 }
 
 /*  What room are joining? */
 h3{
+      color:beige;
+}
 
+/* div containing the username from the database */
+.h2{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+
+/* Eye */
+.eye{
+      position: relative;
+      top: -5.7rem;
+      left: 9rem;
+      color: rgb(161, 161, 16);
 }
 
 .form{
-      background-color: white;
+      margin: 0 auto;
+      background-color: rgb(50, 93, 150);
       width: fit-content;
       padding: 1rem;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       display: flex;
+      position: relative;
+      top: 50vh;
+      margin-top: -280px;
+      border-radius: 1rem;
+      border: 5px solid rgb(7, 7, 7);
+      z-index: 1;
 }
+
+
 
 /* submit button */
 .btn{
-      padding: 0.2rem;
+      padding: 0.5rem;
+}
+
+/* form and title */
+.form-container{
+      margin: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+}
+
+/* App logo */
+#app-logo{
+      margin: 2rem;
+      height: 80vh;
+      position: relative;
+      top: 50vh;
+      margin-top: -465px;
+}
+
+  /* Form and the app logo */
+.form-and-logo{
+      position: relative;
+      top: 2rem;
 }
 
 body {
       background-color: rgb(2, 9, 60);
-    }
+}

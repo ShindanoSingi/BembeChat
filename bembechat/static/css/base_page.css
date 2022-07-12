@@ -18,6 +18,21 @@
       border-radius: 10px;
 }
 
+/* App's logo */
+  /* Source: https://www.tech-wiki.online/en/rotate-image.html */
+  .app-logo{
+      animation: rotation 60s infinite linear;
+  }
+
+  @keyframes rotation {
+      from {
+          transform: rotate(0deg);
+      }
+      to {
+          transform: rotate(359deg);
+      }
+  }
+
 /* user circle*/
 .user-circle{
      font-size: 40px;
@@ -33,26 +48,13 @@ h1{
       font-size: 3em;
       color: rgb(214, 240, 21);
   }
-  
-  /* App's logo */
-  /* Source: https://www.tech-wiki.online/en/rotate-image.html */
-  .app-logo{
-      animation: rotation 60s infinite linear;
-  }
-  
-  @keyframes rotation {
-      from {
-          transform: rotate(0deg);
-      }
-      to {
-          transform: rotate(359deg);
-      }
-  }
+
+
 
   a{
     text-align:center;
   }
-  
+
   /* This contains the App's name and logo */
   .container{
       justify-items: center;

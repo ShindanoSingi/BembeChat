@@ -29,7 +29,7 @@ def rooms(request):
 
       return render(request, 'room/rooms_page.html', {'rooms': rooms})
 
-
+# This function redirects the user to the specified after the user has selected clicked on join
 @login_required
 def room(request, slug):
       room = Room.objects.get(slug=slug)
@@ -105,6 +105,11 @@ class RoomDelete(DeleteView):
       model = Room
       template_name = 'room/room_delete_form.html'
       success_url = '/'
+
+# Get a post by id
+# def RoomDetail(request, pk):
+#     room = Room.objects.get(id=pk)
+#     return render(request, 'room/room_page.html', {'room': room})
 
 # View the image from database
 class HomePageView(ListView):

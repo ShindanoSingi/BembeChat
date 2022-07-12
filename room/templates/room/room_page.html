@@ -199,14 +199,14 @@
       }
 
       let userText = document.querySelector('.username-text').innerHTML;
-      console.log(userText);
+      // console.log(userText);
 
       let name = userText;
       let s = 30;
       let l = 30;
 
       let userColor = usernameColor(name, s, l);
-      console.log(userColor);
+      // console.log(userColor);
 
       let message_container = document.querySelector('#card-container');
       message_container.style.backgroundColor = userColor;
@@ -273,14 +273,14 @@
 
                   // call the usernameColor function to give us the color for the username.
                   let userColor = usernameColor(name, s, l);
-                  console.log(userColor);
+                  // console.log(userColor);
 
                   // assign the background color to the card containing the username.
                   e.closest('.card-container').style.backgroundColor = userColor;
 
                   // Get the position of the first character in the username string.
-                  console.log(e.innerHTML);
-                  console.log((e.innerHTML.charCodeAt(0)) + (e.innerHTML.charCodeAt(0) - 96) +  (e.innerHTML.charCodeAt(1)) +  (e.innerHTML.charCodeAt(1) - 96) + (e.innerHTML.charCodeAt(2))  +  (e.innerHTML.charCodeAt(2) - 96));
+                  // console.log(e.innerHTML);
+                  // console.log((e.innerHTML.charCodeAt(0)) + (e.innerHTML.charCodeAt(0) - 96) +  (e.innerHTML.charCodeAt(1)) +  (e.innerHTML.charCodeAt(1) - 96) + (e.innerHTML.charCodeAt(2))  +  (e.innerHTML.charCodeAt(2) - 96));
             //console.log(e);
       })
 
