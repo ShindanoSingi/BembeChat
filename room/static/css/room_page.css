@@ -212,7 +212,7 @@ button {
   position: relative;
   left: -5rem;
   text-decoration: none;
-  /* z-index: -1; */
+  z-index: -1;
 }
 
 
@@ -229,9 +229,9 @@ button {
 /* Delete message button */
 .delete-message {
   color: lightgray;
-  /* position: relative;
-  top: -4rem;
-  left: 2rem; */
+  position: relative;
+  /* top: -4rem; */
+  left: -1rem;
 }
 
 a {
@@ -245,8 +245,7 @@ font-size: 2rem;
 color: lightgray;
 position: relative;
 /* top: -3rem; */
-left: 14rem;
-z-index: -1;
+left: 13rem;
 }
 
 body {

@@ -80,7 +80,7 @@
                                                 <div class="date">{{ message.date_added }}</div>
 
                                                 <div><i class="fa-solid dots fa-ellipsis"></i></div>
-                                                <div class="delete-message-button">
+                                                <div class="delete-message-button trash-button">
                                                       {% comment %} <a href="#" class="edit-message material-icons">edit</a> {% endcomment %}
                                                       <a href="{% url 'message_delete' message.id %}" type="submit" class="delete-message material-icons">delete</a>
                                                 </div>
@@ -252,7 +252,7 @@
             }
 
             // loop over all characters in the new username, convert them to a nummbers and all of them.
-            for (var i = 0; i < newString.length; i++) {
+            for (let i = 0; i < newString.length; i++) {
                   hash = newString.charCodeAt(i) + ((hash << 5) - hash);
             }
 
@@ -300,9 +300,46 @@
             //console.log(e);
       })
 
-      // Grab the user name in this windows
-      {% comment %} let all = document.getElementsByTagName('*');
-      console.log(all); {% endcomment %}
+      // Grab the user name in the nav bar
+      let pageUsername = document.getElementById ('texts-in-nav').innerHTML;
+      // console.log(pageUsername);
+
+      // Grab all usernames in chats cards_container
+      let allChatsUsernames = document.getElementsByClassName('username-text')
+      // console.log(allChatsUsernames);
+
+      // Grab all transh buttons in in HTML
+      let allDots = document.getElementsByClassName('dots')
+      //console.log(allDots);
+
+      let allTrashButtons = document.getElementsByClassName('trash-button')
+
+      // loop through all usernames in chats cards_container, and only enable cards that have usernames matching to the one in the nav bar.
+      for (let i = 0; i < allChatsUsernames.length; i++) {
+            if(allChatsUsernames[i].innerHTML === pageUsername){
+                  //console.log(allChatsUsernames[i].innerHTML);
+                  //let userCard =
+
+                  // Grab all ancesters/cards that have usernames matching to the one in the nav bar.
+                  // allChatsUsernames[i].closest('#card-container').style.backgroundColor = 'red';
+                //  allChatsUsernames[i].closest('#card-container').addEventListener('mouseover', function() {
+                        allDots[i].addEventListener('click', function() {
+                              // console.log( allDots[i]);
+                              allTrashButtons[i].style.zIndex = 1;
+                              setTimeout(hideTrash, 1500);
+                        });
+
+
+
+                        function hideTrash() {
+                              allTrashButtons[i].style.zIndex = -1;
+                        }
+                  }
+
+            else{
+                  console.log(`${pageUsername} has not written any messages yet.`)
+                  }
+      }
 
 </script>
 
