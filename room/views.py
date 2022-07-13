@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 # from zmq import Message
 from .models import Room, Message, Profile
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 
 from .forms import RoomForm
 from django.contrib.auth.signals import user_logged_in, user_logged_out
@@ -65,6 +66,16 @@ def got_offline(sender, user, request, **kwargs):
       user.profile.save()
       # return render(request, 'room/room_page.html', {'user': user})
 
+def delete_message(user, request, **kwargs):
+      print(request)
+      message = Message.objects.get(id=request.id)
+      message.delete()
+      return redirect('/room/room_page.html')
+
+
+
+
+
 def see_users(request, self):
       user_status = online_users.models.OnlineUserActivity.get_user_activities(timedelta(seconds=60))
       users = (user for user in  user_status)
@@ -106,15 +117,23 @@ class RoomDelete(DeleteView):
       template_name = 'room/room_delete_form.html'
       success_url = '/'
 
+# MessageDelete a message:
+class MessageDelete(DeleteView):
+      model = Message
+      template_name = 'room/message_delete_form.html'
+      success_url= '/'
+
+
 # Get a post by id
 # def RoomDetail(request, pk):
 #     room = Room.objects.get(id=pk)
 #     return render(request, 'room/room_page.html', {'room': room})
 
 # View the image from database
-class HomePageView(ListView):
-    model = Message
-    template_name = "room_page.html"
+# class HomePageView(ListView):
+#     model = Message
+#     template_name = "room_page.html"
+#     success_url='/'
 
 
 # # Update the message

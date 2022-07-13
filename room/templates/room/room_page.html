@@ -29,7 +29,6 @@
                         <i class="fa fa-pencil" ></i> Edit Room</a>
 
                         <a href="{% url 'room_delete' slug=room.slug %}" id="@applicant.Id"  class="btn btn-outline purple-sharp delete-room  uppercase delete-confirmation" data-btn-ok-label="Bəli"  data-toggle="confirmation"  data-placement="right" data-original-title="" title="Are you sure?" aria-describedby="confirmation64993"><i class="fa fa-trash" ></i> Delete Room</a>
-
                   </div>
                         {% comment %} <h6>{{context}}</h6>
                         {% if user.profile.is_online %}
@@ -70,13 +69,20 @@
                                           {% comment %} <span class="material-icons offline-button">circle</span> {% endcomment %}
                                           {% endif %}
                                     </div>
+
+
+
                                     <div class="card-and-date">
+
                                           <div class="card2">{{ message.content }}</div>
+
                                           <div class="date-and-delete-buttons">
                                                 <div class="date">{{ message.date_added }}</div>
-                                                <div class="edit-and-delete-message">
-                                                      <a href="#" class="edit-message material-icons">edit</a>
-                                                      <a href="#" type="submit" class="delete-message material-icons">delete</a>
+
+                                                <div><i class="fa-solid dots fa-ellipsis"></i></div>
+                                                <div class="delete-message-button">
+                                                      {% comment %} <a href="#" class="edit-message material-icons">edit</a> {% endcomment %}
+                                                      <a href="{% url 'message_delete' message.id %}" type="submit" class="delete-message material-icons">delete</a>
                                                 </div>
                                           </div>
                                     </div>
@@ -154,22 +160,32 @@
             // console.log(newDate)
             // console.log(fullTime)
 
-            if (data.message){
-                   let html = '<div class="card-container">'
-                  html += '<div class="user"> <i class="fa-solid fa-user user-icon"></i><p class="username-text">' + data.username + '</p></div>';
-                  html += '<div class="card-and-date"><div class="card2">' + data.message + '</div>'
-                  html += '<div class="date">' + fullTime + '</div></div>';
-                  document.querySelector('#card-container').innerHTML += html;
+            //function emptyMessage(data) {
 
-                  //When the message comesfrom the server, call the scrollBottom function
-                  scrollBottom();
+                  if (data.message){
+                        let html = '<div class="card-container">'
+                        html += '<div class="user"> <i class="fa-solid fa-user user-icon"></i><p class="username-text">' + data.username + '</p></div>';
+                        html += '<div class="card-and-date"><div class="card2">' + data.message + '</div>'
+                        html += '<div class="date">' + fullTime + '</div></div>';
+                        document.querySelector('.card-container').innerHTML += html;
 
-            }  else {
-                  alert('The message input was empty!');
-            }
-      }
 
-      scrollBottom();
+                        //When the message comesfrom the server, call the scrollBottom function
+                        return scrollBottom();
+
+                  }  else if(!data.message || data.message.length == 0) {
+                        return
+                  }
+
+                  else {
+                        return scrollBottom();
+                      } //alert('The message input was empty!');
+
+                  }
+           // }
+
+           // emptyMessage(data);
+     // }
 
       chatSocket.onclose = function(event){
             console.log('onclose')
@@ -181,7 +197,7 @@
             const messageInput = document.querySelector('#chat-message-input');
             const message = messageInput.value;
 
-      chatSocket.send(JSON.stringify({
+            chatSocket.send(JSON.stringify({
             'message' : message,
             'username' : userName,
             'room' : roomName,
@@ -283,6 +299,10 @@
                   // console.log((e.innerHTML.charCodeAt(0)) + (e.innerHTML.charCodeAt(0) - 96) +  (e.innerHTML.charCodeAt(1)) +  (e.innerHTML.charCodeAt(1) - 96) + (e.innerHTML.charCodeAt(2))  +  (e.innerHTML.charCodeAt(2) - 96));
             //console.log(e);
       })
+
+      // Grab the user name in this windows
+      {% comment %} let all = document.getElementsByTagName('*');
+      console.log(all); {% endcomment %}
 
 </script>
 
