@@ -74,11 +74,13 @@
 
                                     <div class="card-and-date">
                                           <div class="date-and-delete-buttons">
-
                                                       <p class="date">{{ message.date_added }}</p>
 
                                                       <div class="date-dots-trash">
                                                             <a href="{% url 'message_delete' message.id %}" type="submit" class="delete-message delete-message-button trash-button material-icons">delete</a>
+                                                            <span class="material-icons attachment">
+                                                                  attachment
+                                                                  </span>
                                                             <i class="fa-solid dots fa-ellipsis"></i>
                                                       </div>
                                           </div>
@@ -186,7 +188,7 @@
                   alert('The message was empty!')
             }
 
-            location.reload();
+      location.reload();
 
       }
 
@@ -200,6 +202,12 @@
 
             const messageInput = document.querySelector('#chat-message-input');
             const message = messageInput.value;
+
+            console.log(message);
+
+            if(message === '') {
+                  return;
+            }
 
             // stringify the message to be sent to the back end
             chatSocket.send(JSON.stringify({
@@ -364,12 +372,12 @@
                         allDots[i].addEventListener('click', function() {
                               // console.log( allDots[i]);
                               allTrashButtons[i].style.zIndex = 1;
-                              setTimeout(hideTrash, 1500);
+                              setTimeout(hideTrash, 2000);
                         });
 
                         allDots[i].addEventListener('mouseover', function() {
                               allDots[i].style.color = 'red';
-                              setTimeout(resetDotsColor, 1000);
+                              setTimeout(resetDotsColor, 1500);
                         });
 
 
@@ -391,8 +399,6 @@
                   }
             // console.log(document.getElementsByTagName("*"))
       }
-
-
 
 </script>
 

@@ -36,9 +36,9 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
             # Save the message before it is sent.
             await self.save_message(username, room, message)
-            
-            
 
+
+            # Send the messasge to the group
             await self.channel_layer.group_send(
                   self.room_group_name,
                   {
@@ -48,14 +48,23 @@ class ChatConsumer(AsyncWebsocketConsumer):
                         'room': room,
                   }
             )
-            
-      
-      
+
+
+
       async def chat_message(self, event):
 
             # Prevent the user from sending empty messages.
             # if(event['message'] == ''):
-            #       pass
+            #       print('It is empty')
+            # else:
+            #       print(event['message'])
+            #       message = event['message']
+            #       username = event['username']
+            #       room = event['room']
+
+            # Prevent the user from sending empty messages.
+            # if(event['message'] == ''):
+            #       print('It is empty')
             # else:
             #       print(event['message'])
             message = event['message']
@@ -80,6 +89,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
       @sync_to_async
       def update_user_incr(self, user):
             Profile.objects.filter(pk=user.pk).update(online=True)
+
 
       @sync_to_async
       def update_user_decr(self, user):

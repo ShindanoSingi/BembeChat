@@ -16,12 +16,15 @@ from django.http import HttpResponse
 import datetime
 
 import online_users.models
+from django.urls import reverse, reverse_lazy
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.signals import post_save
 from datetime import timedelta
 from django.contrib.auth.models import User
 
 from django.views.generic import ListView
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Ensure the user is logged in before showing the room list.
 @login_required
@@ -30,7 +33,7 @@ def rooms(request):
 
       return render(request, 'room/rooms_page.html', {'rooms': rooms})
 
-# This function redirects the user to the specified after the user has selected clicked on join
+# This function redirects the user to the specified room after the user has clicked on join
 @login_required
 def room(request, slug):
       room = Room.objects.get(slug=slug)
@@ -121,7 +124,13 @@ class RoomDelete(DeleteView):
 class MessageDelete(DeleteView):
       model = Message
       template_name = 'room/message_delete_form.html'
-      success_url = '/'
+      success_url = '/rooms/password/'
+
+
+      # def get_success_url(self):
+      #       # Assuming there is a ForeignKey from Comment to Post in your model
+      #       message = self.object.post
+      #       return reverse_lazy( 'room', kwargs={'room': message.id})
 
 
 # Get a post by id

@@ -1,5 +1,5 @@
-# import os
-# import dj_database_url
+import os
+import dj_database_url
 
 """
 Django settings for bembechat_django project.
@@ -51,8 +51,8 @@ LOGIN_REDIRECT_URL = '/rooms/'
 # if the user tries to login when he/she is not authenticated, he/she will be redirected to the the login page.
 LOGIN_URL = '/login/'
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = BASE_DIR / "media"
 
 # Application definition
 
@@ -203,6 +203,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR/'static']
+
+# STATIC_URL = '/static/'
+# MEDIA_ROOT = '/media/'
+
+# MEDIA_ROOT = OS.
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

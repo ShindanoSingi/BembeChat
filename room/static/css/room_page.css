@@ -7,14 +7,19 @@
   top: -2rem;
 }
 
+/* Username and date */
+.user-name-and-data{
+  display: flex;
+}
+
 /* User avatar */
 .avatar{
   height: 1rem;
 }
 
 .date {
+  font-size: 1.1rem;
   color: #aaa;
-  width: 12rem;
 }
 
 h6{
@@ -59,7 +64,7 @@ h6{
 /* user icon and username */
 .user {
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   /* width:5rem; */
   flex-direction: column;
   display: flex;
@@ -110,14 +115,14 @@ button {
 
 /* single card */
 .card2 {
-  color:aliceblue;
+  color: aliceblue;
   font-size: 1.3rem;
-  /* width: 50rem; */
+  width: 50rem;
   border-radius: 1rem;
   padding: 0.5rem;
   overflow-wrap: break-word;
   position: relative;
-  top: -1.5rem;
+  top: -1rem;
   left: -0.4rem;
 }
 
@@ -142,7 +147,7 @@ button {
 /* date-dots-trash */
 .date-dots-trash{
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 /* card and person icon */
@@ -200,9 +205,7 @@ button {
 /* Date, delete and dots */
 .date-and-delete-buttons {
   display: flex;
-  gap: 33rem;
-
-
+  gap: 29.5rem;
 }
 
 
@@ -215,6 +218,11 @@ button {
   z-index: -1;
 }
 
+
+/* Upload image */
+.attachment{
+  color: lightgray;
+}
 
 /* .delete-message:hover{
   z-index: 1;

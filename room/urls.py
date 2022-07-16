@@ -10,6 +10,4 @@ urlpatterns = [
       path('<slug:slug>/delete', views.RoomDelete.as_view(), name='room_delete'),
       path('messages/<int:pk>/delete', views.MessageDelete.as_view(), name='message_delete'),
       path('<slug:slug>/', views.room, name='room'),
-
-
 ]

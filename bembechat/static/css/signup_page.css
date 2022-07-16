@@ -38,13 +38,17 @@ h1 {
     flex-direction: column;
     align-items: center;
     display: flex;
-    margin-top: 20vh;
+    margin-top: 15vh;
   }
 
 /* Labels */
 label{
     font-size: 1.5em;
     color: black;
+}
+
+.password, .password1{
+    margin-left: 2rem;
 }
 
 #password1, #password2, #username{
@@ -58,20 +62,21 @@ label{
 
 /* The eye for the password */
 .eye1{
-    transform: translate(11.5rem, -10.7rem);
+    transform: translateX(-2.5rem);
   }
 
 /* The eye for the repeat password */
 .eye2{
-    transform: translate(11.5rem, -5.9rem);
+    transform: translateX(-2.5rem);
   }
 
 button {
     margin-top: 0.5rem;
-    margin-bottom: -2rem;
+    margin-bottom: 0.5rem;
 }
 
 .error-message{
+    font-size: 1.2rem;
     width: 26rem;
 }
 
