@@ -4,19 +4,17 @@
   text-align: center;
   color: rgb(205, 220, 235);
   position: relative;
-  top: 0rem;
+  top: -2rem;
 }
 
 /* User avatar */
 .avatar{
-  height: 3rem;
+  height: 1rem;
 }
 
 .date {
   color: #aaa;
   width: 12rem;
-  position: relative;
-  left: -9rem;
 }
 
 h6{
@@ -26,16 +24,16 @@ h6{
 .username-text {
   font-size: 1.3rem;
   color: rgb(183, 178, 178);
-  width: 10px;
+  width: 2rem;
 }
 
 .user-icon {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   background-color: aliceblue;
   padding: 0.5rem;
-  height: 3rem;
-  width: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
   border-radius: 100rem;
   color: rgb(162, 157, 157);
 }
@@ -51,22 +49,23 @@ h6{
 }
 
 /* card and date */
-.card-and-date {
+/* .card-and-date {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   display: flex;
-}
+} */
 
 /* user icon and username */
 .user {
-  /* justify-content: center; */
+  justify-content: center;
   /* align-items: center; */
-   /* width:5px; */
+  /* width:5rem; */
   flex-direction: column;
   display: flex;
   position: relative;
   top: 0.5rem;
+  margin-right: 3rem;
 }
 
 button {
@@ -102,27 +101,24 @@ button {
 }
 
 /* single card */
-.card {
+/* .card {
   color:aliceblue;
   font-size: 1.3rem;
-  /* width: fit-content; */
-  /* background-color: rgb(247, 212, 151); */
-  padding: 1rem;
-  border-radius: 1rem;
-  overflow-wrap: break-word;
-}
+  width: fit-content;
+
+} */
 
 /* single card */
 .card2 {
   color:aliceblue;
   font-size: 1.3rem;
-  width: 50rem;
-  padding: 1rem;
+  /* width: 50rem; */
   border-radius: 1rem;
+  padding: 0.5rem;
   overflow-wrap: break-word;
   position: relative;
-  left: -0.5rem;
-  top: 0.5rem;
+  top: -1.5rem;
+  left: -0.4rem;
 }
 
 /* Online button */
@@ -141,6 +137,12 @@ button {
   position: relative;
   left:1.3rem;
   top: -3.7rem
+}
+
+/* date-dots-trash */
+.date-dots-trash{
+  display: flex;
+  gap: 0.5rem;
 }
 
 /* card and person icon */
@@ -195,22 +197,20 @@ button {
   float: left;
 }
 
-/* Date, delete and edit massage buttons container */
+/* Date, delete and dots */
 .date-and-delete-buttons {
-  gap: 15rem;
   display: flex;
-  position: relative;
-  top: -4rem;
-  left: 7rem;
+  gap: 33rem;
+
+
 }
 
 
 /* Edit and delete massage buttons */
 .delete-message-button {
+  color: lightgray;
   gap: 2rem;
   display: flex;
-  position: relative;
-  left: -5rem;
   text-decoration: none;
   z-index: -1;
 }
@@ -226,14 +226,6 @@ button {
   color: lightgray;
 }
 
-/* Delete message button */
-.delete-message {
-  color: lightgray;
-  position: relative;
-  /* top: -4rem; */
-  left: -1rem;
-}
-
 a {
   color: lightgray;
   text-decoration: none;
@@ -243,10 +235,12 @@ a {
 .dots{
 font-size: 2rem;
 color: lightgray;
-position: relative;
-/* top: -3rem; */
-left: 13rem;
 }
+
+/* change the color of the three dots on hover */
+/* .dots:hover {
+  color:red;
+  } */
 
 body {
   background-color: rgb(2, 9, 60);

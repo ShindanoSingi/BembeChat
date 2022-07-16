@@ -45,50 +45,55 @@
                   {% comment %} style="background-color:{{message.profile.message_color}};" {% endcomment %}
 
                   <h2>{{name}}</h2>
-                  <h1 class="title"> {{ room.name }} </h1>
-                  <div class="chat-messages">
+                  <h1 class="title">Room: {{ room.name }} </h1>
+                  <div class="chat-messages" id="chat-messages">
 
                         {% for message in messages %}
+
                               {% if message.user.username != name %}
                               <div  class="card-container" id="card-container">
                                     <div class="user">
-                                          {% comment %} <i class="fa-solid fa-user user-icon"></i> {% endcomment %}
-                                          <div class="main-user">
+                                          <i class="fa-solid fa-user user-icon"></i>
+                                          {% comment %} <div class="main-user">
                                                 <img class="avatar main-user" src="https://i.imgur.com/bLsbDoC.png" alt="profile picture">
-                                          </div>
+                                          </div> {% endcomment %}
                                           <p class="username-text">{{ message.user.username }}</p>
 
                                           {% comment %} hange the online status {% endcomment %}
-                                          {% if message %}
-                                          <span class="material-icons online-button">circle</span>
+                                          {% comment %} {% if message.profile.is_online %} {% endcomment %}
+                                          {% comment %} <span class="material-icons online-button">circle</span> {% endcomment %}
+
                                           {% comment %} <span class="material-icons online-button">circle</span> {% endcomment %}
                                           {% comment %} {{user.profile.is_online}} {% endcomment %}
-                                          {% else %}
-                                          <span class="material-icons offline-button">circle</span>
+                                          {% comment %} {% else %} {% endcomment %}
+                                          {% comment %} <span class="material-icons offline-button">circle</span> {% endcomment %}
                                           {% comment %} {{user.profile.is_online}} {% endcomment %}
                                           {% comment %} <span class="material-icons offline-button">circle</span> {% endcomment %}
-                                          {% endif %}
+                                          {% comment %} {% endif %} {% endcomment %}
                                     </div>
 
-
-
                                     <div class="card-and-date">
-
-                                          <div class="card2">{{ message.content }}</div>
-
                                           <div class="date-and-delete-buttons">
-                                                <div class="date">{{ message.date_added }}</div>
 
-                                                <div><i class="fa-solid dots fa-ellipsis"></i></div>
-                                                <div class="delete-message-button trash-button">
-                                                      {% comment %} <a href="#" class="edit-message material-icons">edit</a> {% endcomment %}
-                                                      <a href="{% url 'message_delete' message.id %}" type="submit" class="delete-message material-icons">delete</a>
-                                                </div>
+                                                      <p class="date">{{ message.date_added }}</p>
+
+                                                      <div class="date-dots-trash">
+                                                            <a href="{% url 'message_delete' message.id %}" type="submit" class="delete-message delete-message-button trash-button material-icons">delete</a>
+                                                            <i class="fa-solid dots fa-ellipsis"></i>
+                                                      </div>
                                           </div>
+                                          <div class="card2">{{ message.content }}</div>
                                     </div>
                               </div>
                               {% endif %}
                         {% endfor %}
+
+                        {% comment %} {% for profile in  profiles %}
+
+                              <p class="userOnLineName" >{{profile.user.username}}</p>
+                              <p class="userOnLineStatus" >{{profile.is_online}}</p>
+                        {% endfor %} {% endcomment %}
+
                   </div>
             </div>
 
@@ -109,14 +114,18 @@
 {% comment %} Add script {% endcomment %}
 {% block scripts %}
 
+{% comment %} Filter from django {% endcomment %}
 {{ room.slug|json_script:"json-roomname" }}
 {{ request.user.username|json_script:"json-username" }}
-{{ request.userprofile.is_online|json_script:"json-is_online" }}
+{% comment %} {{ request.profile.is_online|json_script:"json-is_online" }} {% endcomment %}
 
 <script>
+
+      scrollBottom()
+
       const roomName = JSON.parse(document.getElementById("json-roomname").textContent);
       const userName = JSON.parse(document.getElementById("json-username").textContent);
-      const is_online = JSON.parse(document.getElementById("json-is_online").textContent);
+      {% comment %} const is_online = JSON.parse(document.getElementById("json-is_online").textContent); {% endcomment %}
 
       const chatSocket = new WebSocket(
             'ws://'
@@ -130,6 +139,7 @@
 
             console.log('onmessage')
 
+            // ata coming from the server
             const data = JSON.parse(event.data);
 
             // console.log(data);
@@ -162,30 +172,24 @@
 
             //function emptyMessage(data) {
 
-                  if (data.message){
-                        let html = '<div class="card-container">'
-                        html += '<div class="user"> <i class="fa-solid fa-user user-icon"></i><p class="username-text">' + data.username + '</p></div>';
-                        html += '<div class="card-and-date"><div class="card2">' + data.message + '</div>'
-                        html += '<div class="date">' + fullTime + '</div></div>';
-                        document.querySelector('.card-container').innerHTML += html;
+            if (data.message){
+                  let html = '<div class="card-container">'
+                  html += '<div class="user"><p class="username-text">' + data.username + '</p></div>';
+                  html += '<div class="card-and-date"><div class="card2">' + data.message + '</div>'
+                  html += '<div class="date">' + fullTime + '</div></div>';
 
+                  // Append the message to messages container.
+                  document.querySelector('#card-container').innerHTML += html;
+            }
 
-                        //When the message comesfrom the server, call the scrollBottom function
-                        return scrollBottom();
+            else{
+                  alert('The message was empty!')
+            }
 
-                  }  else if(!data.message || data.message.length == 0) {
-                        return
-                  }
+            location.reload();
 
-                  else {
-                        return scrollBottom();
-                      } //alert('The message input was empty!');
+      }
 
-                  }
-           // }
-
-           // emptyMessage(data);
-     // }
 
       chatSocket.onclose = function(event){
             console.log('onclose')
@@ -197,6 +201,7 @@
             const messageInput = document.querySelector('#chat-message-input');
             const message = messageInput.value;
 
+            // stringify the message to be sent to the back end
             chatSocket.send(JSON.stringify({
             'message' : message,
             'username' : userName,
@@ -205,12 +210,20 @@
 
             messageInput.value = '';
 
+           // When the message comesfrom the server, call the scrollBottom function
+            //location.reload()
+
+            scrollBottom()
+
             return false;
+
       }
+
+      //scrollBottom()
 
       // Scroll the message to the botton
       function scrollBottom(){
-            const objDiv = document.querySelector('.chat-messages');
+            const objDiv = document.querySelector('#chat-messages');
             objDiv.scrollTop = objDiv.scrollHeight;
       }
 
@@ -227,8 +240,8 @@
       let message_container = document.querySelector('#card-container');
       message_container.style.backgroundColor = userColor;
 
-      {% comment %} let cards_container = document.querySelector('.chat-messages').innerHTML;
-      console.log(cards_container); {% endcomment %}
+      //let cards_container = document.querySelector('.chat-messages').innerHTML;
+      //console.log(cards_container);
 
 
       // Source: https://medium.com/@pppped/compute-an-arbitrary-color-for-user-avatar-starting-from-his-username-with-javascript-cd0675943b66
@@ -273,6 +286,7 @@
 
       // Grab all grand children/the "p" elements
       let allElementsMessagesontainer = document.querySelectorAll('.card-container > .user > p ');
+
       allElementsMessagesontainer.forEach(function(e){
 
             //console.log(e.closest('#card-container'))
@@ -281,8 +295,30 @@
             let username = document.querySelector('p.username-text').innerHTML;
             //console.log(userText);
 
+            // Grab all is_online statuses
+            let allIsOnline = document.querySelectorAll('.userOnLineName');
+
+            // Grab all status
+            let allStatus = document.querySelectorAll('.userOnLineStatus');
+
+            for (let i = 0; i < allIsOnline.length; i++) {
+                //  if((allIsOnline[i].innerHTML === e.innerHTML)) {
+
+                        if(allStatus[i] === false) {
+                              document.querySelector('.online-button').style.color = 'green';
+                        }
+
+                        else{
+                              document.querySelector('.online-button').style.color = 'red';
+                        }
+
+                       // console.log(e);
+                //  }
+            }
+
                   // manupilate the usernamestring to bring a new username string.
                   let individualUserColor = usernameColor(e.innerHTML);
+
                   let name = individualUserColor;
                   let s = 30;
                   let l = 30;
@@ -298,7 +334,9 @@
                   // console.log(e.innerHTML);
                   // console.log((e.innerHTML.charCodeAt(0)) + (e.innerHTML.charCodeAt(0) - 96) +  (e.innerHTML.charCodeAt(1)) +  (e.innerHTML.charCodeAt(1) - 96) + (e.innerHTML.charCodeAt(2))  +  (e.innerHTML.charCodeAt(2) - 96));
             //console.log(e);
-      })
+      }
+      )
+
 
       // Grab the user name in the nav bar
       let pageUsername = document.getElementById ('texts-in-nav').innerHTML;
@@ -329,17 +367,32 @@
                               setTimeout(hideTrash, 1500);
                         });
 
+                        allDots[i].addEventListener('mouseover', function() {
+                              allDots[i].style.color = 'red';
+                              setTimeout(resetDotsColor, 1000);
+                        });
 
 
+
+                        // Declare a function that changes the trash button color to original one
                         function hideTrash() {
                               allTrashButtons[i].style.zIndex = -1;
+                        }
+
+
+                        // Declare a function that resets dots' color
+                        function resetDotsColor() {
+                              allDots[i].style.color = 'lightgray';
                         }
                   }
 
             else{
                   console.log(`${pageUsername} has not written any messages yet.`)
                   }
+            // console.log(document.getElementsByTagName("*"))
       }
+
+
 
 </script>
 

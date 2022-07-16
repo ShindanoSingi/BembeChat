@@ -125,6 +125,21 @@ h3{
       margin-top: -465px;
 }
 
+/* App's logo */
+  /* Source: https://www.tech-wiki.online/en/rotate-image.html */
+/* #app-logo{
+      animation: rotation 300s infinite linear;
+}
+
+@keyframes rotation {
+      from {
+            transform: rotate(0deg);
+      }
+      to {
+            transform: rotate(359deg);
+      }
+} */
+
   /* Form and the app logo */
 .form-and-logo{
       position: relative;

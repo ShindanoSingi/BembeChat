@@ -48,7 +48,7 @@
 				{% csrf_token %}
 
 				<div class="buttons">
-					<button
+					<button value{{request.path}}
 						type="submit"
 						value="Confirm"
 						class="btn btn-danger"

@@ -405,3 +405,1008 @@ class UserProfile(models.Model):
 
 
 
+
+
+
+
+
+
+// room_page.html
+===================
+
+{% extends 'bembechat/base_page.html' %}
+{% block title %} {{ room.name }} | {% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+{% comment %} Add "load static so the stylesheet can be used" {% endcomment %}
+{% load static %}
+
+      <html>
+      <head>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet">
+           <link rel="stylesheet" href="{% static 'css/room_page.css' %}" />
+
+
+  {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> {% endcomment %}
+            {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
+      </head>
+      <body>
+            <div class="body">
+
+                  <div class="editAndDeleteRoom">
+
+                        <a href="{% url 'room_update' slug=room.slug %}" id="@applicant.Id" class="btn btn-outline purple-sharp edit-room  uppercase     delete-confirmation" data-btn-ok-label="Bəli"  data-toggle="confirmation"  data-placement="bottom" data-original-title="" title="Are you sure?" aria-describedby="confirmation64993">
+                        <i class="fa fa-pencil" ></i> Edit Room</a>
+
+                        <a href="{% url 'room_delete' slug=room.slug %}" id="@applicant.Id"  class="btn btn-outline purple-sharp delete-room  uppercase delete-confirmation" data-btn-ok-label="Bəli"  data-toggle="confirmation"  data-placement="right" data-original-title="" title="Are you sure?" aria-describedby="confirmation64993"><i class="fa fa-trash" ></i> Delete Room</a>
+                  </div>
+                        {% comment %} <h6>{{context}}</h6>
+                        {% if user.profile.is_online %}
+                       <h6>Online</h6>
+                       {{user}}
+                        {% else %}
+                        <h6>Offline</h6>
+                        {% endif %}
+
+                        {% for user in users %}
+                        <h6>{{user}}</h6>
+                        {% endfor %} {% endcomment %}
+
+                  {% comment %} style="background-color:{{message.profile.message_color}};" {% endcomment %}
+
+                  <h2>{{name}}</h2>
+                  <h1 class="title">Room: {{ room.name }} </h1>
+                  <div class="chat-messages" id="chat-messages">
+
+                        {% for message in messages %}
+
+                              {% if message.user.username != name %}
+                              <div  class="card-container" id="card-container">
+                                    <div class="user">
+                                          {% comment %} <i class="fa-solid fa-user user-icon"></i> {% endcomment %}
+                                          <div class="main-user">
+                                                <img class="avatar main-user" src="https://i.imgur.com/bLsbDoC.png" alt="profile picture">
+                                          </div>
+                                          <p class="username-text">{{ message.user.username }}</p>
+
+                                          {% comment %} hange the online status {% endcomment %}
+                                          {% if message.profile.is_online %}
+                                          <span class="material-icons online-button">circle</span>
+                                          {% comment %} <span class="material-icons online-button">circle</span> {% endcomment %}
+                                          {% comment %} {{user.profile.is_online}} {% endcomment %}
+                                          {% else %}
+                                          <span class="material-icons offline-button">circle</span>
+                                          {% comment %} {{user.profile.is_online}} {% endcomment %}
+                                          {% comment %} <span class="material-icons offline-button">circle</span> {% endcomment %}
+                                          {% endif %}
+                                    </div>
+
+                                    <div class="card-and-date">
+
+                                          <div class="card2">{{ message.content }}</div>
+
+                                          <div class="date-and-delete-buttons">
+                                                <p class="date">{{ message.date_added }}</p>
+
+                                                <div><i class="fa-solid dots fa-ellipsis"></i></div>
+                                                <div class="delete-message-button trash-button">
+                                                      {% comment %} <a href="#" class="edit-message material-icons">edit</a> {% endcomment %}
+                                                      <a href="{% url 'message_delete' message.id %}" type="submit" class="delete-message material-icons">delete</a>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                              {% endif %}
+                        {% endfor %}
+
+                        {% comment %} {% for profile in  profiles %}
+
+                              <li class=" white " >{{profile.is_online}}</li>
+
+                        {% endfor %} {% endcomment %}
+
+                  </div>
+            </div>
+
+            <form method="post" action=".">
+                  {% csrf_token %}
+                  <div class="input-and-button">
+                        <div class="input-message">
+                              <input type="inputtext" name="content" placeholder="Type your message" id="chat-message-input">
+                        </div>
+                        <button class="btn-primary material-icons send-button" type="submit" name="action" id='chat-message-submit'>send</button>
+                  </div>
+            </form>
+      </body>
+      </html>
+
+{% endblock %}
+
+{% comment %} Add script {% endcomment %}
+{% block scripts %}
+
+{% comment %} Filter from django {% endcomment %}
+{{ room.slug|json_script:"json-roomname" }}
+{{ request.user.username|json_script:"json-username" }}
+{{ request.profile.is_online|json_script:"json-is_online" }}
+
+<script>
+      const roomName = JSON.parse(document.getElementById("json-roomname").textContent);
+      const userName = JSON.parse(document.getElementById("json-username").textContent);
+      const is_online = JSON.parse(document.getElementById("json-is_online").textContent);
+
+      const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/'
+            + roomName
+            + '/'
+      );
+
+      chatSocket.onmessage = function(event){
+
+            console.log('onmessage')
+
+            // ata coming from the server
+            const data = JSON.parse(event.data);
+
+            // console.log(data);
+
+            // Capture the the time when the message is sent.
+            const formattedDate = new Date()
+
+            // Format time and add it to the date field
+            const newDate = formattedDate.toLocaleDateString("en-US") + " " + formattedDate.toLocaleTimeString("en-US")
+
+            const arrayMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+            const month = arrayMonths[parseInt(newDate.charAt(0)) - 1]
+            let day;
+
+            if(newDate.substring(3,4) === '/'){
+                  day = newDate.substring(2,3)
+            }
+
+            if(newDate.substring(3,4) !== '/'){
+                  day = newDate.substring(2,4)
+            }
+
+            const year = newDate.substring(4,8)
+            const time = newDate.substring(8,13)
+            const ampm = newDate.substring(17,18).toLowerCase() + '.' + newDate.substring(18,19).toLowerCase() + '.';
+
+            const fullTime = `${month} ${day}, ${year},${time} ${ampm}`
+            // console.log(newDate)
+            // console.log(fullTime)
+
+            //function emptyMessage(data) {
+
+            if (data.message){
+                  let html = '<div class="card-container">'
+                  html += '<div class="user"><p class="username-text">' + data.username + '</p></div>';
+                  html += '<div class="card-and-date"><div class="card2">' + data.message + '</div>'
+                  html += '<div class="date">' + fullTime + '</div></div>';
+
+                  // Append the message to messages container.
+                  document.querySelector('.card-container').innerHTML += html;
+            }
+            }
+
+           // emptyMessage(data);
+     // }
+      console.log('onmessage')
+
+      chatSocket.onclose = function(event){
+            console.log('onclose')
+      };
+
+      document.querySelector('#chat-message-submit').onclick = function(event){
+            event.preventDefault();
+
+            const messageInput = document.querySelector('#chat-message-input');
+            const message = messageInput.value;
+
+            // stringify the message to be sent to the back end
+            chatSocket.send(JSON.stringify({
+            'message' : message,
+            'username' : userName,
+            'room' : roomName,
+            }));
+
+
+
+            messageInput.value = '';
+
+           // When the message comesfrom the server, call the scrollBottom function
+            location.reload()
+
+      }
+scrollBottom()
+      // Scroll the message to the botton
+      function scrollBottom(){
+            const objDiv = document.querySelector('#chat-messages');
+            objDiv.scrollTop = objDiv.scrollHeight;
+      }
+
+      let userText = document.querySelector('.username-text').innerHTML;
+      // console.log(userText);
+
+      let name = userText;
+      let s = 30;
+      let l = 30;
+
+      let userColor = usernameColor(name, s, l);
+      // console.log(userColor);
+
+      let message_container = document.querySelector('#card-container');
+      message_container.style.backgroundColor = userColor;
+
+      //let cards_container = document.querySelector('.chat-messages').innerHTML;
+      //console.log(cards_container);
+
+
+      // Source: https://medium.com/@pppped/compute-an-arbitrary-color-for-user-avatar-starting-from-his-username-with-javascript-cd0675943b66
+      function usernameColor(str, s, l) {
+            let hash = 0;
+
+            // eclare a global substring
+            let newString = '';
+
+            // The username has less than 3 charachers, use the all of them in the computation of colors.
+            // insert the new string after the second character.
+            if (str.length < 3) {
+                  let globalSubstring = str.substring(0, 1).toLowerCase();
+                  newString = str.substring(0, str.length - 1) + string1 + str.substring(1);
+            }
+
+            // else user take the first 3 characters in the username, place the 3 charachers after the third character, and do computation of colors.
+            else {
+                  let globalSubstring = str.substring(0, 3).toLowerCase();
+                  newString = str.substring(0, str.length - 1) + newString + str.substring(1);
+            }
+
+            // loop over all characters in the new username, convert them to a nummbers and all of them.
+            for (let i = 0; i < newString.length; i++) {
+                  hash = newString.charCodeAt(i) + ((hash << 5) - hash);
+            }
+
+            // return a coded color value
+            let h = hash % 360;
+            return 'hsl('+h+', '+s+'%, '+l+'%)';
+      }
+
+      // Iterate over all elements of the body
+      // Source: https://bobbyhadz.com/blog/javascript-loop-through-all-dom-elements
+      let allElementsInBody = document.querySelectorAll('.chat-messages > *');
+      allElementsInBody.forEach(function(element){
+            // element.style.backgroundColor='blue'
+            // console.log(element);
+            // console.log(allElementsMessagesontainer.length);
+      }
+      )
+
+      // Grab all grand children/the "p" elements
+      let allElementsMessagesontainer = document.querySelectorAll('.card-container > .user > p ');
+      allElementsMessagesontainer.forEach(function(e){
+
+            //console.log(e.closest('#card-container'))
+
+            // Grab the username
+            let username = document.querySelector('p.username-text').innerHTML;
+            //console.log(userText);
+
+                  // manupilate the usernamestring to bring a new username string.
+                  let individualUserColor = usernameColor(e.innerHTML);
+                  let name = individualUserColor;
+                  let s = 30;
+                  let l = 30;
+
+                  // call the usernameColor function to give us the color for the username.
+                  let userColor = usernameColor(name, s, l);
+                  // console.log(userColor);
+
+                  // assign the background color to the card containing the username.
+                  e.closest('.card-container').style.backgroundColor = userColor;
+
+                  // Get the position of the first character in the username string.
+                  // console.log(e.innerHTML);
+                  // console.log((e.innerHTML.charCodeAt(0)) + (e.innerHTML.charCodeAt(0) - 96) +  (e.innerHTML.charCodeAt(1)) +  (e.innerHTML.charCodeAt(1) - 96) + (e.innerHTML.charCodeAt(2))  +  (e.innerHTML.charCodeAt(2) - 96));
+            //console.log(e);
+      })
+
+      // Grab the user name in the nav bar
+      let pageUsername = document.getElementById ('texts-in-nav').innerHTML;
+      // console.log(pageUsername);
+
+      // Grab all usernames in chats cards_container
+      let allChatsUsernames = document.getElementsByClassName('username-text')
+      // console.log(allChatsUsernames);
+
+      // Grab all transh buttons in in HTML
+      let allDots = document.getElementsByClassName('dots')
+      //console.log(allDots);
+
+      let allTrashButtons = document.getElementsByClassName('trash-button')
+
+      // loop through all usernames in chats cards_container, and only enable cards that have usernames matching to the one in the nav bar.
+      for (let i = 0; i < allChatsUsernames.length; i++) {
+            if(allChatsUsernames[i].innerHTML === pageUsername){
+                  //console.log(allChatsUsernames[i].innerHTML);
+                  //let userCard =
+
+                  // Grab all ancesters/cards that have usernames matching to the one in the nav bar.
+                  // allChatsUsernames[i].closest('#card-container').style.backgroundColor = 'red';
+                //  allChatsUsernames[i].closest('#card-container').addEventListener('mouseover', function() {
+                        allDots[i].addEventListener('click', function() {
+                              // console.log( allDots[i]);
+                              allTrashButtons[i].style.zIndex = 1;
+                              setTimeout(hideTrash, 1500);
+                        });
+
+                        allDots[i].addEventListener('mouseover', function() {
+                              allDots[i].style.color = 'red';
+                        });
+
+                        // Declare a function that changes the trash button color to original one
+                        function hideTrash() {
+                              allTrashButtons[i].style.zIndex = -1;
+                        }
+
+
+                        // Declare a function that hides the trash button
+                        function hideTrash() {
+                              allTrashButtons[i].style.zIndex = -1;
+                        }
+                  }
+
+            else{
+                  console.log(`${pageUsername} has not written any messages yet.`)
+                  }
+
+            console.log(document.getElementsByTagName("*"))
+      }
+
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+// settings.py
+================
+
+"""
+Django settings for bembechat_django project.
+
+Generated by 'django-admin startproject' using Django 4.0.5.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/4.0/topics/settings/
+
+For the full list of settings and their values, see
+https://docs.djangoproject.com/en/4.0/ref/settings/
+"""
+
+from pathlib import Path
+from telnetlib import LOGOUT
+
+from zmq import CHANNEL
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-(=hmj8z&p1=j($-bs0@)uxz@-rgpxz63a(5#u2f*wh2tq+(=3j'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
+# Redirect to front page when the user logs out.
+LOGOUT_REDIRECT_URL = '/'
+
+# Redirect to rooms page when the user logs in.
+LOGIN_REDIRECT_URL = '/rooms/'
+
+# if the user tries to login when he/she is not authenticated, he/she will be redirected to the the login page.
+LOGIN_URL = '/login/'
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
+# Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'channels',
+    'bembechat',
+    'material',
+    'fontawesomefree',
+    'room',
+    'widget_tweaks',
+    'online_users',
+
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'room.middleware.ActiveUserMiddleware',
+    'online_users.middleware.OnlineNowMiddleware',
+]
+
+# Number of seconds of inactivity before a user is marked offline
+USER_ONLINE_TIMEOUT = 300
+
+# Number of seconds that we will keep track of inactive users for before
+# their last seen is removed from the cache
+USER_LASTSEEN_TIMEOUT = 60 * 60 * 24 * 7
+
+ROOT_URLCONF = 'bembechat_django.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = 'bembechat_django.wsgi.application'
+ASGI_APPLICATION = 'bembechat_django.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    }
+}
+
+CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': '127.0.0.1:11211',
+        }
+    }
+
+# Number of seconds of inactivity before a user is marked offline
+USER_ONLINE_TIMEOUT = 300
+
+# Number of seconds that we will keep track of inactive users for before
+# their last seen is removed from the cache
+USER_LASTSEEN_TIMEOUT = 60 * 60 * 24 * 7
+
+
+# Database
+# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bembechat',
+        'USER': 'bembechatuser',
+        'PASSWORD': 'bembechat',
+        'HOST': 'localhost'
+    }
+}
+
+
+# Password validation
+# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+
+# Internationalization
+# https://docs.djangoproject.com/en/4.0/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = "America/New_York"
+
+USE_I18N = True
+
+USE_TZ = True
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR/'static']
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ console.log('onmessage')
+
+            // ata coming from the server
+            const data = JSON.parse(event.data);
+
+            // console.log(data);
+
+            // Capture the the time when the message is sent.
+            const formattedDate = new Date()
+
+            // Format time and add it to the date field
+            const newDate = formattedDate.toLocaleDateString("en-US") + " " + formattedDate.toLocaleTimeString("en-US")
+
+            const arrayMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+            const month = arrayMonths[parseInt(newDate.charAt(0)) - 1]
+            let day;
+
+            if(newDate.substring(3,4) === '/'){
+                  day = newDate.substring(2,3)
+            }
+
+            if(newDate.substring(3,4) !== '/'){
+                  day = newDate.substring(2,4)
+            }
+
+            const year = newDate.substring(4,8)
+            const time = newDate.substring(8,13)
+            const ampm = newDate.substring(17,18).toLowerCase() + '.' + newDate.substring(18,19).toLowerCase() + '.';
+
+            const fullTime = `${month} ${day}, ${year},${time} ${ampm}`
+            // console.log(newDate)
+            // console.log(fullTime)
+
+            //function emptyMessage(data) {
+
+            if (data.message){
+                  let html = '<div class="card-container">'
+                  html += '<div class="user"><p class="username-text">' + data.username + '</p></div>';
+                  html += '<div class="card-and-date"><div class="card2">' + data.message + '</div>'
+                  html += '<div class="date">' + fullTime + '</div></div>';
+
+                  // Append the message to messages container.
+                  document.querySelector('.card-container').innerHTML += html;
+            }
+
+            document.querySelector('#chat-message-submit').onclick = function(event){
+                  event.preventDefault();
+
+                  const messageInput = document.querySelector('#chat-message-input');
+                  const message = messageInput.value;
+
+                  // stringify the message to be sent to the back end
+                  chatSocket.send(JSON.stringify({
+                  'message' : message,
+                  'username' : userName,
+                  'room' : roomName,
+                  }));
+
+                  messageInput.value = '';
+
+                  scrollBottom()
+
+            // When the message comesfrom the server, call the scrollBottom function
+            // location.reload()
+                  }
+      }
+
+      chatSocket.onclose = function(event){
+            console.log('onclose')
+      }
+
+
+      // Scroll the message to the botton
+      function scrollBottom(){
+            const objDiv = document.querySelector('#chat-messages');
+            objDiv.scrollTop = objDiv.scrollHeight;
+      }
+
+      let userText = document.querySelector('.username-text').innerHTML;
+      // console.log(userText);
+
+      let name = userText;
+      let s = 30;
+      let l = 30;
+
+      let userColor = usernameColor(name, s, l);
+      // console.log(userColor);
+
+      let message_container = document.querySelector('#card-container');
+      message_container.style.backgroundColor = userColor;
+
+      //let cards_container = document.querySelector('.chat-messages').innerHTML;
+      //console.log(cards_container);
+
+
+      // Source: https://medium.com/@pppped/compute-an-arbitrary-color-for-user-avatar-starting-from-his-username-with-javascript-cd0675943b66
+      function usernameColor(str, s, l) {
+            let hash = 0;
+
+            // eclare a global substring
+            let newString = '';
+
+            // The username has less than 3 charachers, use the all of them in the computation of colors.
+            // insert the new string after the second character.
+            if (str.length < 3) {
+                  let globalSubstring = str.substring(0, 1).toLowerCase();
+                  newString = str.substring(0, str.length - 1) + string1 + str.substring(1);
+            }
+
+            // else user take the first 3 characters in the username, place the 3 charachers after the third character, and do computation of colors.
+            else {
+                  let globalSubstring = str.substring(0, 3).toLowerCase();
+                  newString = str.substring(0, str.length - 1) + newString + str.substring(1);
+            }
+
+            // loop over all characters in the new username, convert them to a nummbers and all of them.
+            for (let i = 0; i < newString.length; i++) {
+                  hash = newString.charCodeAt(i) + ((hash << 5) - hash);
+            }
+
+            // return a coded color value
+            let h = hash % 360;
+            return 'hsl('+h+', '+s+'%, '+l+'%)';
+      }
+
+      // Iterate over all elements of the body
+      // Source: https://bobbyhadz.com/blog/javascript-loop-through-all-dom-elements
+      let allElementsInBody = document.querySelectorAll('.chat-messages > *');
+      allElementsInBody.forEach(function(element){
+            // element.style.backgroundColor='blue'
+            // console.log(element);
+            // console.log(allElementsMessagesontainer.length);
+      }
+      )
+
+      // Grab all grand children/the "p" elements
+      let allElementsMessagesontainer = document.querySelectorAll('.card-container > .user > p ');
+      allElementsMessagesontainer.forEach(function(e){
+
+            //console.log(e.closest('#card-container'))
+
+            // Grab the username
+            let username = document.querySelector('p.username-text').innerHTML;
+            //console.log(userText);
+
+                  // manupilate the usernamestring to bring a new username string.
+                  let individualUserColor = usernameColor(e.innerHTML);
+                  let name = individualUserColor;
+                  let s = 30;
+                  let l = 30;
+
+                  // call the usernameColor function to give us the color for the username.
+                  let userColor = usernameColor(name, s, l);
+                  // console.log(userColor);
+
+                  // assign the background color to the card containing the username.
+                  e.closest('.card-container').style.backgroundColor = userColor;
+
+                  // Get the position of the first character in the username string.
+                  // console.log(e.innerHTML);
+                  // console.log((e.innerHTML.charCodeAt(0)) + (e.innerHTML.charCodeAt(0) - 96) +  (e.innerHTML.charCodeAt(1)) +  (e.innerHTML.charCodeAt(1) - 96) + (e.innerHTML.charCodeAt(2))  +  (e.innerHTML.charCodeAt(2) - 96));
+            //console.log(e);
+      })
+
+      // Grab the user name in the nav bar
+      let pageUsername = document.getElementById ('texts-in-nav').innerHTML;
+      // console.log(pageUsername);
+
+      // Grab all usernames in chats cards_container
+      let allChatsUsernames = document.getElementsByClassName('username-text')
+      // console.log(allChatsUsernames);
+
+      // Grab all transh buttons in in HTML
+      let allDots = document.getElementsByClassName('dots')
+      //console.log(allDots);
+
+      let allTrashButtons = document.getElementsByClassName('trash-button')
+
+      // loop through all usernames in chats cards_container, and only enable cards that have usernames matching to the one in the nav bar.
+      for (let i = 0; i < allChatsUsernames.length; i++) {
+            if(allChatsUsernames[i].innerHTML === pageUsername){
+                  //console.log(allChatsUsernames[i].innerHTML);
+                  //let userCard =
+
+                  // Grab all ancesters/cards that have usernames matching to the one in the nav bar.
+                  // allChatsUsernames[i].closest('#card-container').style.backgroundColor = 'red';
+                //  allChatsUsernames[i].closest('#card-container').addEventListener('mouseover', function() {
+                        allDots[i].addEventListener('click', function() {
+                              // console.log( allDots[i]);
+                              allTrashButtons[i].style.zIndex = 1;
+                              setTimeout(hideTrash, 1500);
+                        });
+
+                        allDots[i].addEventListener('mouseover', function() {
+                              allDots[i].style.color = 'red';
+                        });
+
+                        // Declare a function that changes the trash button color to original one
+                        function hideTrash() {
+                              allTrashButtons[i].style.zIndex = -1;
+                        }
+
+
+                        // Declare a function that hides the trash button
+                        function hideTrash() {
+                              allTrashButtons[i].style.zIndex = -1;
+                        }
+                  }
+
+            else{
+                  console.log(`${pageUsername} has not written any messages yet.`)
+                  }
+
+            console.log(document.getElementsByTagName("*"))
+      }
+
+
+
+
+
+
+
+
+//  DOES NOT SEND messages
+==============================
+
+{% extends 'bembechat/base_page.html' %}
+{% block title %} {{ room.name }} | {% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+{% comment %} Add "load static so the stylesheet can be used" {% endcomment %}
+{% load static %}
+
+      <html>
+      <head>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet">
+           <link rel="stylesheet" href="{% static 'css/room_page.css' %}" />
+
+
+  {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> {% endcomment %}
+            {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
+      </head>
+      <body>
+            <div class="body">
+
+                  <div class="editAndDeleteRoom">
+
+                        <a href="{% url 'room_update' slug=room.slug %}" id="@applicant.Id" class="btn btn-outline purple-sharp edit-room  uppercase     delete-confirmation" data-btn-ok-label="Bəli"  data-toggle="confirmation"  data-placement="bottom" data-original-title="" title="Are you sure?" aria-describedby="confirmation64993">
+                        <i class="fa fa-pencil" ></i> Edit Room</a>
+
+                        <a href="{% url 'room_delete' slug=room.slug %}" id="@applicant.Id"  class="btn btn-outline purple-sharp delete-room  uppercase delete-confirmation" data-btn-ok-label="Bəli"  data-toggle="confirmation"  data-placement="right" data-original-title="" title="Are you sure?" aria-describedby="confirmation64993"><i class="fa fa-trash" ></i> Delete Room</a>
+                  </div>
+                        {% comment %} <h6>{{context}}</h6>
+                        {% if user.profile.is_online %}
+                       <h6>Online</h6>
+                       {{user}}
+                        {% else %}
+                        <h6>Offline</h6>
+                        {% endif %}
+
+                        {% for user in users %}
+                        <h6>{{user}}</h6>
+                        {% endfor %} {% endcomment %}
+
+                  {% comment %} style="background-color:{{message.profile.message_color}};" {% endcomment %}
+
+                  {% comment %} <h2>{{name}}</h2> {% endcomment %}
+                  <h1 class="title">Room: {{ room.name }} </h1>
+                  <div class="chat-messages" id="chat-messages">
+
+                        {% for message in messages %}
+
+                              {% if message.user.username != name %}
+                              <div  class="card-container" id="card-container">
+                                    <div class="user">
+                                          {% comment %} <i class="fa-solid fa-user user-icon"></i> {% endcomment %}
+                                          <div class="main-user">
+                                                <img class="avatar main-user" src="https://i.imgur.com/bLsbDoC.png" alt="profile picture">
+                                          </div>
+                                          <p class="username-text">{{ message.user.username }}</p>
+
+                                          {% comment %} hange the online status {% endcomment %}
+                                          {% if message.profile.is_online %}
+                                          <span class="material-icons online-button">circle</span>
+                                          {% comment %} <span class="material-icons online-button">circle</span> {% endcomment %}
+                                          {% comment %} {{user.profile.is_online}} {% endcomment %}
+                                          {% else %}
+                                          <span class="material-icons offline-button">circle</span>
+                                          {% comment %} {{user.profile.is_online}} {% endcomment %}
+                                          {% comment %} <span class="material-icons offline-button">circle</span> {% endcomment %}
+                                          {% endif %}
+                                    </div>
+
+                                    <div class="card-and-date">
+
+                                          <div class="card2">{{ message.content }}</div>
+
+                                          <div class="date-and-delete-buttons">
+                                                <p class="date">{{ message.date_added }}</p>
+
+                                                <div><i class="fa-solid dots fa-ellipsis"></i></div>
+                                                <div class="delete-message-button trash-button">
+                                                      {% comment %} <a href="#" class="edit-message material-icons">edit</a> {% endcomment %}
+                                                      <a href="{% url 'message_delete' message.id %}" type="submit" class="delete-message material-icons">delete</a>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                              {% endif %}
+                        {% endfor %}
+
+                        {% comment %} {% for profile in  profiles %}
+
+                              <li class=" white " >{{profile.is_online}}</li>
+
+                        {% endfor %} {% endcomment %}
+
+                  </div>
+            </div>
+
+            <form method="post" action=".">
+                  {% csrf_token %}
+                  <div class="input-and-button">
+                        <div class="input-message">
+                              <input type="inputtext" name="content" placeholder="Type your message" id="chat-message-input">
+                        </div>
+                        <button class="btn-primary material-icons send-button" type="submit" name="action" id='chat-message-submit'>send</button>
+                  </div>
+            </form>
+      </body>
+      </html>
+
+{% endblock %}
+
+{% comment %} Add script {% endcomment %}
+{% block scripts %}
+
+{% comment %} Filter from django {% endcomment %}
+{{ room.slug|json_script:"json-roomname" }}
+{{ request.user.username|json_script:"json-username" }}
+{% comment %} {{ request.profile.is_online|json_script:"json-is_online" }} {% endcomment %}
+
+<script>
+      const roomName = JSON.parse(document.getElementById("json-roomname").textContent);
+      const userName = JSON.parse(document.getElementById("json-username").textContent);
+      {% comment %} const is_online = JSON.parse(document.getElementById("json-is_online").textContent); {% endcomment %}
+
+      const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/'
+            + roomName
+            + '/'
+      );
+
+      chatSocket.onmessage = function(event){
+
+            console.log('onmessage')
+      }
+
+      chatSocket.onclose = function(event){
+            console.log('onclose')
+      }
+
+      document.querySelector('#chat-message-submit').onclick = function(event){
+            const messageInputDom = document.querySelector('#chat-message-input');
+            const message = messageInputDom.value;
+
+            // Send the messahe to the backend
+            ChatSocket.send(JSON.stringify({
+                  'message' : message,
+                  'username': userName,
+                  'room': roomName,
+            }));
+
+            messageInputDom.value = '';
+
+            return false;
+      }
+
+      // Scroll the message to the botton
+      function scrollBottom(){
+            const objDiv = document.querySelector('#chat-messages');
+            objDiv.scrollTop = objDiv.scrollHeight;
+      }
+
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+class ActionDeleteView(generic.DeleteView): # action-deleteview
+    model = models.Action
+    template_name = 'crm/action_delete.html'
+
+    def get_success_url(self): # for the message
+        message = f'{self.get_object()} is deleted successfully!'
+        messages.success(self.request, message)
+        previous = self.request.META.get('HTTP_REFERER')
+        print('***************** previous: ', previous)
+        return redirect('Intended View')
+
+
+
+class ActionDeleteView(generic.DeleteView): # action-deleteview
+    model = models.Action
+    template_name = 'crm/action_delete.html'
+
+    def get_success_url(self): # for the message
+        message = f'{self.get_object()} is deleted successfully!'
+        messages.success(self.request, message)
+        previous = self.request.META.get('HTTP_REFERER')
+        print('***************** previous: ', previous)
+        return redirect('Intended View')

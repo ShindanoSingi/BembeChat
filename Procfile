@@ -1,0 +1,1 @@
+web: gunicorn bembechat_django.wsgi

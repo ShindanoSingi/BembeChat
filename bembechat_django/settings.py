@@ -1,3 +1,6 @@
+# import os
+# import dj_database_url
+
 """
 Django settings for bembechat_django project.
 
@@ -28,7 +31,16 @@ SECRET_KEY = 'django-insecure-(=hmj8z&p1=j($-bs0@)uxz@-rgpxz63a(5#u2f*wh2tq+(=3j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# SECURITY WARNING: don't run with debug turned on in production!
+
+# Replace the DEBUG = True with:
+# DEBUG = True if os.environ['MODE'] == 'dev' else False
+
+# ALLOWED_HOSTS = []
+
+# Change this according to your needs:
+ALLOWED_HOSTS = ['*']
+
 
 # Redirect to front page when the user logs out.
 LOGOUT_REDIRECT_URL = '/'
@@ -58,12 +70,15 @@ INSTALLED_APPS = [
     'room',
     'widget_tweaks',
     'online_users',
+    'corsheaders',
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -72,13 +87,6 @@ MIDDLEWARE = [
     'room.middleware.ActiveUserMiddleware',
     'online_users.middleware.OnlineNowMiddleware',
 ]
-
-CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-            'LOCATION': '127.0.0.1:11211',
-        }
-    }
 
 # Number of seconds of inactivity before a user is marked offline
 USER_ONLINE_TIMEOUT = 300
@@ -142,6 +150,22 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#   'default': dj_database_url.config(conn_max_age=600)
+# }
+
+
+# To prevent access to your API from other applications add the
+# CORS_ALLOW_ORIGINS list and include only your front end app's
+# URLs (localhost and deployed).  This list prevents a front end
+# from connecting to your back end unless it comes from a listed origin:
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://127.0.0.1:8000/",
+#     "http://localhost:3000",
+# ]
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -184,3 +208,6 @@ STATICFILES_DIRS = [BASE_DIR/'static']
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# STATIC_ROOT=os.path.join(BASE_DIR, "static/")
+

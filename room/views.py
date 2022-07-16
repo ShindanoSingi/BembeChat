@@ -34,16 +34,16 @@ def rooms(request):
 @login_required
 def room(request, slug):
       room = Room.objects.get(slug=slug)
-      messages = Message.objects.filter(room=room).order_by('date_added')
+      messages = Message.objects.filter(room=room)
       profile = Profile.objects.all()
-      return render(request, 'room/room_page.html', {'room': room, 'messages': messages, 'profile': profile})
+      return render(request, 'room/room_page.html', {'room': room, 'messages': messages, 'profiles': profile})
 
-# @receiver(post_save, sender=User)
-# def create_user_profile(sender, instance, created, **kwargs):
-#       try:
-#             instance.profile.save()
-#       except ObjectDoesNotExist:
-#             Profile.objects.create(user=instance)
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+      try:
+            instance.profile.save()
+      except ObjectDoesNotExist:
+            Profile.objects.create(user=instance)
 
 #  Create a profile for the user when a new user is created.
 @receiver(post_save, sender=User, dispatch_uid='save_new_user_profile')
@@ -62,15 +62,15 @@ def got_online(sender, user, request, **kwargs):
 
 @receiver(user_logged_out)
 def got_offline(sender, user, request, **kwargs):
+      print(user)
       user.profile.is_online = False
       user.profile.save()
       # return render(request, 'room/room_page.html', {'user': user})
 
 def delete_message(user, request, **kwargs):
-      print(request)
       message = Message.objects.get(id=request.id)
       message.delete()
-      return redirect('/room/room_page.html')
+      # return redirect('/room/room_page.html')
 
 
 
@@ -82,18 +82,18 @@ def see_users(request, self):
       context = {"online_users"}
       # return render(request, 'room/room_page.html', {'user_status': user_status, 'users': users, context: context,})
 
-# Methods for checking if the other user is online or offline.
-# @receiver(user_logged_in)
-# def got_online(sender, user, request, **kwargs):
-#       user.profile.is_online = True
-#       user.profile.save()
-#       return render(request, 'room/room_page.html', {'user': user, 'is_online': user.profile.is_online})
+#  Methods for checking if the other user is online or offline.
+@receiver(user_logged_in)
+def got_online(sender, user, request, **kwargs):
+      user.profile.is_online = True
+      user.profile.save()
+      # return render(request, 'room/room_page.html', {'user': user, 'is_online': user.profile.is_online})
 
-# @receiver(user_logged_out)
-# def got_offline(sender, user, request, **kwargs):
-#       user.profile.is_online = False
-#       user.profile.save()
-#       return render(request, 'room/room_page.html', {'user': user, 'is_online': user.profile.is_online})
+@receiver(user_logged_out)
+def got_offline(sender, user, request, **kwargs):
+      user.profile.is_online = False
+      user.profile.save()
+      # return render(request, 'room/room_page.html', {'user': user, 'is_online': user.profile.is_online})
 
 # CREATE a Room
 class RoomCreate(CreateView):
@@ -121,7 +121,7 @@ class RoomDelete(DeleteView):
 class MessageDelete(DeleteView):
       model = Message
       template_name = 'room/message_delete_form.html'
-      success_url= '/'
+      success_url = '/'
 
 
 # Get a post by id
@@ -145,7 +145,7 @@ class MessageDelete(DeleteView):
 
 
 def current_datetime(request):
-    now = datetime.datetime.now()
-    online = Profile.objects.get(is_online=True)
-    html = "<html><body>It is now %s.</body></html>" % now
-    return render(request, 'room/room_page.html', {'html': html})
+      now = datetime.datetime.now()
+      online = Profile.objects.get(is_online=True)
+      html = "<html><body>It is now %s.</body></html>" % now
+# return render(request, 'room/room_page.html', {'html': html})

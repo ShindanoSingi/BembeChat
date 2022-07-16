@@ -36,6 +36,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
             # Save the message before it is sent.
             await self.save_message(username, room, message)
+            
+            
 
             await self.channel_layer.group_send(
                   self.room_group_name,
@@ -46,12 +48,20 @@ class ChatConsumer(AsyncWebsocketConsumer):
                         'room': room,
                   }
             )
-
+            
+      
+      
       async def chat_message(self, event):
+
+            # Prevent the user from sending empty messages.
+            # if(event['message'] == ''):
+            #       pass
+            # else:
+            #       print(event['message'])
             message = event['message']
             username = event['username']
             room = event['room']
-            
+
             # Send the message to the room so every user in the room can see it.
             await self.send(text_data=json.dumps({
                   'message': message,
@@ -70,7 +80,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
       @sync_to_async
       def update_user_incr(self, user):
             Profile.objects.filter(pk=user.pk).update(online=True)
-      
+
       @sync_to_async
       def update_user_decr(self, user):
             Profile.objects.filter(pk=user.pk).update(online=False)

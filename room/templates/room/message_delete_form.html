@@ -43,16 +43,35 @@
 			<form method="post">
 				{% csrf_token %}
 				<div class="buttons">
-					<button type="submit" value="Confirm" class="btn btn-danger">
-						<span class="material-icons">
+					<button type="submit" class="btn btn-danger">
+						<span onclick={goBackToRoomPage1()} class="material-icons">
 							thumb_up_alt
 						</span>
 					</button>
-					<button type="button" class="btn btn-success">
-						<a href="{% url 'room' message.id %}">Cancel</a>
+					<button type="button" class="btn cancel btn-success" onclick={goBackToRoomPage()}>
+						Cancel
+						{% comment %} <a href="{% url 'room' message.id %}">Cancel</a> {% endcomment %}
 					</button>
 				</div>
 			</form>
 		</div>
 	</body>
+
+	<script>
+
+		// Declare a function that will redirect the user to the room page if the user clicks on the "Cancel" 	 button.
+		function goBackToRoomPage() {
+			history.go(-1);
+		}
+
+		// Declare a function that will redirect the user to the room page if the user clicks on the "Cancel" 	 button.
+		function goBackToRoomPage1() {
+			history.go(-2);
+		}
+
+	</script>
+
+
+
+
 </html>
