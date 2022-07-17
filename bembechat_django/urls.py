@@ -19,12 +19,25 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+# urlpatterns = [
+#     path('', include('bembechat.urls')),
+#     path('rooms/', include('room.urls')),
+#     path('admin/', admin.site.urls),
+# ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# urlpatterns = [
+#     path('', include('bembechat.urls')),
+#     path('rooms/', include('room.urls')),
+#     path('admin/', admin.site.urls),
+# ] + static(settings.MEDIA_URL, document_root=settings.STATIC_ROOT)
+
+# # Added this to let the user upload images.
+# if settings.DEBUG:  # new
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 urlpatterns = [
     path('', include('bembechat.urls')),
     path('rooms/', include('room.urls')),
     path('admin/', admin.site.urls),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
 
-# Added this to let the user upload images.
-if settings.DEBUG:  # new
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

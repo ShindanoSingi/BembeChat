@@ -15,8 +15,6 @@ class Room(models.Model):
       name = models.CharField(max_length=255)
       slug = models.SlugField(unique=True)
 
-      def __str__(self):
-            return self.name
 
 # Declare fields for online
 class Profile(models.Model):
@@ -36,9 +34,12 @@ class  Message(models.Model):
       room = models.ForeignKey(Room, related_name='messages', on_delete=models.CASCADE)
       user = models.ForeignKey(User, related_name='messages', on_delete=models.CASCADE)
       profile = models.ForeignKey(Profile, related_name='messages', on_delete=models.CASCADE, default=1)
-      image = models.ImageField(upload_to="images/", blank=True)
+      image = models.ImageField(upload_to="images/", null=True, blank=True)
       content = models.TextField()
       date_added = models.DateTimeField(auto_now_add=True)
+
+      def __str__(self):
+            return f'{self.user.username}: {self.content} [{self.date_added}]'
 
       class Meta:
             ordering = ('date_added',)

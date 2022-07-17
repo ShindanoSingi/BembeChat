@@ -1,5 +1,5 @@
 from django import forms
-from .models import Room
+from .models import Room, Message
 
 
 class RoomForm(forms.ModelForm):
@@ -10,12 +10,6 @@ class RoomForm(forms.ModelForm):
     class Meta:
         model = Room
         fields = ['name', 'slug',]
-
-
-
-
-
-
 
 # This class is using a built-in form.
 # class  SignUpForm(UserCreationForm):

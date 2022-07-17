@@ -3,6 +3,7 @@ from unicodedata import name
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+
 # from zmq import Message
 from .models import Room, Message, Profile
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -15,7 +16,7 @@ from django.dispatch import receiver
 from django.http import HttpResponse
 import datetime
 
-import online_users.models
+# import online_users.models
 from django.urls import reverse, reverse_lazy
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.signals import post_save
@@ -24,7 +25,6 @@ from django.contrib.auth.models import User
 
 from django.views.generic import ListView
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Ensure the user is logged in before showing the room list.
 @login_required
@@ -41,12 +41,12 @@ def room(request, slug):
       profile = Profile.objects.all()
       return render(request, 'room/room_page.html', {'room': room, 'messages': messages, 'profiles': profile})
 
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-      try:
-            instance.profile.save()
-      except ObjectDoesNotExist:
-            Profile.objects.create(user=instance)
+# @receiver(post_save, sender=User)
+# def create_user_profile(sender, instance, created, **kwargs):
+#       try:
+#             instance.profile.save()
+#       except ObjectDoesNotExist:
+#             Profile.objects.create(user=instance)
 
 #  Create a profile for the user when a new user is created.
 @receiver(post_save, sender=User, dispatch_uid='save_new_user_profile')
@@ -75,15 +75,11 @@ def delete_message(user, request, **kwargs):
       message.delete()
       # return redirect('/room/room_page.html')
 
-
-
-
-
-def see_users(request, self):
-      user_status = online_users.models.OnlineUserActivity.get_user_activities(timedelta(seconds=60))
-      users = (user for user in  user_status)
-      context = {"online_users"}
-      # return render(request, 'room/room_page.html', {'user_status': user_status, 'users': users, context: context,})
+# def see_users(request, self):
+#       user_status = online_users.models.OnlineUserActivity.get_user_activities(timedelta(seconds=60))
+#       users = (user for user in  user_status)
+#       context = {"online_users"}
+#       return render(request, 'room/room_page.html', {'user_status': user_status, 'users': users, context: context,})
 
 #  Methods for checking if the other user is online or offline.
 @receiver(user_logged_in)
@@ -124,7 +120,8 @@ class RoomDelete(DeleteView):
 class MessageDelete(DeleteView):
       model = Message
       template_name = 'room/message_delete_form.html'
-      success_url = '/rooms/password/'
+      # success_url = '/rooms/password/'
+      success_url = '/rooms/'
 
 
       # def get_success_url(self):

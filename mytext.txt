@@ -22,6 +22,11 @@ http://localhost:3000/videoPlayer/MBOlZMLaQ8g
  learned about traversing OM
 https://www.youtube.com/watch?v=SowaJlX1uKA
 
+
+// How to post an image
+Youtube
+Upload images to django - django wednesdays #38
+
 // Video chat
 Build A Group Video Chat App In 15 Minutes
 
@@ -41,6 +46,13 @@ https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-fo
 
 //I used CMS for web styling
 https://docs.django-cms.org/en/latest/how_to/install.html
+
+
+// This is for hannel Stuff
+https://testdriven.io/blog/django-channels/
+
+// formatting in VS Code
+https://betterprogramming.pub/how-to-set-up-vs-code-like-a-pro-in-just-5-minutes-65aaa5788c0d
 
 
 
