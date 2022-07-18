@@ -53,24 +53,6 @@ LOGIN_URL = '/login/'
 
 # Application definition
 
-# INSTALLED_APPS = [
-#     'django.contrib.admin',
-#     'django.contrib.auth',
-#     'django.contrib.contenttypes',
-#     'django.contrib.sessions',
-#     'django.contrib.messages',
-#     'django.contrib.staticfiles',
-#     'channels',
-#     'bembechat',
-#     'material',
-#     'fontawesomefree',
-#     'room',
-#     'widget_tweaks',
-#     'online_users',
-#     'corsheaders',
-
-# ]
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -83,7 +65,24 @@ INSTALLED_APPS = [
     'material',
     'fontawesomefree',
     'room',
+    'widget_tweaks',
+    'online_users',
+    'corsheaders',
 ]
+
+# INSTALLED_APPS = [
+#     'django.contrib.admin',
+#     'django.contrib.auth',
+#     'django.contrib.contenttypes',
+#     'django.contrib.sessions',
+#     'django.contrib.messages',
+#     'django.contrib.staticfiles',
+#     'channels',
+#     'bembechat',
+#     'material',
+#     'fontawesomefree',
+#     'room',
+# ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

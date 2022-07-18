@@ -29,10 +29,10 @@ Source: https://www.um.es/docencia/barzana/materializecss/buttons.html
                   <ul class="right hide-on-med-and-down">
                         {% comment %} check if the user has signed in {% endcomment %}
                         {% if request.user.is_authenticated %}
-                              <li><a class="waves-effect waves-light btn" href="/rooms/new/">Add Room</a></li>
-                              <li><a class="waves-effect waves-light btn" href="/rooms/">Rooms</a></li>
-                              <li><a class="waves-effect waves-light btn" href="/logout/">Logout</a></li>
-                              <li><a id="texts-in-nav">{{user}}</a></li>
+                              <li><a class="waves-effect waves-light btn" id="add-rooms-logout" href="/rooms/new/">Add Room</a></li>
+                              <li><a class="waves-effect waves-light btn" id="add-rooms-logout" href="/rooms/">Rooms</a></li>
+                              <li><a class="waves-effect waves-light btn" id="add-rooms-logout" href="/logout/">Logout</a></li>
+                              <li><a id="texts-in-nav">Logged as: {{user}}</a></li>
                         {% else %}
                               <li><a class="waves-effect waves-light btn" href="/signup/">Sign Up</a></li>
                               <li><a class="waves-effect waves-light btn" href="/login/">Sign In</a></li>

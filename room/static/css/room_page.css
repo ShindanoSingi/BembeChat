@@ -7,6 +7,10 @@
   top: -2rem;
 }
 
+/* .username{
+  display: none;
+} */
+
 /* Username and date */
 .user-name-and-data{
   display: flex;
@@ -85,8 +89,6 @@ button {
 
 /* All Chat messages container */
 .chat-messages {
-  /* background-color: rgb(65, 89, 65); */
-  /* width: fit-content; */
   justify-content: center;
   align-items: center;
   margin: 0 auto;
@@ -100,19 +102,6 @@ button {
   padding-top: -1rem;
 }
 
-/* Remove the verticale scroll bar */
-.chat-messages::-webkit-scrollbar {
-  /* display: none; */
-}
-
-/* single card */
-/* .card {
-  color:aliceblue;
-  font-size: 1.3rem;
-  width: fit-content;
-
-} */
-
 /* single card */
 .card2 {
   color: aliceblue;
@@ -124,24 +113,6 @@ button {
   position: relative;
   top: -1rem;
   left: -0.4rem;
-}
-
-/* Online button */
-.online-button {
-  font-size: 1rem;
-  color: greenyellow;
-  position: relative;
-  left:1.3rem;
-  top: -3.7rem
-}
-
-/* Online button */
-.offline-button {
-  font-size: 1rem;
-  color: rgb(246, 5, 5);
-  position: relative;
-  left:1.3rem;
-  top: -3.7rem
 }
 
 /* date-dots-trash */
@@ -162,8 +133,6 @@ button {
 /* The entire card */
 #card-container {
   border: 2px solid #5c80a0;
-  /* background-color: #aedede; */
-  /* background-color: rgba(0,0,0,.5); */
   border-radius: 5px;
   padding: 0.5rem;
   margin: 10px 0;
@@ -193,6 +162,7 @@ button {
   top: 5.5rem;
   gap: 40rem;
   display: flex;
+  visibility: hidden;
 }
 
 .edit-room, .delete-room{
@@ -205,7 +175,7 @@ button {
 /* Date, delete and dots */
 .date-and-delete-buttons {
   display: flex;
-  gap: 29.5rem;
+  gap: 32.5rem;
 }
 
 
@@ -217,17 +187,6 @@ button {
   text-decoration: none;
   z-index: -1;
 }
-
-
-/* Upload image */
-.attachment{
-  color: lightgray;
-}
-
-/* .delete-message:hover{
-  z-index: 1;
-} */
-
 
 /* Edit message button */
 .edit-message {
@@ -244,11 +203,6 @@ a {
 font-size: 2rem;
 color: lightgray;
 }
-
-/* change the color of the three dots on hover */
-/* .dots:hover {
-  color:red;
-  } */
 
 body {
   background-color: rgb(2, 9, 60);

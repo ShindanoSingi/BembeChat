@@ -14,6 +14,8 @@ from bembechat_django import settings
 class Room(models.Model):
       name = models.CharField(max_length=255)
       slug = models.SlugField(unique=True)
+      username = models.CharField(max_length=255)
+
 
 
 # Declare fields for online

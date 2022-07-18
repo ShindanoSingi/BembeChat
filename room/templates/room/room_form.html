@@ -44,7 +44,7 @@
                 {% csrf_token %}
                 <div class="form">
                     <div>
-                        <label for="">Enter room name</label><br>
+                        <label for="">Enter Room Name</label><br>
                         <input type="text" id="username" placeholder="Username" name="name" required>
                     </div>
 
@@ -53,8 +53,14 @@
                         <input type="password" id="password" placeholder="Password" name="slug" required>
                     </div>
 
+					<div>
+                        <label class="label">Enter Username</label><br>
+                        <input type="password" id="room-delete" placeholder="Enter your username" name="username" required>
+                    </div>
+
                    <button class="btn btn-primary sign-up-form-button">Submit</button>
-                   <span class="material-icons eye" onclick={showPassword()}>visibility</span>
+                   <span class="material-icons eye1" onclick={showPassword()}>visibility</span>
+				   <span class="material-icons eye2" onclick={showUsername()}>visibility</span>
 
                 </div>
             </div>
@@ -64,18 +70,35 @@
 	<script>
 
 		{% comment %} Grab the password field {% endcomment %}
-		const eye = document.getElementById("password");
+		const password = document.getElementById("password");
+		const username = document.getElementById("room-delete");
 
-
-		{% comment %} eclare a function that shows the password by changing the type from password to text {% endcomment %}
+		{% comment %} Declare a function that shows the password by changing the type from password to text {% endcomment %}
 		function showPassword(){
-			if (eye.type === 'password'){
-				eye.type = 'text';
+			if (password.type === 'password'){
+				password.type = 'text';
 			} else{
-				 eye.type = "password";
+				password.type = "password";
 			}
-
 		}
+
+		{% comment %} Declare a function that shows the username by changing the type from password to text {% endcomment %}
+		function showUsername(){
+			if (username.type === 'password'){
+				username.type = 'text';
+			} else{
+				username.type = "password";
+			}
+		}
+
+		// This takes care of the enter button when the user presses the "Enter key"
+		document.getElementById('password').focus();
+		document.getElementById('password').onkeyup = function(event){
+			if(event.keyCode === 13){
+				document.getByClassName('btn').click();
+			}
+		}
+
 	</script>
 
 </html>

@@ -1,21 +1,9 @@
-{% extends 'bembechat/base_page.html' %}
-{% block title %} {{ room.name }} | {% endblock %}
-
-{% block content %}
-
 <!DOCTYPE html>
-{% load widget_tweaks %}
+
 {% load static %}
 
 <html>
 	<head>
-		<link rel="shortcut icon" href="data:;base64,iVBORw0KGgo=">
-
-		{% comment %} bootstrap                   Source: https://getbootstrap.com/docs/5.1/components/buttons/
-		  customize django forms    	https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html
-		  google fonts    	      https://fonts.google.com/icons?selected=Material+Icons&icon.query=edit
-{% endcomment %}
-
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
 		<meta
@@ -35,7 +23,7 @@
 		/>
 		<link
 			rel="stylesheet"
-			href="{% static 'css/room_delete_form.css' %}"
+			href="{% static 'css/message_delete_form.css' %}"
 		/>
 	</head>
 	<body>
@@ -47,9 +35,8 @@
 			</div>
 			<form method="post">
 				{% csrf_token %}
-
 				<div class="buttons">
-					<button value{{request.path}}
+					<button
 						type="submit"
 						value="Confirm"
 						class="btn btn-danger"
@@ -67,6 +54,12 @@
 			</form>
 		</div>
 	</body>
-</html>
 
-{% endblock %}
+	<script>
+
+	</script>
+
+
+
+
+</html>

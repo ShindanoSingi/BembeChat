@@ -24,7 +24,8 @@
                               <a href="{% url 'room_delete' slug=room.slug %}" id="@applicant.Id"  class="btn btn-outline purple-sharp delete-room  uppercase delete-confirmation" data-btn-ok-label="Bəli"  data-toggle="confirmation"  data-placement="right" data-original-title="" title="Are you sure?" aria-describedby="confirmation64993"><i class="fa fa-trash" ></i> Delete Room</a>
                         </div>
                         <h2>{{name}}</h2>
-                        <h1 class="title">Room: {{ room.name }} </h1>
+                        <h1 class="title">Room: {{ room.name }}</h1>
+                        <span class="username">{{room.username}}</span>
                         <div class="chat-messages" id="chat-messages">
                               {% for message in messages %}
                                     {% if message.user.username != name %}
@@ -38,7 +39,7 @@
                                                       <p class="date">{{ message.date_added }}</p>
                                                       <div class="date-dots-trash">
                                                             <a href="{% url 'message_delete' message.id %}" type="submit" class="delete-message delete-message-button trash-button material-icons">delete</a>
-                                                            <span class="material-icons attachment">attachment</span>
+                                                            {% comment %} <span class="material-icons attachment">attachment</span> {% endcomment %}
                                                             <i class="fa-solid dots fa-ellipsis"></i>
                                                       </div>
                                                 </div>
@@ -125,6 +126,7 @@
 
             const fullTime = `${month} ${day}, ${year},${time} ${ampm}`
 
+            // Check if the server has returned data with message
             if (data.message){
                   let html = '<div class="card-container">'
                   html += '<div class="user"><p class="username-text">' + data.username + '</p></div>';
@@ -181,7 +183,7 @@
 
       }
 
-      //scrollBottom()
+      scrollBottom()
 
       // Scroll the message to the botton
       function scrollBottom(){
@@ -201,10 +203,6 @@
 
       let message_container = document.querySelector('#card-container');
       message_container.style.backgroundColor = userColor;
-
-      //let cards_container = document.querySelector('.chat-messages').innerHTML;
-      //console.log(cards_container);
-
 
       // Source: https://medium.com/@pppped/compute-an-arbitrary-color-for-user-avatar-starting-from-his-username-with-javascript-cd0675943b66
       function usernameColor(str, s, l) {
@@ -239,12 +237,6 @@
       // Iterate over all elements of the body
       // Source: https://bobbyhadz.com/blog/javascript-loop-through-all-dom-elements
       let allElementsInBody = document.querySelectorAll('.chat-messages > *');
-      allElementsInBody.forEach(function(element){
-            // element.style.backgroundColor='blue'
-            // console.log(element);
-            // console.log(allElementsMessagesontainer.length);
-      }
-      )
 
       // Grab all grand children/the "p" elements
       let allElementsMessagesontainer = document.querySelectorAll('.card-container > .user > p ');
@@ -264,8 +256,6 @@
             let allStatus = document.querySelectorAll('.userOnLineStatus');
 
             for (let i = 0; i < allIsOnline.length; i++) {
-                //  if((allIsOnline[i].innerHTML === e.innerHTML)) {
-
                         if(allStatus[i] === false) {
                               document.querySelector('.online-button').style.color = 'green';
                         }
@@ -273,10 +263,7 @@
                         else{
                               document.querySelector('.online-button').style.color = 'red';
                         }
-
-                       // console.log(e);
-                //  }
-            }
+                  }
 
                   // manupilate the usernamestring to bring a new username string.
                   let individualUserColor = usernameColor(e.innerHTML);
@@ -291,12 +278,7 @@
 
                   // assign the background color to the card containing the username.
                   e.closest('.card-container').style.backgroundColor = userColor;
-
-                  // Get the position of the first character in the username string.
-                  // console.log(e.innerHTML);
-                  // console.log((e.innerHTML.charCodeAt(0)) + (e.innerHTML.charCodeAt(0) - 96) +  (e.innerHTML.charCodeAt(1)) +  (e.innerHTML.charCodeAt(1) - 96) + (e.innerHTML.charCodeAt(2))  +  (e.innerHTML.charCodeAt(2) - 96));
-            //console.log(e);
-      }
+            }
       )
 
 
@@ -353,6 +335,19 @@
                   }
             // console.log(document.getElementsByTagName("*"))
       }
+
+     // Enable the room creator to delete or Edit the room
+      let elements = document.getElementsByTagName("li");
+      const navuser = elements[3].outerText
+      const roomUser = document.getElementsByClassName('username')[0].innerText;
+      console.log(roomUser)
+      console.log(elements[3].outerText);
+
+      if(navuser === roomUser) {
+            document.querySelector('.editAndDeleteRoom').style.visibility = 'visible';
+      }
+
+      {% comment %} console.log(elements[0].nextElementSibling.offsetParent.outerText); {% endcomment %}
 
 </script>
 

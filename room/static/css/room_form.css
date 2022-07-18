@@ -29,9 +29,9 @@ h1 {
     flex-direction: column;
     align-items: center;
     display: flex;
-    margin-top: 50vh;
+    margin-top: 45vh;
     position: relative;
-    top: -220px;
+    top: -270px;
   }
 
 /* Labels */
@@ -40,7 +40,7 @@ label{
     color: black;
 }
 
-#password, #username{
+#password, #username, #room-delete{
     font-size: 1.5em;
     border: 1px solid rgb(14, 14, 14);
     width: 15rem;
@@ -50,9 +50,14 @@ label{
 }
 
 /* The eye for the password */
-.eye{
-    transform: translate(11.2rem, -4.2rem);
-  }
+.eye1{
+    transform: translate(11.2rem, -10.7rem);
+}
+
+/* The eye for the password */
+.eye2{
+    transform: translate(11.2rem, -5.8rem);
+}
 
 
 button {
