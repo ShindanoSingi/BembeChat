@@ -5,7 +5,7 @@
     color: rgb(205, 220, 235);
     position: relative;
     top: -1.5rem;
-    left: 1%;
+    left: 18%;
     width: 50vw;
   }
 
@@ -208,6 +208,7 @@
   .body{
     display: grid;
     justify-content: center;
+    align-items: center;
     /* position: relative;
     left: 0.3rem; */
   }
