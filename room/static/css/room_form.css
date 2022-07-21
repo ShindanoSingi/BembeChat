@@ -1,74 +1,694 @@
-.sign-up-form-button{
-    background-color: rgb(54, 128, 165);
-}
-
-h1 {
-    text-align: center;
-    color: rgb(248, 247, 250);
-    font-size: 2.5rem;
-}
-
-.container {
-    margin: 0 auto;
-}
-
- .form {
-      background-color: rgb(131, 99, 160);
-      flex-direction: column;
-      align-items: center;
-      display: flex;
-      width: 30rem;
-      padding: 1rem 0rem;
-      border-radius: 1rem;
-      box-shadow: 20px 20px 20px 20px rgb(12, 13, 0);
-
-  }
-
-  /* This div contains bot the title and the form */
-  .form-container{
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    margin-top: 45vh;
-    position: relative;
-    top: -270px;
-  }
-
-/* Labels */
-label{
-    font-size: 1.5em;
-    color: black;
-}
-
-#password, #username, #room-delete{
-    font-size: 1.5em;
-    border: 1px solid rgb(14, 14, 14);
-    width: 15rem;
-    padding-left: 1rem;
-    background-color: white;
-    width: 25rem;
-}
-
-/* The eye for the password */
-.eye1{
-    transform: translate(11.2rem, -10.7rem);
-}
-
-/* The eye for the password */
-.eye2{
-    transform: translate(11.2rem, -5.8rem);
-}
-
-
-button {
-    margin-top: 0.5rem;
-    margin-bottom: -2rem;
-}
-
-.error-message{
-    width: 26rem;
-}
-
-body{
-    background-color: rgb(85, 98, 116);
+@media screen and (max-width: 3000px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
     }
+
+    h1 {
+        text-align: center;
+        color: rgb(233, 226, 239);
+        font-size: 2rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        background-color: rgb(131, 99, 160);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+
+    }
+
+      /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 45vh;
+        position: relative;
+        top: -270px;
+    }
+
+    /* Labels */
+    label{
+        font-size: 2em;
+        color: black;
+    }
+
+    #password, #room-delete, #user-name{
+        font-size: 1.5em;
+        border: 1px solid rgb(14, 14, 14);
+        width: 25rem;
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    /* The eye for the password */
+    .eye1{
+        transform: translate(9.2rem, -11.4rem);
+    }
+
+    /* The eye for the password */
+    .eye2{
+        transform: translate(9.2rem, -5.8rem);
+    }
+
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -2rem;
+    }
+
+    .error-message{
+        width: 26rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(233, 226, 239);
+        font-size: 2rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        background-color: rgb(131, 99, 160);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+
+    }
+
+      /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 45vh;
+        position: relative;
+        top: -270px;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #room-delete, #user-name{
+        font-size: 1.3em;
+        border: 1px solid rgb(14, 14, 14);
+        width: 15rem;
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    /* The eye for the password */
+    .eye1{
+        transform: translate(9.2rem, -11rem);
+    }
+
+    /* The eye for the password */
+    .eye2{
+        transform: translate(9.2rem, -6.2rem);
+    }
+
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -2rem;
+    }
+
+    .error-message{
+        width: 26rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(233, 226, 239);
+        font-size: 2rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        background-color: rgb(131, 99, 160);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+
+    }
+
+      /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 45vh;
+        position: relative;
+        top: -270px;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #room-delete, #user-name{
+        font-size: 1.3em;
+        border: 1px solid rgb(14, 14, 14);
+        width: 15rem;
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    /* The eye for the password */
+    .eye1{
+        transform: translate(9.2rem, -11rem);
+    }
+
+    /* The eye for the password */
+    .eye2{
+        transform: translate(9.2rem, -6.2rem);
+    }
+
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -2rem;
+    }
+
+    .error-message{
+        width: 26rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(233, 226, 239);
+        font-size: 2rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        background-color: rgb(131, 99, 160);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+
+    }
+
+      /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 45vh;
+        position: relative;
+        top: -270px;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #room-delete, #user-name{
+        font-size: 1.3em;
+        border: 1px solid rgb(14, 14, 14);
+        width: 15rem;
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    /* The eye for the password */
+    .eye1{
+        transform: translate(9.2rem, -11rem);
+    }
+
+    /* The eye for the password */
+    .eye2{
+        transform: translate(9.2rem, -6.2rem);
+    }
+
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -2rem;
+    }
+
+    .error-message{
+        width: 26rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(233, 226, 239);
+        font-size: 2rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        background-color: rgb(131, 99, 160);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+
+    }
+
+      /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 45vh;
+        position: relative;
+        top: -270px;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #room-delete, #user-name{
+        font-size: 1.3em;
+        border: 1px solid rgb(14, 14, 14);
+        width: 15rem;
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    /* The eye for the password */
+    .eye1{
+        transform: translate(9.2rem, -11rem);
+    }
+
+    /* The eye for the password */
+    .eye2{
+        transform: translate(9.2rem, -6.2rem);
+    }
+
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -2rem;
+    }
+
+    .error-message{
+        width: 26rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(233, 226, 239);
+        font-size: 2rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        background-color: rgb(131, 99, 160);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+
+    }
+
+      /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 45vh;
+        position: relative;
+        top: -270px;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #room-delete, #user-name{
+        font-size: 1.3em;
+        border: 1px solid rgb(14, 14, 14);
+        width: 15rem;
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    /* The eye for the password */
+    .eye1{
+        transform: translate(9.2rem, -11rem);
+    }
+
+    /* The eye for the password */
+    .eye2{
+        transform: translate(9.2rem, -6.2rem);
+    }
+
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -2rem;
+    }
+
+    .error-message{
+        width: 26rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(233, 226, 239);
+        font-size: 2rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        background-color: rgb(131, 99, 160);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+
+    }
+
+      /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 45vh;
+        position: relative;
+        top: -270px;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #room-delete, #user-name{
+        font-size: 1.3em;
+        border: 1px solid rgb(14, 14, 14);
+        width: 15rem;
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    /* The eye for the password */
+    .eye1{
+        transform: translate(9.2rem, -11rem);
+    }
+
+    /* The eye for the password */
+    .eye2{
+        transform: translate(9.2rem, -6.2rem);
+    }
+
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -2rem;
+    }
+
+    .error-message{
+        width: 26rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(233, 226, 239);
+        font-size: 2rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        background-color: rgb(131, 99, 160);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+
+    }
+
+      /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 45vh;
+        position: relative;
+        top: -270px;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #room-delete, #user-name{
+        font-size: 1.3em;
+        border: 1px solid rgb(14, 14, 14);
+        width: 15rem;
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    /* The eye for the password */
+    .eye1{
+        transform: translate(9.2rem, -11rem);
+    }
+
+    /* The eye for the password */
+    .eye2{
+        transform: translate(9.2rem, -6.2rem);
+    }
+
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -2rem;
+    }
+
+    .error-message{
+        width: 26rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(233, 226, 239);
+        font-size: 2rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        background-color: rgb(131, 99, 160);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+
+    }
+
+      /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 45vh;
+        position: relative;
+        top: -270px;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #room-delete, #user-name{
+        font-size: 1.3em;
+        border: 1px solid rgb(14, 14, 14);
+        width: 15rem;
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    /* The eye for the password */
+    .eye1{
+        transform: translate(9.2rem, -11rem);
+    }
+
+    /* The eye for the password */
+    .eye2{
+        transform: translate(9.2rem, -6.2rem);
+    }
+
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -2rem;
+    }
+
+    .error-message{
+        width: 26rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+}
+
+

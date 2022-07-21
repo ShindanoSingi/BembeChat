@@ -1,55 +1,68 @@
-{% comment %} Add "load static so the stylesheet can be used" {% endcomment %}
+<!-- Add "load static so the stylesheet can be used" -->
 {% load static %}
 
-{% comment %}
-
-I used materialize and fontawesome for styling.
+<!-- I used materialize and fontawesome for styling.
 Source: https://www.um.es/docencia/barzana/materializecss/buttons.html
-        https://fontawesome.com/docs/web/use-with/python-django
+        https://fontawesome.com/docs/web/use-with/python-django -->
 
- {% endcomment %}
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title> {% block title %} {% endblock %}  BembeChat</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="data:;base64,iVBORw0KGgo=">
-        <link rel="stylesheet" href="{% static 'css/base_page.css'%}" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-
-    </head>
+      <head>
+            <meta charset="utf-8">
+            <title> {% block title %} {% endblock %}  BembeChat</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="shortcut icon" href="data:;base64,iVBORw0KGgo=">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+            <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+            <link rel="stylesheet" href="{% static 'css/base_page.css'%}" />
+      </head>
 <body>
-     <nav>
-            <div class="nav-wrapper">
+      <nav id="navbar">
+            <div class="nav-wrapper" id="nav">
                   <a href="/">
-                        <img class="app-logo" src="https://i.imgur.com/bLsbDoC.png" alt="app-logo">
+                        <img class="logo-nav-bar" src="https://i.imgur.com/bLsbDoC.png" alt="app-logo">
                   </a>
-                  <ul class="right hide-on-med-and-down">
-                        {% comment %} check if the user has signed in {% endcomment %}
-                        {% if request.user.is_authenticated %}
-                              <li><a class="waves-effect waves-light btn" id="add-rooms-logout" href="/rooms/new/">Add Room</a></li>
-                              <li><a class="waves-effect waves-light btn" id="add-rooms-logout" href="/rooms/">Rooms</a></li>
-                              <li><a class="waves-effect waves-light btn" id="add-rooms-logout" href="/logout/">Logout</a></li>
-                              <li><a id="texts-in-nav">Logged as: {{user}}</a></li>
-                        {% else %}
-                              <li><a class="waves-effect waves-light btn" href="/signup/">Sign Up</a></li>
-                              <li><a class="waves-effect waves-light btn" href="/login/">Sign In</a></li>
-                        {% endif %}
-                        <li><a href="#"><i class="fa-solid fa-circle-user user-circle"></i></a></li>
-                  </ul>
+                  <!-- <div class="nav-content"> -->
+                        <ul class="right">
+                              <div class="nav-content">
+                                    <!-- check if the user has signed in -->
+                                    {% if request.user.is_authenticated %}
+                                          <div>
+                                                <li><a id="add-room" href="/rooms/new/">Add Room</a></li>
+                                          </div>
+                                          <div>
+                                                <li><a id="rooms"   href="/rooms/">Rooms</a></li>
+                                          </div>
+                                          <div>
+                                                <li><a id="logout"   href="/logout/">Logout</a></li>
+                                          </div>
+                                          <div>
+                                                <li><a id="username">{{user}}</a></li>
+                                          </div>
+                                    {% else %}
+                                          <div>
+                                                <li><a id="signup"  href="/signup/">Sign Up</a></li>
+                                          </div>
+                                          <div>
+                                                <li><a id="signin"  href="/login/">Sign In</a></li>
+                                          </div>
+                                    {% endif %}
+                                    <div>
+                                          <li><a id="user-circle" href="#"><i class="fa-solid fa-circle-user user-circle"></i></a></li>
+                                    </div>
+
+                              </div>
+
+                        </ul>
+                  <!-- </div> -->
             </div>
-     </nav>
+      </nav>
 
-     {% block content %}
-     {% endblock %}
+      {% block content %}
+      {% endblock %}
 
-     {% block scripts %}
-     {% endblock %}
+      {% block scripts %}
+      {% endblock %}
 </body>
-
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </html>

@@ -9,6 +9,9 @@
 
       <html>
       <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="shortcut icon" href="data:;base64,iVBORw0KGgo=">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet">
@@ -19,20 +22,20 @@
       </head>
       <body>
             <div class="form-container">
-                  <h3>What Room are you Joining?</h3>
+                  <h3 id="what-room">What room are you joining?</h3>
                         <div class="form-and-logo">
-                              <div class="form">
-                                    <div>
-                                          <label for="">Enter room name</label><br>
+                              <div id="form">
+                                    <div class="room-name">
+                                          <label for="">Enter Room Name</label><br>
                                           <input type="text" id="room-name-input" placeholder="Enter room name" name="roomName" required=True>
                                     </div>
 
-                                    <div>
+                                    <div class="password">
                                           <label class="label">Enter Password</label><br>
-                                          <input type="password" id="password" placeholder="Password" name="password" required>
+                                          <input type="password" id="password" placeholder="Enter password" name="password" required>
                                     </div>
 
-                              <button class="btn btn-primary sign-up-form-button" onclick={myFunc()}>Submit</button>
+                                    <button class="btn btn-primary sign-up-form-button" onclick={myFunc()}>Submit</button>
                                     <span class="material-icons eye" onclick={showPassword()}>visibility</span>
                               </div>
 
@@ -80,7 +83,7 @@
                               let roomFromDatabase = roomsUsernameArray[i].firstElementChild.childNodes[0].data;
                               let passwordFromDatabase = roomsPasswordsArray[i].href.substring(28, roomsPasswordsArray[i].href.length-1);
                               console.log(roomFromDatabase, passwordFromDatabase)
-                               console.log(userRoomName, userRoomPassword);
+                              console.log(userRoomName, userRoomPassword);
 
                               if((roomFromDatabase === userRoomName) && (passwordFromDatabase === userRoomPassword)) {
                                     // console.log(userRoomName);

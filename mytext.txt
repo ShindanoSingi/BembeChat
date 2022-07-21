@@ -54,7 +54,8 @@ https://testdriven.io/blog/django-channels/
 // formatting in VS Code
 https://betterprogramming.pub/how-to-set-up-vs-code-like-a-pro-in-just-5-minutes-65aaa5788c0d
 
-
+// Web Responsive screen
+https://wholesaleinternetsolutions.wordpress.com/2013/02/08/responsive-design-the-solution-for-all-screen-sizes/
 
 // Check "disable cache" if CSS does not affect HTML
 

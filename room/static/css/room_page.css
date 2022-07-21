@@ -1,15 +1,1772 @@
-/* Room name */
+@media screen and (max-width: 3000px) {
+  /* Room name */
+  .title {
+    text-align: center;
+    color: rgb(205, 220, 235);
+    position: relative;
+    top: -1.5rem;
+    left: 1%;
+    width: 50vw;
+  }
+
+  /* The username used to to figure out who should be able to delete the room */
+  .username{
+    display: none;
+  }
+
+  /* Username and date */
+  .user-name-and-data{
+    display: flex;
+  }
+
+  /* User avatar */
+  .avatar{
+    height: 1rem;
+  }
+
+  .date {
+    font-size: 1.1rem;
+    color: #aaa;
+    transform: translateX(0.5rem);
+  }
+
+  h6{
+    color: white;
+  }
+
+  .username-text {
+    font-size: 1.3rem;
+    color: rgb(183, 178, 178);
+    width: 2rem;
+  }
+
+  .user-icon {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 100rem;
+    color: rgb(162, 157, 157);
+  }
+
+  /* user icon and username */
+  .user {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    top: 0.5rem;
+    margin-right: 3rem;
+  }
+
+  /* All Chat messages container */
+  .chat-messages {
+    justify-content: center;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    max-height: 55rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: -1rem;
+    position: relative;
+    top: 2rem;
+  }
+
+  /* single card */
+  .card2 {
+    color: aliceblue;
+    font-size: 1.3rem;
+    width: 60rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    overflow-wrap: break-word;
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+  }
+
+  /* date-dots-trash */
+  .date-dots-trash{
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    left: 75rem;
+  }
+
+  /* card and person icon */
+  .card-container {
+    display: flex;
+    margin-top: 0.5rem;
+    border: 2px solid #5c80a0;
+    border-radius: 5px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 100rem;
+  }
+
+  /*  input box at the bottom of the page */
+  #chat-message-input {
+    font-size: 1.3rem;
+    color: lightgray;
+    width: 95.8rem;
+    padding: 1rem;
+    color: rgb(23, 33, 207);
+    border-radius: 1rem;
+  }
+
+  /* Send button */
+  .send-button {
+    border-radius: 1rem;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    background-color: rgb(58, 101, 182);
+  }
+
+  /* Message box and send button */
+  .input-and-button {
+    align-items: center;
+    display: flex;
+    gap: 0.2rem;
+    position: relative;
+    left: 1.2rem;
+    top: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Edit and delete button divs. */
+  .edit-room, .delete-room{
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    flex-direction: row;
+    width: auto;
+    background-color: rgb(172, 108, 83);
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    position: relative;
+    top: 1.5rem;
+  }
+
+  /* Edit and delete room icons */
+    .edit-room-icon, .delete-room-icon {
+      font-size: 1.5rem;
+    }
+
+    /* Edit room icons */
+    .edit-room-icon {
+      font-size: 1.7rem;
+    }
+
+  /* Edit and delete room texts*/
+  #edit-room-text, #delete-room-text{
+    font-size: 1.5rem;
+    width: auto;
+  }
+
+  /* Edit and Delete  buttons container*/
+  .editanddeleteroom {
+    margin: 0 auto;
+    position: relative;
+    top: 5.5rem;
+    left: 0rem;
+    display: flex;
+    gap: 78.7rem;
+    justify-content: space-around;
+    visibility: hidden;
+  }
+
+  /* Date, delete and dots */
+  .date-and-delete-buttons {
+    display: flex;
+  }
+
+  /* Edit and delete massage buttons */
+  .delete-message-button {
+    color: lightgray;
+    gap: 2rem;
+    display: flex;
+    text-decoration: none;
+    z-index: -1;
+  }
+
+  /*  Remove decoration from anchors */
+  a {
+    color: lightgray;
+    text-decoration: none;
+  }
+
+  /* three dots */
+  .dots{
+  font-size: 2rem;
+  color: lightgray;
+  }
+
+  .body{
+    display: grid;
+    justify-content: center;
+    /* position: relative;
+    left: 0.3rem; */
+  }
+
+  body {
+    max-height: 100vh;
+    background-color: rgb(2, 9, 60);
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  /* Room name */
+  .title {
+    text-align: center;
+    color: rgb(205, 220, 235);
+    position: relative;
+    top: -1.5rem;
+    left: 12rem;
+    width: 50vw;
+  }
+
+  /* The username used to to figure out who should be able to delete the room */
+  .username{
+    display: none;
+  }
+
+  /* Username and date */
+  .user-name-and-data{
+    display: flex;
+  }
+
+  /* User avatar */
+  .avatar{
+    height: 1rem;
+  }
+
+  .date {
+    font-size: 1.1rem;
+    color: #aaa;
+    transform: translateX(0.5rem);
+  }
+
+  h6{
+    color: white;
+  }
+
+  .username-text {
+    font-size: 1.3rem;
+    color: rgb(183, 178, 178);
+    width: 2rem;
+  }
+
+  .user-icon {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 100rem;
+    color: rgb(162, 157, 157);
+  }
+
+  /* user icon and username */
+  .user {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    top: 0.5rem;
+    margin-right: 3rem;
+  }
+
+  /* All Chat messages container */
+  .chat-messages {
+    justify-content: center;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    max-height: 60rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: -1rem;
+    position: relative;
+    top: 2rem;
+  }
+
+  /* single card */
+  .card2 {
+    color: aliceblue;
+    font-size: 1.3rem;
+    width: 55rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    overflow-wrap: break-word;
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+  }
+
+  /* date-dots-trash */
+  .date-dots-trash{
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    left: 39rem;
+  }
+
+  /* card and person icon */
+  .card-container {
+    display: flex;
+    margin-top: 0.5rem;
+    border: 2px solid #5c80a0;
+    border-radius: 5px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 65rem;
+  }
+
+  /*  input box at the bottom of the page */
+  #chat-message-input {
+    font-size: 1.3rem;
+    color: lightgray;
+    width: 60.8rem;
+    padding: 1rem;
+    color: rgb(23, 33, 207);
+    border-radius: 1rem;
+  }
+
+  /* Send button */
+  .send-button {
+    border-radius: 1rem;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    background-color: rgb(58, 101, 182);
+  }
+
+  /* Message box and send button */
+  .input-and-button {
+    align-items: center;
+    display: flex;
+    gap: 0.2rem;
+    position: relative;
+    left: 1.2rem;
+    top: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Edit and delete button divs. */
+  .edit-room, .delete-room{
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    flex-direction: row;
+    width: auto;
+    background-color: rgb(172, 108, 83);
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    position: relative;
+    top: 1.5rem;
+  }
+
+  /* Edit and delete room icons */
+    .edit-room-icon, .delete-room-icon {
+      font-size: 1.5rem;
+    }
+
+    /* Edit room icons */
+    .edit-room-icon {
+      font-size: 1.7rem;
+    }
+
+  /* Edit and delete room texts*/
+  #edit-room-text, #delete-room-text{
+    font-size: 1.5rem;
+    width: auto;
+  }
+
+  /* Edit and Delete  buttons container*/
+  .editanddeleteroom {
+    margin: 0 auto;
+    position: relative;
+    top: 5.5rem;
+    left: 0rem;
+    display: flex;
+    gap: 43.7rem;
+    justify-content: space-around;
+    visibility: hidden;
+  }
+
+  /* Date, delete and dots */
+  .date-and-delete-buttons {
+    display: flex;
+  }
+
+  /* Edit and delete massage buttons */
+  .delete-message-button {
+    color: lightgray;
+    gap: 2rem;
+    display: flex;
+    text-decoration: none;
+    z-index: -1;
+  }
+
+  /*  Remove decoration from anchors */
+  a {
+    color: lightgray;
+    text-decoration: none;
+  }
+
+  /* three dots */
+  .dots{
+  font-size: 2rem;
+  color: lightgray;
+  }
+
+  .body{
+    display: grid;
+    justify-content: center;
+    /* position: relative;
+    left: 0.3rem; */
+  }
+
+  body {
+    max-height: 100vh;
+    background-color: rgb(2, 9, 60);
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  /* Room name */
+  .title {
+    text-align: center;
+    color: rgb(205, 220, 235);
+    position: relative;
+    top: -1.5rem;
+    left: 12rem;
+    width: 50vw;
+  }
+
+  /* The username used to to figure out who should be able to delete the room */
+  .username{
+    display: none;
+  }
+
+  /* Username and date */
+  .user-name-and-data{
+    display: flex;
+  }
+
+  /* User avatar */
+  .avatar{
+    height: 1rem;
+  }
+
+  .date {
+    font-size: 1.1rem;
+    color: #aaa;
+    transform: translateX(0.5rem);
+  }
+
+  h6{
+    color: white;
+  }
+
+  .username-text {
+    font-size: 1.3rem;
+    color: rgb(183, 178, 178);
+    width: 2rem;
+  }
+
+  .user-icon {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 100rem;
+    color: rgb(162, 157, 157);
+  }
+
+  /* user icon and username */
+  .user {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    top: 0.5rem;
+    margin-right: 3rem;
+  }
+
+  /* All Chat messages container */
+  .chat-messages {
+    justify-content: center;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    max-height: 60rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: -1rem;
+    position: relative;
+    top: 2rem;
+  }
+
+  /* single card */
+  .card2 {
+    color: aliceblue;
+    font-size: 1.3rem;
+    width: 55rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    overflow-wrap: break-word;
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+  }
+
+  /* date-dots-trash */
+  .date-dots-trash{
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    left: 39rem;
+  }
+
+  /* card and person icon */
+  .card-container {
+    display: flex;
+    margin-top: 0.5rem;
+    border: 2px solid #5c80a0;
+    border-radius: 5px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 65rem;
+  }
+
+  /*  input box at the bottom of the page */
+  #chat-message-input {
+    font-size: 1.3rem;
+    color: lightgray;
+    width: 60.8rem;
+    padding: 1rem;
+    color: rgb(23, 33, 207);
+    border-radius: 1rem;
+  }
+
+  /* Send button */
+  .send-button {
+    border-radius: 1rem;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    background-color: rgb(58, 101, 182);
+  }
+
+  /* Message box and send button */
+  .input-and-button {
+    align-items: center;
+    display: flex;
+    gap: 0.2rem;
+    position: relative;
+    left: 1.2rem;
+    top: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Edit and delete button divs. */
+  .edit-room, .delete-room{
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    flex-direction: row;
+    width: auto;
+    background-color: rgb(172, 108, 83);
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    position: relative;
+    top: 1.5rem;
+  }
+
+  /* Edit and delete room icons */
+    .edit-room-icon, .delete-room-icon {
+      font-size: 1.5rem;
+    }
+
+    /* Edit room icons */
+    .edit-room-icon {
+      font-size: 1.7rem;
+    }
+
+  /* Edit and delete room texts*/
+  #edit-room-text, #delete-room-text{
+    font-size: 1.5rem;
+    width: auto;
+  }
+
+  /* Edit and Delete  buttons container*/
+  .editanddeleteroom {
+    margin: 0 auto;
+    position: relative;
+    top: 5.5rem;
+    left: 0rem;
+    display: flex;
+    gap: 43.7rem;
+    justify-content: space-around;
+    visibility: hidden;
+  }
+
+  /* Date, delete and dots */
+  .date-and-delete-buttons {
+    display: flex;
+  }
+
+  /* Edit and delete massage buttons */
+  .delete-message-button {
+    color: lightgray;
+    gap: 2rem;
+    display: flex;
+    text-decoration: none;
+    z-index: -1;
+  }
+
+  /*  Remove decoration from anchors */
+  a {
+    color: lightgray;
+    text-decoration: none;
+  }
+
+  /* three dots */
+  .dots{
+  font-size: 2rem;
+  color: lightgray;
+  }
+
+  .body{
+    display: grid;
+    justify-content: center;
+    /* position: relative;
+    left: 0.3rem; */
+  }
+
+  body {
+    max-height: 100vh;
+    background-color: rgb(2, 9, 60);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  /* Room name */
+  .title {
+    text-align: center;
+    color: rgb(205, 220, 235);
+    position: relative;
+    top: -1.5rem;
+    left: 12rem;
+    width: 50vw;
+  }
+
+  /* The username used to to figure out who should be able to delete the room */
+  .username{
+    display: none;
+  }
+
+  /* Username and date */
+  .user-name-and-data{
+    display: flex;
+  }
+
+  /* User avatar */
+  .avatar{
+    height: 1rem;
+  }
+
+  .date {
+    font-size: 1.1rem;
+    color: #aaa;
+    transform: translateX(0.5rem);
+  }
+
+  h6{
+    color: white;
+  }
+
+  .username-text {
+    font-size: 1.3rem;
+    color: rgb(183, 178, 178);
+    width: 2rem;
+  }
+
+  .user-icon {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 100rem;
+    color: rgb(162, 157, 157);
+  }
+
+  /* user icon and username */
+  .user {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    top: 0.5rem;
+    margin-right: 3rem;
+  }
+
+  /* All Chat messages container */
+  .chat-messages {
+    justify-content: center;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    max-height: 60rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: -1rem;
+    position: relative;
+    top: 2rem;
+  }
+
+  /* single card */
+  .card2 {
+    color: aliceblue;
+    font-size: 1.3rem;
+    width: 55rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    overflow-wrap: break-word;
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+  }
+
+  /* date-dots-trash */
+  .date-dots-trash{
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    left: 39rem;
+  }
+
+  /* card and person icon */
+  .card-container {
+    display: flex;
+    margin-top: 0.5rem;
+    border: 2px solid #5c80a0;
+    border-radius: 5px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 65rem;
+  }
+
+  /*  input box at the bottom of the page */
+  #chat-message-input {
+    font-size: 1.3rem;
+    color: lightgray;
+    width: 60.8rem;
+    padding: 1rem;
+    color: rgb(23, 33, 207);
+    border-radius: 1rem;
+  }
+
+  /* Send button */
+  .send-button {
+    border-radius: 1rem;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    background-color: rgb(58, 101, 182);
+  }
+
+  /* Message box and send button */
+  .input-and-button {
+    align-items: center;
+    display: flex;
+    gap: 0.2rem;
+    position: relative;
+    left: 1.2rem;
+    top: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Edit and delete button divs. */
+  .edit-room, .delete-room{
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    flex-direction: row;
+    width: auto;
+    background-color: rgb(172, 108, 83);
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    position: relative;
+    top: 1.5rem;
+  }
+
+  /* Edit and delete room icons */
+    .edit-room-icon, .delete-room-icon {
+      font-size: 1.5rem;
+    }
+
+    /* Edit room icons */
+    .edit-room-icon {
+      font-size: 1.7rem;
+    }
+
+  /* Edit and delete room texts*/
+  #edit-room-text, #delete-room-text{
+    font-size: 1.5rem;
+    width: auto;
+  }
+
+  /* Edit and Delete  buttons container*/
+  .editanddeleteroom {
+    margin: 0 auto;
+    position: relative;
+    top: 5.5rem;
+    left: 0rem;
+    display: flex;
+    gap: 43.7rem;
+    justify-content: space-around;
+    visibility: hidden;
+  }
+
+  /* Date, delete and dots */
+  .date-and-delete-buttons {
+    display: flex;
+  }
+
+  /* Edit and delete massage buttons */
+  .delete-message-button {
+    color: lightgray;
+    gap: 2rem;
+    display: flex;
+    text-decoration: none;
+    z-index: -1;
+  }
+
+  /*  Remove decoration from anchors */
+  a {
+    color: lightgray;
+    text-decoration: none;
+  }
+
+  /* three dots */
+  .dots{
+  font-size: 2rem;
+  color: lightgray;
+  }
+
+  .body{
+    display: grid;
+    justify-content: center;
+    /* position: relative;
+    left: 0.3rem; */
+  }
+
+  body {
+    max-height: 100vh;
+    background-color: rgb(2, 9, 60);
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  /* Room name */
+  .title {
+    text-align: center;
+    color: rgb(205, 220, 235);
+    position: relative;
+    top: -1.5rem;
+    left: 17rem;
+    width: 50vw;
+  }
+
+  /* The username used to to figure out who should be able to delete the room */
+  .username{
+    display: none;
+  }
+
+  /* Username and date */
+  .user-name-and-data{
+    display: flex;
+  }
+
+  /* User avatar */
+  .avatar{
+    height: 1rem;
+  }
+
+  .date {
+    font-size: 1.1rem;
+    color: #aaa;
+    transform: translateX(0.5rem);
+  }
+
+  h6{
+    color: white;
+  }
+
+  .username-text {
+    font-size: 1.3rem;
+    color: rgb(183, 178, 178);
+    width: 2rem;
+  }
+
+  .user-icon {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 100rem;
+    color: rgb(162, 157, 157);
+  }
+
+  /* user icon and username */
+  .user {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    top: 0.5rem;
+    margin-right: 3rem;
+  }
+
+  /* All Chat messages container */
+  .chat-messages {
+    justify-content: center;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    max-height: 60rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: -1rem;
+    position: relative;
+    top: 2rem;
+  }
+
+  /* single card */
+  .card2 {
+    color: aliceblue;
+    font-size: 1.3rem;
+    width: 55rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    overflow-wrap: break-word;
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+  }
+
+  /* date-dots-trash */
+  .date-dots-trash{
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    left: 39rem;
+  }
+
+  /* card and person icon */
+  .card-container {
+    display: flex;
+    margin-top: 0.5rem;
+    border: 2px solid #5c80a0;
+    border-radius: 5px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 65rem;
+  }
+
+  /*  input box at the bottom of the page */
+  #chat-message-input {
+    font-size: 1.3rem;
+    color: lightgray;
+    width: 60.8rem;
+    padding: 1rem;
+    color: rgb(23, 33, 207);
+    border-radius: 1rem;
+  }
+
+  /* Send button */
+  .send-button {
+    border-radius: 1rem;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    background-color: rgb(58, 101, 182);
+  }
+
+  /* Message box and send button */
+  .input-and-button {
+    align-items: center;
+    display: flex;
+    gap: 0.2rem;
+    position: relative;
+    left: 1.2rem;
+    top: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Edit and delete button divs. */
+  .edit-room, .delete-room{
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    flex-direction: row;
+    width: auto;
+    background-color: rgb(172, 108, 83);
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    position: relative;
+    top: 1.5rem;
+  }
+
+  /* Edit and delete room icons */
+    .edit-room-icon, .delete-room-icon {
+      font-size: 1.5rem;
+    }
+
+    /* Edit room icons */
+    .edit-room-icon {
+      font-size: 1.7rem;
+    }
+
+  /* Edit and delete room texts*/
+  #edit-room-text, #delete-room-text{
+    font-size: 1.5rem;
+    width: auto;
+  }
+
+  /* Edit and Delete  buttons container*/
+  .editanddeleteroom {
+    margin: 0 auto;
+    position: relative;
+    top: 5.5rem;
+    left: -0.7rem;
+    display: flex;
+    gap: 40rem;
+    justify-content: space-around;
+    visibility: hidden;
+  }
+
+  /* Date, delete and dots */
+  .date-and-delete-buttons {
+    display: flex;
+  }
+
+  /* Edit and delete massage buttons */
+  .delete-message-button {
+    color: lightgray;
+    gap: 2rem;
+    display: flex;
+    text-decoration: none;
+    z-index: -1;
+  }
+
+  /*  Remove decoration from anchors */
+  a {
+    color: lightgray;
+    text-decoration: none;
+  }
+
+  /* three dots */
+  .dots{
+  font-size: 2rem;
+  color: lightgray;
+  }
+
+  .body{
+    display: grid;
+    justify-content: center;
+    /* position: relative;
+    left: 0.3rem; */
+  }
+
+  body {
+    max-height: 100vh;
+    background-color: rgb(2, 9, 60);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  /* Room name */
+  .title {
+    text-align: center;
+    color: rgb(205, 220, 235);
+    position: relative;
+    top: -1.5rem;
+    left: 17rem;
+    width: 50vw;
+  }
+
+  /* The username used to to figure out who should be able to delete the room */
+  .username{
+    display: none;
+  }
+
+  /* Username and date */
+  .user-name-and-data{
+    display: flex;
+  }
+
+  /* User avatar */
+  .avatar{
+    height: 1rem;
+  }
+
+  .date {
+    font-size: 1.1rem;
+    color: #aaa;
+    transform: translateX(0.5rem);
+  }
+
+  h6{
+    color: white;
+  }
+
+  .username-text {
+    font-size: 1.3rem;
+    color: rgb(183, 178, 178);
+    width: 2rem;
+  }
+
+  .user-icon {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 100rem;
+    color: rgb(162, 157, 157);
+  }
+
+  /* user icon and username */
+  .user {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    top: 0.5rem;
+    margin-right: 3rem;
+  }
+
+  /* All Chat messages container */
+  .chat-messages {
+    justify-content: center;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    max-height: 65rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: -1rem;
+    position: relative;
+    top: 2rem;
+  }
+
+  /* single card */
+  .card2 {
+    color: aliceblue;
+    font-size: 1.3rem;
+    width: 55rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    overflow-wrap: break-word;
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+  }
+
+  /* date-dots-trash */
+  .date-dots-trash{
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    left: 39rem;
+  }
+
+  /* card and person icon */
+  .card-container {
+    display: flex;
+    margin-top: 0.5rem;
+    border: 2px solid #5c80a0;
+    border-radius: 5px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 65rem;
+  }
+
+  /*  input box at the bottom of the page */
+  #chat-message-input {
+    font-size: 1.3rem;
+    color: lightgray;
+    width: 60.8rem;
+    padding: 1rem;
+    color: rgb(23, 33, 207);
+    border-radius: 1rem;
+  }
+
+  /* Send button */
+  .send-button {
+    border-radius: 1rem;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    background-color: rgb(58, 101, 182);
+  }
+
+  /* Message box and send button */
+  .input-and-button {
+    align-items: center;
+    display: flex;
+    gap: 0.2rem;
+    position: relative;
+    left: 1.2rem;
+    top: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Edit and delete button divs. */
+  .edit-room, .delete-room{
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    flex-direction: row;
+    width: auto;
+    background-color: rgb(172, 108, 83);
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    position: relative;
+    top: 1.5rem;
+  }
+
+  /* Edit and delete room icons */
+    .edit-room-icon, .delete-room-icon {
+      font-size: 1.5rem;
+    }
+
+    /* Edit room icons */
+    .edit-room-icon {
+      font-size: 1.7rem;
+    }
+
+  /* Edit and delete room texts*/
+  #edit-room-text, #delete-room-text{
+    font-size: 1.5rem;
+    width: auto;
+  }
+
+  /* Edit and Delete  buttons container*/
+  .editanddeleteroom {
+    margin: 0 auto;
+    position: relative;
+    top: 5.5rem;
+    left: 0.1rem;
+    display: flex;
+    gap: 43.8rem;
+    justify-content: space-around;
+    visibility: hidden;
+  }
+
+  /* Date, delete and dots */
+  .date-and-delete-buttons {
+    display: flex;
+  }
+
+  /* Edit and delete massage buttons */
+  .delete-message-button {
+    color: lightgray;
+    gap: 2rem;
+    display: flex;
+    text-decoration: none;
+    z-index: -1;
+  }
+
+  /*  Remove decoration from anchors */
+  a {
+    color: lightgray;
+    text-decoration: none;
+  }
+
+  /* three dots */
+  .dots{
+  font-size: 2rem;
+  color: lightgray;
+  }
+
+  .body{
+    display: grid;
+    justify-content: center;
+  }
+
+  body {
+    max-height: 100vh;
+    background-color: rgb(2, 9, 60);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  /* Room name */
+  .title {
+    text-align: center;
+    color: rgb(205, 220, 235);
+    position: relative;
+    top: -1.5rem;
+    left: 12rem;
+    width: 50vw;
+  }
+
+  /* The username used to to figure out who should be able to delete the room */
+  .username{
+    display: none;
+  }
+
+  /* Username and date */
+  .user-name-and-data{
+    display: flex;
+  }
+
+  /* User avatar */
+  .avatar{
+    height: 1rem;
+  }
+
+  .date {
+    font-size: 1.1rem;
+    color: #aaa;
+    transform: translateX(0.5rem);
+  }
+
+  h6{
+    color: white;
+  }
+
+  .username-text {
+    font-size: 1.3rem;
+    color: rgb(183, 178, 178);
+    width: 2rem;
+  }
+
+  .user-icon {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 100rem;
+    color: rgb(162, 157, 157);
+  }
+
+  /* user icon and username */
+  .user {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    top: 0.5rem;
+    margin-right: 3rem;
+  }
+
+  /* All Chat messages container */
+  .chat-messages {
+    justify-content: center;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    max-height: 67rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: -1rem;
+    position: relative;
+    top: 2rem;
+  }
+
+  /* single card */
+  .card2 {
+    color: aliceblue;
+    font-size: 1.3rem;
+    width: 47rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    overflow-wrap: break-word;
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+  }
+
+  /* date-dots-trash */
+  .date-dots-trash{
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    left: 30rem;
+  }
+
+  /* card and person icon */
+  .card-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 0.5rem;
+    border: 2px solid #5c80a0;
+    border-radius: 5px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 55rem;
+  }
+
+  /*  input box at the bottom of the page */
+  #chat-message-input {
+    font-size: 1.3rem;
+    color: lightgray;
+    width: 51.5rem;
+    padding: 1rem;
+    color: rgb(23, 33, 207);
+    border-radius: 1rem;
+  }
+
+  /* Send button */
+  .send-button {
+    border-radius: 1rem;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    background-color: rgb(58, 101, 182);
+  }
+
+  /* Message box and send button */
+  .input-and-button {
+    align-items: center;
+    display: flex;
+    gap: 0.2rem;
+    position: relative;
+    left: 1.2rem;
+    top: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Edit and delete button divs. */
+  .edit-room, .delete-room{
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    flex-direction: row;
+    width: auto;
+    background-color: rgb(172, 108, 83);
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    position: relative;
+    top: 1.5rem;
+  }
+
+  /* Edit and delete room icons */
+    .edit-room-icon, .delete-room-icon {
+      font-size: 1.5rem;
+    }
+
+    /* Edit room icons */
+    .edit-room-icon {
+      font-size: 1.5rem;
+    }
+
+  /* Edit and delete room texts*/
+  #edit-room-text, #delete-room-text{
+    font-size: 1.5rem;
+    width: auto;
+  }
+
+   /* Edit and Delete  buttons container*/
+   .editanddeleteroom {
+    margin: 0 auto;
+    position: relative;
+    top: 5.5rem;
+    left: -0.1rem;
+    display: flex;
+    gap: 32rem;
+    justify-content: space-around;
+    visibility: hidden;
+  }
+
+  /* Date, delete and dots */
+  .date-and-delete-buttons {
+    display: flex;
+  }
+
+  /* Edit and delete massage buttons */
+  .delete-message-button {
+    color: lightgray;
+    gap: 2rem;
+    display: flex;
+    text-decoration: none;
+    z-index: -1;
+  }
+
+  /*  Remove decoration from anchors */
+  a {
+    color: lightgray;
+    text-decoration: none;
+  }
+
+  /* three dots */
+  .dots{
+  font-size: 2rem;
+  color: lightgray;
+  }
+
+  .body{
+    position: relative;
+    left: 0.01rem;
+  }
+
+  body {
+    max-height: 100vh;
+    background-color: rgb(2, 9, 60);
+  }
+}
+
+
+@media screen and (max-width: 720px) {
+  /* Room name */
+  .title {
+    text-align: center;
+    color: rgb(205, 220, 235);
+    position: relative;
+    top: -1.5rem;
+    left: 12rem;
+    width: 50vw;
+  }
+
+  /* The username used to to figure out who should be able to delete the room */
+  .username{
+    display: none;
+  }
+
+  /* Username and date */
+  .user-name-and-data{
+    display: flex;
+  }
+
+  /* User avatar */
+  .avatar{
+    height: 1rem;
+  }
+
+  .date {
+    font-size: 1.1rem;
+    color: #aaa;
+    transform: translateX(0.5rem);
+  }
+
+  h6{
+    color: white;
+  }
+
+  .username-text {
+    font-size: 1.3rem;
+    color: rgb(183, 178, 178);
+    width: 2rem;
+  }
+
+  .user-icon {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 100rem;
+    color: rgb(162, 157, 157);
+  }
+
+  /* user icon and username */
+  .user {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    top: 0.5rem;
+    margin-right: 3rem;
+  }
+
+  /* All Chat messages container */
+  .chat-messages {
+    justify-content: center;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    max-height: 67rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: -1rem;
+    position: relative;
+    top: 2rem;
+  }
+
+  /* single card */
+  .card2 {
+    color: aliceblue;
+    font-size: 1.3rem;
+    width: 40rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    overflow-wrap: break-word;
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+  }
+
+  /* date-dots-trash */
+  .date-dots-trash{
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    left: 24rem;
+  }
+
+  /* card and person icon */
+  .card-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 0.5rem;
+    border: 2px solid #5c80a0;
+    border-radius: 5px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 49.3rem;
+  }
+
+  /*  input box at the bottom of the page */
+  #chat-message-input {
+    font-size: 1.3rem;
+    color: lightgray;
+    width: 45rem;
+    padding: 1rem;
+    color: rgb(23, 33, 207);
+    border-radius: 1rem;
+  }
+
+  /* Send button */
+  .send-button {
+    border-radius: 1rem;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    background-color: rgb(58, 101, 182);
+  }
+
+  /* Message box and send button */
+  .input-and-button {
+    align-items: center;
+    display: flex;
+    gap: 0.2rem;
+    position: relative;
+    left: 1.2rem;
+    top: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Edit and delete button divs. */
+  .edit-room, .delete-room{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    width: auto;
+    background-color: rgb(172, 108, 83);
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    position: relative;
+    top: 1.5rem;
+  }
+
+  /* Edit and delete room icons */
+    .edit-room-icon, .delete-room-icon {
+      font-size: 1.2rem;
+    }
+
+    /* Edit room icons */
+    .edit-room-icon {
+      font-size: 1.5rem;
+    }
+
+  /* Edit and delete room texts*/
+  #edit-room-text, #delete-room-text{
+    font-size: 1.2rem;
+    width: 8rem;
+  }
+
+  /* Edit and Delete  buttons container*/
+  .editAndDeleteRoom {
+    margin: 0 auto;
+    position: relative;
+    top: 5.5rem;
+    gap: 55.5vw;
+    left: 2.2vw;
+    top: 5rem;
+    display: flex;
+    visibility: hidden;
+  }
+
+  /* Date, delete and dots */
+  .date-and-delete-buttons {
+    display: flex;
+  }
+
+  /* Edit and delete massage buttons */
+  .delete-message-button {
+    color: lightgray;
+    gap: 2rem;
+    display: flex;
+    text-decoration: none;
+    z-index: -1;
+  }
+
+  /*  Remove decoration from anchors */
+  a {
+    color: lightgray;
+    text-decoration: none;
+  }
+
+  /* three dots */
+  .dots{
+  font-size: 2rem;
+  color: lightgray;
+  }
+
+  body {
+    max-height: 100vh;
+    background-color: rgb(2, 9, 60);
+  }
+}
+
+@media screen and (max-width: 480px){
+  /* Room name */
 .title {
-  font-size: 3rem;
   text-align: center;
   color: rgb(205, 220, 235);
   position: relative;
-  top: -2rem;
+  top: -1.5rem;
+  left: 9rem;
+  width: 50vw;
 }
 
-/* .username{
+/* The username used to to figure out who should be able to delete the room */
+.username{
   display: none;
-} */
+}
 
 /* Username and date */
 .user-name-and-data{
@@ -24,6 +1781,7 @@
 .date {
   font-size: 1.1rem;
   color: #aaa;
+  transform: translateX(0.5rem);
 }
 
 h6{
@@ -47,29 +1805,10 @@ h6{
   color: rgb(162, 157, 157);
 }
 
-/*  input box at the bottom of the page */
-#chat-message-input {
-  font-size: 1.3rem;
-  color: lightgray;
-  width: 54rem;
-  padding: 1rem;
-  color: rgb(23, 33, 207);
-  border-radius: 1rem;
-}
-
-/* card and date */
-/* .card-and-date {
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  display: flex;
-} */
-
 /* user icon and username */
 .user {
   justify-content: center;
   align-items: center;
-  /* width:5rem; */
   flex-direction: column;
   display: flex;
   position: relative;
@@ -77,107 +1816,125 @@ h6{
   margin-right: 3rem;
 }
 
-button {
-  border-radius: 1rem;
-}
-
-.send-button {
-  font-size: 2.5rem;
-  padding: 0.5rem;
-  background-color: rgb(58, 101, 182);
-}
-
 /* All Chat messages container */
 .chat-messages {
   justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  margin-top: 3rem;
   border-radius: 1rem;
   padding: 0 1rem;
-  max-height: 68vh;
+  max-height: 75vh;
   overflow-y: auto;
   overflow-x: hidden;
-  width: 60rem;
   padding-top: -1rem;
+  position: relative;
+  top: 0rem;
 }
 
 /* single card */
 .card2 {
   color: aliceblue;
   font-size: 1.3rem;
-  width: 50rem;
+  width: 25rem;
   border-radius: 1rem;
   padding: 0.5rem;
   overflow-wrap: break-word;
   position: relative;
   top: -1rem;
-  left: -0.4rem;
 }
 
 /* date-dots-trash */
 .date-dots-trash{
   display: flex;
   gap: 1rem;
+  position: relative;
+  left: 8rem;
 }
 
 /* card and person icon */
 .card-container {
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   display: flex;
-  gap: 1rem;
-  margin-top: 0.3rem;
-}
-
-/* The entire card */
-#card-container {
+  margin-top: 0.5rem;
   border: 2px solid #5c80a0;
   border-radius: 5px;
   padding: 0.5rem;
-  margin: 10px 0;
+  border-radius: 5px;
+  padding-right: 0.5rem;
+  width: 32.2rem;
 }
 
+/*  input box at the bottom of the page */
+#chat-message-input {
+  font-size: 1.3rem;
+  color: lightgray;
+  width: 28rem;
+  padding: 1rem;
+  color: rgb(23, 33, 207);
+  border-radius: 1rem;
+}
+
+/* Send button */
+.send-button {
+  border-radius: 1rem;
+  font-size: 2.5rem;
+  padding: 0.5rem;
+  background-color: rgb(58, 101, 182);
+}
+
+/* Message box and send button */
 .input-and-button {
-  justify-content: center;
-  gap: 0.2rem;
-  display: flex;
-    width:100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    margin-bottom: 2rem;
-}
-
-.body {
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   display: flex;
+  gap: 0.2rem;
+  position: relative;
+  left: 1.2rem;
+  top: 1rem;
+  margin-top: 1rem;
+}
+
+/* Edit and delete button divs. */
+.edit-room, .delete-room{
+  display: flex;
+  align-items: baseline;
+  flex-direction: row;
+  width: auto;
+  background-color: rgb(172, 108, 83);
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+}
+
+/* Edit and delete room icons */
+  .edit-room-icon, .delete-room-icon {
+    font-size: 1.2rem;
+  }
+
+  /* Edit room icons */
+  .edit-room-icon {
+    font-size: 1.5rem;
+  }
+
+/* Edit and delete room texts*/
+#edit-room-text, #delete-room-text{
+  font-size: 1.2rem;
+  width: 8rem;
 }
 
 /* Edit and Delete  buttons container*/
 .editAndDeleteRoom {
+  margin: 0 auto;
   position: relative;
-  top: 5.5rem;
-  gap: 40rem;
+  top: 6.2rem;
+  gap: 33vw;
+  left: 3.5vw;
   display: flex;
   visibility: hidden;
-}
-
-.edit-room, .delete-room{
-  background-color: rgb(172, 108, 83);
-  padding: 0.2rem;
-  border-radius: 0.2rem;
-  float: left;
+  margin-bottom: 2rem;
 }
 
 /* Date, delete and dots */
 .date-and-delete-buttons {
   display: flex;
-  gap: 32.5rem;
 }
-
 
 /* Edit and delete massage buttons */
 .delete-message-button {
@@ -188,11 +1945,7 @@ button {
   z-index: -1;
 }
 
-/* Edit message button */
-.edit-message {
-  color: lightgray;
-}
-
+/*  Remove decoration from anchors */
 a {
   color: lightgray;
   text-decoration: none;
@@ -205,5 +1958,8 @@ color: lightgray;
 }
 
 body {
+  max-height: 100vh;
   background-color: rgb(2, 9, 60);
 }
+}
+

@@ -19,9 +19,16 @@
             <body>
                   <div class="body">
                         <div class="editAndDeleteRoom">
-                              <a href="{% url 'room_update' slug=room.slug %}" id="@applicant.Id" class="btn btn-outline purple-sharp edit-room  uppercase     delete-confirmation" data-btn-ok-label="Bəli"  data-toggle="confirmation"  data-placement="bottom" data-original-title="" title="Are you sure?" aria-describedby="confirmation64993">
-                              <i class="fa fa-pencil" ></i> Edit Room</a>
-                              <a href="{% url 'room_delete' slug=room.slug %}" id="@applicant.Id"  class="btn btn-outline purple-sharp delete-room  uppercase delete-confirmation" data-btn-ok-label="Bəli"  data-toggle="confirmation"  data-placement="right" data-original-title="" title="Are you sure?" aria-describedby="confirmation64993"><i class="fa fa-trash" ></i> Delete Room</a>
+                              <div class="edit-room">
+                                    <i class="fa fa-pencil edit-room-icon"></i>
+                                    <a id="edit-room-text" href="{% url 'room_update' slug=room.slug %}">Edit Room</a>
+                              </div>
+
+                              <div class="delete-room">
+                                    <i class="fa fa-trash delete-room-icon"></i>
+                                    <a id="delete-room-text" href="{% url 'room_delete' slug=room.slug %}">Delete Room</a>
+                              </div>
+
                         </div>
                         <h2>{{name}}</h2>
                         <h1 class="title">Room: {{ room.name }}</h1>
@@ -49,7 +56,7 @@
                                     {% endif %}
                               {% endfor %}
                         </div>
-                  </div>
+
                   <form method="post" action="." enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="input-and-button">
@@ -61,7 +68,8 @@
                         </div>
                   </form>
             </body>
-      </html>
+      </div>
+</html>
 
 {% endblock %}
 
@@ -283,17 +291,18 @@
 
 
       // Grab the user name in the nav bar
-      let pageUsername = document.getElementById ('texts-in-nav').innerHTML;
-      // console.log(pageUsername);
+      let pageUsername = document.getElementById ('username').innerHTML;
+      console.log(pageUsername);
 
       // Grab all usernames in chats cards_container
       let allChatsUsernames = document.getElementsByClassName('username-text')
       // console.log(allChatsUsernames);
 
-      // Grab all transh buttons in in HTML
+      // Grab all dots
       let allDots = document.getElementsByClassName('dots')
-      //console.log(allDots);
+      console.log(allDots);
 
+      // Grab all transh buttons in in HTML
       let allTrashButtons = document.getElementsByClassName('trash-button')
 
       // loop through all usernames in chats cards_container, and only enable cards that have usernames matching to the one in the nav bar.
@@ -304,35 +313,33 @@
 
                   // Grab all ancesters/cards that have usernames matching to the one in the nav bar.
                   // allChatsUsernames[i].closest('#card-container').style.backgroundColor = 'red';
-                //  allChatsUsernames[i].closest('#card-container').addEventListener('mouseover', function() {
-                        allDots[i].addEventListener('click', function() {
-                              // console.log( allDots[i]);
-                              allTrashButtons[i].style.zIndex = 1;
-                              setTimeout(hideTrash, 2000);
-                        });
+                  // allChatsUsernames[i].closest('#card-container').addEventListener('mouseover', function() {
+                  allDots[i].addEventListener('click', function() {
+                        // console.log( allDots[i]);
+                        allTrashButtons[i].style.zIndex = 1;
+                        setTimeout(hideTrash, 2000);
+                  });
 
-                        allDots[i].addEventListener('mouseover', function() {
-                              allDots[i].style.color = 'red';
-                              setTimeout(resetDotsColor, 1500);
-                        });
+                  allDots[i].addEventListener('mouseover', function() {
+                        allDots[i].style.color = 'red';
+                        setTimeout(resetDotsColor, 1500);
+                  });
 
-
-
-                        // Declare a function that changes the trash button color to original one
-                        function hideTrash() {
-                              allTrashButtons[i].style.zIndex = -1;
-                        }
+                  // Declare a function that changes the trash button color to original one
+                  function hideTrash() {
+                        allTrashButtons[i].style.zIndex = -1;
+                  }
 
 
-                        // Declare a function that resets dots' color
-                        function resetDotsColor() {
-                              allDots[i].style.color = 'lightgray';
-                        }
+                  // Declare a function that resets dots' color
+                  function resetDotsColor() {
+                        allDots[i].style.color = 'lightgray';
+                  }
                   }
 
             else{
                   console.log(`${pageUsername} has not written any messages yet.`)
-                  }
+            }
             // console.log(document.getElementsByTagName("*"))
       }
 
