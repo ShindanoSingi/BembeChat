@@ -100,6 +100,9 @@ class MessageDelete(DeleteView):
       # success_url = '/rooms/password/'
       success_url = '/rooms/'
 
+      def get(self, request, *args, **kwargs):
+            return self.post(request, *args, **kwargs)
+
 def current_datetime(request):
       now = datetime.datetime.now()
       online = Profile.objects.get(is_online=True)

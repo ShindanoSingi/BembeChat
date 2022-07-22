@@ -67,10 +67,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'channels',
     'bembechat',
-    # 'material',
-    # 'fontawesomefree',
+    'material',
+    'fontawesomefree',
     'room',
-    # 'widget_tweaks',
+    'widget_tweaks',
     # 'online_users',
     'corsheaders',
 ]
