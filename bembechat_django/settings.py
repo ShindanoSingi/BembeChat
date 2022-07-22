@@ -73,7 +73,6 @@ INSTALLED_APPS = [
     # 'widget_tweaks',
     # 'online_users',
     'corsheaders',
-    'backports',
 ]
 
 MIDDLEWARE = [
