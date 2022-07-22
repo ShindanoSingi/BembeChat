@@ -1,4 +1,4 @@
-from turtle import up
+# from turtle import up
 from django.contrib.auth.models import User
 from django.db import connections, models
 from django.urls import reverse
