@@ -70,8 +70,8 @@ INSTALLED_APPS = [
     # 'material',
     # 'fontawesomefree',
     'room',
-    'widget_tweaks',
-    'online_users',
+    # 'widget_tweaks',
+    # 'online_users',
     'corsheaders',
 ]
 
