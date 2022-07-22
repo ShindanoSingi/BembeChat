@@ -1,0 +1,1302 @@
+
+@media screen and (max-width: 3000px) {
+      div.single-room {
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 20rem;
+            border-radius: 0.5rem;
+            position: relative;
+            top: -13rem;
+            display: none;
+      }
+
+      .room-name {
+            font-size: 1.5rem;
+      }
+
+      /* What room are you joining? */
+      #what-room{
+            text-align: center;
+            color:beige;
+            margin: 0 auto;
+            font-size: 2rem;
+            transform: translateY(1rem);
+      }
+
+      #join {
+            font-size: 1.5rem;
+            background-color: rgb(92, 128, 0);
+            margin: 0 auto;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            width: 10rem;
+            color: antiquewhite;
+            text-align: center;
+      }
+
+      /*  remove style from anchor tags */
+      a{
+            color: blanchedalmond;
+            text-decoration: none;
+      }
+
+      .rooms-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            margin: 0 1rem;
+      }
+
+      /* Join text below the join div */
+      .join-text{
+            font-size: 1rem;
+            text-align: center;
+      }
+
+      /* Labels on the form */
+      label{
+            font-size: 1.2rem;
+            color: white;
+      }
+
+
+      /* Room name input */
+      #room-name-input, #password{
+            font-size: 1.2rem;
+            color: white;
+            width: 15rem;
+            padding: .5rem;
+            background-color: rgb(77, 77, 9);
+      }
+
+      /* div containing the username from the database */
+      .h2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+      }
+
+      /* Eye */
+      .eye{
+            font-size: 1.7rem;
+            position: relative;
+            top: -6.4rem;
+            left: 6rem;
+            color: rgb(161, 161, 16);
+      }
+
+      #form{
+            margin: 0 auto;
+            background-color: rgb(50, 93, 150);
+            width: fit-content;
+            height: 20rem;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            position: relative;
+            top: 47vh;
+            margin-top: -15rem;
+            border-radius: 1rem;
+            transform: translateY(-10rem);
+            border: 5px solid rgb(7, 7, 7);
+            z-index: 1;
+      }
+
+      /* submit button */
+      .btn{
+            font-size: 1rem;
+            padding: 0.5rem;
+            transform: translateY(1rem);
+      }
+
+      /* form and title */
+      .form-container{
+            margin: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+      }
+
+      /* App logo */
+      #app-logo{
+            /* margin: 2rem; */
+            height: 40rem;
+            position: relative;
+            top: 37vh;
+            margin-top: -465px;
+      }
+
+        /* Form and the app logo */
+      .form-and-logo{
+            margin: 0 auto;
+            position: relative;
+            top: 15rem;
+      }
+
+      body {
+            background-color: rgb(2, 9, 60);
+      }
+}
+
+
+@media screen and (max-width: 1440px) {
+      div.single-room {
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 20rem;
+            border-radius: 0.5rem;
+            position: relative;
+            top: -13rem;
+            display: none;
+      }
+
+      .room-name {
+            font-size: 1.5rem;
+      }
+
+      /* What room are you joining? */
+      #what-room{
+            text-align: center;
+            color:beige;
+            margin: 0 auto;
+            font-size: 2rem;
+            transform: translateY(-0.5rem);
+      }
+
+      #join {
+            font-size: 1.5rem;
+            background-color: rgb(92, 128, 0);
+            margin: 0 auto;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            width: 10rem;
+            color: antiquewhite;
+            text-align: center;
+      }
+
+      /*  remove style from anchor tags */
+      a{
+            color: blanchedalmond;
+            text-decoration: none;
+      }
+
+      .rooms-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            margin: 0 1rem;
+      }
+
+      /* Join text below the join div */
+      .join-text{
+            font-size: 1rem;
+            text-align: center;
+      }
+
+      /* Labels on the form */
+      label{
+            font-size: 1.2rem;
+            color: white;
+      }
+
+
+      /* Room name input */
+      #room-name-input, #password{
+            font-size: 1.2rem;
+            color: white;
+            width: 15rem;
+            padding: .5rem;
+            background-color: rgb(77, 77, 9);
+      }
+
+      /* div containing the username from the database */
+      .h2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+      }
+
+      /* Eye */
+      .eye{
+            font-size: 1.7rem;
+            position: relative;
+            top: -6.7rem;
+            left: 6rem;
+            color: rgb(161, 161, 16);
+      }
+
+      #form{
+            margin: 0 auto;
+            background-color: rgb(50, 93, 150);
+            width: fit-content;
+            height: 20rem;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            position: relative;
+            top: 47vh;
+            margin-top: -15rem;
+            border-radius: 1rem;
+            transform: translateY(-10rem);
+            border: 5px solid rgb(7, 7, 7);
+            z-index: 1;
+      }
+
+      /* submit button */
+      .btn{
+            font-size: 1rem;
+            padding: 0.5rem;
+            transform: translateY(1rem);
+      }
+
+      /* form and title */
+      .form-container{
+            margin: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+      }
+
+      /* App logo */
+      #app-logo{
+            /* margin: 2rem; */
+            height: 40rem;
+            position: relative;
+            top: 37vh;
+            margin-top: -465px;
+      }
+
+        /* Form and the app logo */
+      .form-and-logo{
+            margin: 0 auto;
+            position: relative;
+            top: 15rem;
+      }
+
+      body {
+            background-color: rgb(2, 9, 60);
+      }
+}
+
+
+@media screen and (max-width: 1366px) {
+      div.single-room {
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 20rem;
+            border-radius: 0.5rem;
+            position: relative;
+            top: -13rem;
+            display: none;
+      }
+
+      .room-name {
+            font-size: 1.5rem;
+      }
+
+      /* What room are you joining? */
+      #what-room{
+            text-align: center;
+            color:beige;
+            margin: 0 auto;
+            font-size: 2rem;
+            transform: translateY(-0.5rem);
+      }
+
+      #join {
+            font-size: 1.5rem;
+            background-color: rgb(92, 128, 0);
+            margin: 0 auto;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            width: 10rem;
+            color: antiquewhite;
+            text-align: center;
+      }
+
+      /*  remove style from anchor tags */
+      a{
+            color: blanchedalmond;
+            text-decoration: none;
+      }
+
+      .rooms-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            margin: 0 1rem;
+      }
+
+      /* Join text below the join div */
+      .join-text{
+            font-size: 1rem;
+            text-align: center;
+      }
+
+      /* Labels on the form */
+      label{
+            font-size: 1.2rem;
+            color: white;
+      }
+
+
+      /* Room name input */
+      #room-name-input, #password{
+            font-size: 1.2rem;
+            color: white;
+            width: 15rem;
+            padding: .5rem;
+            background-color: rgb(77, 77, 9);
+      }
+
+      /* div containing the username from the database */
+      .h2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+      }
+
+      /* Eye */
+      .eye{
+            font-size: 1.7rem;
+            position: relative;
+            top: -6.7rem;
+            left: 6rem;
+            color: rgb(161, 161, 16);
+      }
+
+      #form{
+            margin: 0 auto;
+            background-color: rgb(50, 93, 150);
+            width: fit-content;
+            height: 20rem;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            position: relative;
+            top: 47vh;
+            margin-top: -15rem;
+            border-radius: 1rem;
+            transform: translateY(-10rem);
+            border: 5px solid rgb(7, 7, 7);
+            z-index: 1;
+      }
+
+      /* submit button */
+      .btn{
+            font-size: 1rem;
+            padding: 0.5rem;
+            transform: translateY(1rem);
+      }
+
+      /* form and title */
+      .form-container{
+            margin: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+      }
+
+      /* App logo */
+      #app-logo{
+            /* margin: 2rem; */
+            height: 40rem;
+            position: relative;
+            top: 37vh;
+            margin-top: -465px;
+      }
+
+        /* Form and the app logo */
+      .form-and-logo{
+            margin: 0 auto;
+            position: relative;
+            top: 15rem;
+      }
+
+      body {
+            background-color: rgb(2, 9, 60);
+      }
+}
+
+@media screen and (max-width: 1280px) {
+      div.single-room {
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 20rem;
+            border-radius: 0.5rem;
+            position: relative;
+            top: -13rem;
+            display: none;
+      }
+
+      .room-name {
+            font-size: 1.5rem;
+      }
+
+      /* What room are you joining? */
+      #what-room{
+            text-align: center;
+            color:beige;
+            margin: 0 auto;
+            font-size: 2rem;
+            transform: translateY(-0.5rem);
+      }
+
+      #join {
+            font-size: 1.5rem;
+            background-color: rgb(92, 128, 0);
+            margin: 0 auto;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            width: 10rem;
+            color: antiquewhite;
+            text-align: center;
+      }
+
+      /*  remove style from anchor tags */
+      a{
+            color: blanchedalmond;
+            text-decoration: none;
+      }
+
+      .rooms-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            margin: 0 1rem;
+      }
+
+      /* Join text below the join div */
+      .join-text{
+            font-size: 1rem;
+            text-align: center;
+      }
+
+      /* Labels on the form */
+      label{
+            font-size: 1.2rem;
+            color: white;
+      }
+
+
+      /* Room name input */
+      #room-name-input, #password{
+            font-size: 1.2rem;
+            color: white;
+            width: 15rem;
+            padding: .5rem;
+            background-color: rgb(77, 77, 9);
+      }
+
+      /* div containing the username from the database */
+      .h2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+      }
+
+      /* Eye */
+      .eye{
+            font-size: 1.7rem;
+            position: relative;
+            top: -6.7rem;
+            left: 6rem;
+            color: rgb(161, 161, 16);
+      }
+
+      #form{
+            margin: 0 auto;
+            background-color: rgb(50, 93, 150);
+            width: fit-content;
+            height: 20rem;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            position: relative;
+            top: 47vh;
+            margin-top: -15rem;
+            border-radius: 1rem;
+            transform: translateY(-10rem);
+            border: 5px solid rgb(7, 7, 7);
+            z-index: 1;
+      }
+
+      /* submit button */
+      .btn{
+            font-size: 1rem;
+            padding: 0.5rem;
+            transform: translateY(1rem);
+      }
+
+      /* form and title */
+      .form-container{
+            margin: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+      }
+
+      /* App logo */
+      #app-logo{
+            /* margin: 2rem; */
+            height: 40rem;
+            position: relative;
+            top: 37vh;
+            margin-top: -465px;
+      }
+
+        /* Form and the app logo */
+      .form-and-logo{
+            margin: 0 auto;
+            position: relative;
+            top: 15rem;
+      }
+
+      body {
+            background-color: rgb(2, 9, 60);
+      }
+}
+
+@media screen and (max-width: 1024px) {
+      div.single-room {
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 20rem;
+            border-radius: 0.5rem;
+            position: relative;
+            top: -12rem;
+            display: none;
+      }
+
+      .room-name {
+            font-size: 1.5rem;
+      }
+
+      /* What room are you joining? */
+      #what-room{
+            text-align: center;
+            color:beige;
+            margin: 0 auto;
+            font-size: 2rem;
+            transform: translateY(-0.5rem);
+      }
+
+      #join {
+            font-size: 1.5rem;
+            background-color: rgb(92, 128, 0);
+            margin: 0 auto;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            width: 10rem;
+            color: antiquewhite;
+            text-align: center;
+      }
+
+      /*  remove style from anchor tags */
+      a{
+            color: blanchedalmond;
+            text-decoration: none;
+      }
+
+      .rooms-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            margin: 0 1rem;
+      }
+
+      /* Join text below the join div */
+      .join-text{
+            font-size: 1rem;
+            text-align: center;
+      }
+
+      /* Labels on the form */
+      label{
+            font-size: 1.2rem;
+            color: white;
+      }
+
+
+      /* Room name input */
+      #room-name-input, #password{
+            font-size: 1.2rem;
+            color: white;
+            width: 15rem;
+            padding: .5rem;
+            background-color: rgb(77, 77, 9);
+      }
+
+      /* div containing the username from the database */
+      .h2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+      }
+
+      /* Eye */
+      .eye{
+            font-size: 1.7rem;
+            position: relative;
+            top: -6.7rem;
+            left: 6rem;
+            color: rgb(161, 161, 16);
+      }
+
+      #form{
+            margin: 0 auto;
+            background-color: rgb(50, 93, 150);
+            width: fit-content;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            position: relative;
+            top: 47vh;
+            margin-top: -15rem;
+            border-radius: 1rem;
+            transform: translateY(-10rem);
+            border: 5px solid rgb(7, 7, 7);
+            z-index: 1;
+      }
+
+      /* submit button */
+      .btn{
+            font-size: 1rem;
+            padding: 0.5rem;
+            transform: translateY(1rem);
+      }
+
+      /* form and title */
+      .form-container{
+            margin: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+      }
+
+      /* App logo */
+      #app-logo{
+            /* margin: 2rem; */
+            height: 40rem;
+            position: relative;
+            top: 37vh;
+            margin-top: -465px;
+      }
+
+        /* Form and the app logo */
+      .form-and-logo{
+            margin: 0 auto;
+            position: relative;
+            top: 15rem;
+      }
+
+      body {
+            background-color: rgb(2, 9, 60);
+      }
+}
+
+@media screen and (max-width: 960px) {
+      div.single-room {
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 20rem;
+            border-radius: 0.5rem;
+            position: relative;
+            top: -12rem;
+            display: none;
+      }
+
+      .room-name {
+            font-size: 1.5rem;
+      }
+
+      /* What room are you joining? */
+      #what-room{
+            text-align: center;
+            color:beige;
+            margin: 0 auto;
+            font-size: 2rem;
+            transform: translateY(-0.5rem);
+      }
+
+      #join {
+            font-size: 1.5rem;
+            background-color: rgb(92, 128, 0);
+            margin: 0 auto;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            width: 10rem;
+            color: antiquewhite;
+            text-align: center;
+      }
+
+      /*  remove style from anchor tags */
+      a{
+            color: blanchedalmond;
+            text-decoration: none;
+      }
+
+      .rooms-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            margin: 0 1rem;
+      }
+
+      /* Join text below the join div */
+      .join-text{
+            font-size: 1rem;
+            text-align: center;
+      }
+
+      /* Labels on the form */
+      label{
+            font-size: 1.2rem;
+            color: white;
+      }
+
+
+      /* Room name input */
+      #room-name-input, #password{
+            font-size: 1.2rem;
+            color: white;
+            width: 15rem;
+            padding: .5rem;
+            background-color: rgb(77, 77, 9);
+      }
+
+      /* div containing the username from the database */
+      .h2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+      }
+
+      /* Eye */
+      .eye{
+            font-size: 1.7rem;
+            position: relative;
+            top: -6.7rem;
+            left: 6rem;
+            color: rgb(161, 161, 16);
+      }
+
+      #form{
+            margin: 0 auto;
+            background-color: rgb(50, 93, 150);
+            width: fit-content;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            position: relative;
+            top: 47vh;
+            margin-top: -15rem;
+            border-radius: 1rem;
+            transform: translateY(-10rem);
+            border: 5px solid rgb(7, 7, 7);
+            z-index: 1;
+      }
+
+      /* submit button */
+      .btn{
+            font-size: 1rem;
+            padding: 0.5rem;
+            transform: translateY(1rem);
+      }
+
+      /* form and title */
+      .form-container{
+            margin: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+      }
+
+      /* App logo */
+      #app-logo{
+            /* margin: 2rem; */
+            height: 40rem;
+            position: relative;
+            top: 37vh;
+            margin-top: -465px;
+      }
+
+        /* Form and the app logo */
+      .form-and-logo{
+            margin: 0 auto;
+            position: relative;
+            top: 15rem;
+      }
+
+      body {
+            background-color: rgb(2, 9, 60);
+      }
+}
+
+@media screen and (max-width: 800px) {
+      div.single-room {
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 20rem;
+            border-radius: 0.5rem;
+            position: relative;
+            top: -12rem;
+            display: none;
+      }
+
+      .room-name {
+            font-size: 1.5rem;
+      }
+
+      /* What room are you joining? */
+      #what-room{
+            text-align: center;
+            color:beige;
+            margin: 0 auto;
+            font-size: 2rem;
+            transform: translateY(-0.5rem);
+      }
+
+      #join {
+            font-size: 1.5rem;
+            background-color: rgb(92, 128, 0);
+            margin: 0 auto;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            width: 10rem;
+            color: antiquewhite;
+            text-align: center;
+      }
+
+      /*  remove style from anchor tags */
+      a{
+            color: blanchedalmond;
+            text-decoration: none;
+      }
+
+      .rooms-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            margin: 0 1rem;
+      }
+
+      /* Join text below the join div */
+      .join-text{
+            font-size: 1rem;
+            text-align: center;
+      }
+
+      /* Labels on the form */
+      label{
+            font-size: 1.2rem;
+            color: white;
+      }
+
+
+      /* Room name input */
+      #room-name-input, #password{
+            font-size: 1.2rem;
+            color: white;
+            width: 15rem;
+            padding: .5rem;
+            background-color: rgb(77, 77, 9);
+      }
+
+      /* div containing the username from the database */
+      .h2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+      }
+
+      /* Eye */
+      .eye{
+            font-size: 1.7rem;
+            position: relative;
+            top: -6.7rem;
+            left: 6rem;
+            color: rgb(161, 161, 16);
+      }
+
+      #form{
+            margin: 0 auto;
+            background-color: rgb(50, 93, 150);
+            width: fit-content;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            position: relative;
+            top: 47vh;
+            margin-top: -15rem;
+            border-radius: 1rem;
+            transform: translateY(-10rem);
+            border: 5px solid rgb(7, 7, 7);
+            z-index: 1;
+      }
+
+      /* submit button */
+      .btn{
+            font-size: 1rem;
+            padding: 0.5rem;
+            transform: translateY(1rem);
+      }
+
+      /* form and title */
+      .form-container{
+            margin: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+      }
+
+      /* App logo */
+      #app-logo{
+            /* margin: 2rem; */
+            height: 40rem;
+            position: relative;
+            top: 37vh;
+            margin-top: -465px;
+      }
+
+        /* Form and the app logo */
+      .form-and-logo{
+            margin: 0 auto;
+            position: relative;
+            top: 15rem;
+      }
+
+      body {
+            background-color: rgb(2, 9, 60);
+      }
+}
+
+@media screen and (max-width: 720px) {
+      div.single-room {
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 20rem;
+            border-radius: 0.5rem;
+            position: relative;
+            top: -12rem;
+            display: none;
+      }
+
+      .room-name {
+            font-size: 1.5rem;
+      }
+
+      /* What room are you joining? */
+      #what-room{
+            text-align: center;
+            color:beige;
+            margin: 0 auto;
+            font-size: 2rem;
+            transform: translateY(-0.5rem);
+      }
+
+      #join {
+            font-size: 1.5rem;
+            background-color: rgb(92, 128, 0);
+            margin: 0 auto;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            width: 10rem;
+            color: antiquewhite;
+            text-align: center;
+      }
+
+      /*  remove style from anchor tags */
+      a{
+            color: blanchedalmond;
+            text-decoration: none;
+      }
+
+      .rooms-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            margin: 0 1rem;
+      }
+
+      /* Join text below the join div */
+      .join-text{
+            font-size: 1rem;
+            text-align: center;
+      }
+
+      /* Labels on the form */
+      label{
+            font-size: 1.2rem;
+            color: white;
+      }
+
+
+      /* Room name input */
+      #room-name-input, #password{
+            font-size: 1.2rem;
+            color: white;
+            width: 15rem;
+            padding: .5rem;
+            background-color: rgb(77, 77, 9);
+      }
+
+      /* div containing the username from the database */
+      .h2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+      }
+
+      /* Eye */
+      .eye{
+            font-size: 1.7rem;
+            position: relative;
+            top: -6.7rem;
+            left: 6rem;
+            color: rgb(161, 161, 16);
+      }
+
+      #form{
+            margin: 0 auto;
+            background-color: rgb(50, 93, 150);
+            width: fit-content;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            position: relative;
+            top: 47vh;
+            margin-top: -15rem;
+            border-radius: 1rem;
+            transform: translateY(-10rem);
+            border: 5px solid rgb(7, 7, 7);
+            z-index: 1;
+      }
+
+      /* submit button */
+      .btn{
+            font-size: 1rem;
+            padding: 0.5rem;
+            transform: translateY(1rem);
+      }
+
+      /* form and title */
+      .form-container{
+            margin: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+      }
+
+      /* App logo */
+      #app-logo{
+            /* margin: 2rem; */
+            height: 40rem;
+            position: relative;
+            top: 37vh;
+            margin-top: -465px;
+      }
+
+        /* Form and the app logo */
+      .form-and-logo{
+            margin: 0 auto;
+            position: relative;
+            top: 15rem;
+      }
+
+      body {
+            background-color: rgb(2, 9, 60);
+      }
+}
+
+@media screen and (max-width: 480px) {
+      div.single-room {
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 20rem;
+            border-radius: 0.5rem;
+            position: relative;
+            top: -2.5rem;
+            display: none;
+      }
+
+      .room-name {
+            font-size: 1.5rem;
+      }
+
+      /* What room are you joining? */
+      #what-room{
+            text-align: center;
+            color:beige;
+            /* margin: 0 auto; */
+            font-size: 1.7rem;
+      }
+
+      /*  remove style from anchor tags */
+      a{
+            color: blanchedalmond;
+            text-decoration: none;
+      }
+
+      .rooms-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            margin: 0 1rem;
+      }
+
+      /* Join text below the join div */
+      .join-text{
+            font-size: 1rem;
+            text-align: center;
+      }
+
+      /* Labels on the form */
+      label{
+            font-size: 1.1rem;
+            color: white;
+      }
+
+      /* Room name input */
+      #room-name-input, #password{
+            font-size: 1.2rem;
+            color: white;
+            width: 17rem;
+            padding: 0.3rem;
+            background-color: rgb(77, 77, 9);
+      }
+
+      /* div containing the username from the database */
+      .h2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+      }
+
+      /* Eye */
+      .eye{
+            font-size: 1.5rem;
+            position: relative;
+            top: -6.4rem;
+            left: 7rem;
+            color: rgb(161, 161, 16);
+      }
+
+      #form{
+            margin: 0 auto;
+            background-color: rgb(50, 93, 150);
+            width: fit-content;
+            height: 18rem;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            position: relative;
+            top: 4.5rem;
+            margin-top: -15rem;
+            border-radius: 1rem;
+            border: 5px solid rgb(7, 7, 7);
+            z-index: 1;
+      }
+
+      /* submit button */
+      .btn{
+            font-size: 1rem;
+            width: auto;
+            height: auto;
+            padding: 0.5rem;
+            transform: translateY(0.4rem);
+      }
+
+      /* App logo */
+      #app-logo{
+            margin: 0 auto;
+            height: 25rem;
+            position: relative;
+            top: 27rem;
+            margin-top: -465px;
+      }
+
+        /* Form and the app logo */
+      .form-and-logo{
+            margin: 0 auto;
+            position: relative;
+            top: 33rem;
+            gap: .5rem;
+            display: flex;
+            flex-direction: column;
+      }
+
+      body {
+            background-color: rgb(2, 9, 60);
+      }
+}

@@ -1,0 +1,46 @@
+/* Title */
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(205, 220, 235);
+  margin-top: -4rem;
+}
+
+/* Buttomns container */
+.buttons{
+  gap: 5em;
+  display: flex;
+}
+
+/* Each button */
+button{
+width: 6rem;
+}
+
+/* The achor tag */
+a{
+  text-decoration: none;
+  color: azure;
+}
+
+/* Title and buttons */
+.container{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: rgba(255, 255, 255, 0.087);
+  width: fit-content;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 2px solid #5c80a0;
+  position: relative;
+  top: 50vh;
+  margin-top: -100px;
+  width: 20vw;
+}
+
+body {
+  background-color: rgb(2, 9, 60);
+}

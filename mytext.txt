@@ -1423,3 +1423,9 @@ class ActionDeleteView(generic.DeleteView): # action-deleteview
         previous = self.request.META.get('HTTP_REFERER')
         print('***************** previous: ', previous)
         return redirect('Intended View')
+
+
+
+
+
+        SECRET_KEY = 'django-insecure-(=hmj8z&p1=j($-bs0@)uxz@-rgpxz63a(5#u2f*wh2tq+(=3j'

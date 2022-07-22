@@ -1,0 +1,675 @@
+@media screen and (max-width: 3000px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(235, 235, 229);
+        font-size: 2.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        color: rgb(141, 118, 71);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 30rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+    }
+
+    .error-message{
+        position: relative;
+        top: -8.5rem;
+    }
+
+    /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 20vh;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #user-name{
+        font-size: 1.5em;
+        border: 1px solid rgb(14, 14, 14);
+        padding-left: 1rem;
+        background-color: white;
+        width: 25rem;
+    }
+
+    #user-name{
+        text-align: left;
+    }
+
+    .eye{
+        transform: translate(11.2rem, -6rem);
+    }
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -0.5rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+
+}
+
+@media screen and (max-width: 1440px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(235, 235, 229);
+        font-size: 2.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        color: rgb(141, 118, 71);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 30rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+    }
+
+    .error-message{
+        position: relative;
+        top: -8.5rem;
+    }
+
+    /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 20vh;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #user-name{
+        font-size: 1.5em;
+        border: 1px solid rgb(14, 14, 14);
+        padding-left: 1rem;
+        background-color: white;
+        width: 25rem;
+    }
+
+    #user-name{
+        text-align: left;
+    }
+
+    .eye{
+        transform: translate(11.2rem, -6rem);
+    }
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -0.5rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+
+}
+
+@media screen and (max-width: 1366px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(235, 235, 229);
+        font-size: 2.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        color: rgb(160, 132, 77);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 30rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+    }
+
+    .error-message{
+        position: relative;
+        top: -8.5rem;
+    }
+
+    /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 20vh;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #user-name{
+        font-size: 1.5em;
+        border: 1px solid rgb(14, 14, 14);
+        padding-left: 1rem;
+        background-color: white;
+        width: 25rem;
+    }
+
+    #user-name{
+        text-align: left;
+    }
+
+    .eye{
+        transform: translate(11.2rem, -6rem);
+    }
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -0.5rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+
+}
+
+@media screen and (max-width: 1280px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(235, 235, 229);
+        font-size: 2.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        color: rgb(160, 132, 77);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 30rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+    }
+
+    .error-message{
+        position: relative;
+        top: -8.5rem;
+    }
+
+    /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 20vh;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #user-name{
+        font-size: 1.5em;
+        border: 1px solid rgb(14, 14, 14);
+        padding-left: 1rem;
+        background-color: white;
+        width: 25rem;
+    }
+
+    #user-name{
+        text-align: left;
+    }
+
+    .eye{
+        transform: translate(11.2rem, -6rem);
+    }
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -0.5rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(235, 235, 229);
+        font-size: 2.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        color: rgb(156, 121, 52);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 30rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+    }
+
+    .error-message{
+        position: relative;
+        top: -8.5rem;
+    }
+
+    /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 20vh;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #user-name{
+        font-size: 1.5em;
+        border: 1px solid rgb(14, 14, 14);
+        padding-left: 1rem;
+        background-color: white;
+        width: 25rem;
+    }
+
+    #user-name{
+        text-align: left;
+    }
+
+    .eye{
+        transform: translate(11.2rem, -6rem);
+    }
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -0.5rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(235, 235, 229);
+        font-size: 2.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        color: rgb(160, 132, 77);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+    }
+
+    .error-message{
+        position: relative;
+        top: -8.5rem;
+    }
+
+    /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 20vh;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #user-name{
+        font-size: 1.5em;
+        border: 1px solid rgb(14, 14, 14);
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    #user---name{
+        text-align: left;
+    }
+
+    .eye{
+        transform: translate(9.2rem, -6rem);
+    }
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -0.5rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(235, 235, 229);
+        font-size: 2.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        color: rgb(160, 132, 77);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+    }
+
+    .error-message{
+        position: relative;
+        top: -8.5rem;
+    }
+
+    /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 20vh;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #user-name{
+        font-size: 1.5em;
+        border: 1px solid rgb(14, 14, 14);
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    #user-name{
+        text-align: left;
+    }
+
+    .eye{
+        transform: translate(9.2rem, -6rem);
+    }
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -0.5rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+
+}
+
+@media screen and (max-width: 720px) {
+    .sign-up-form-button{
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(235, 235, 229);
+        font-size: 2.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        color: rgb(160, 132, 77);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        padding: 1rem 0rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+    }
+
+    .error-message{
+        position: relative;
+        top: -8.5rem;
+    }
+
+    /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 20vh;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #password, #user-name{
+        font-size: 1.5em;
+        border: 1px solid rgb(14, 14, 14);
+        padding-left: 1rem;
+        background-color: white;
+        width: 20rem;
+    }
+
+    #user-name{
+        text-align: left;
+    }
+
+    .eye{
+        transform: translate(9.2rem, -6rem);
+    }
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -0.5rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+
+}
+
+
+@media screen and (max-width: 480px) {
+    .sign-up-form-button{
+        font-size: 1.2rem;
+        background-color: rgb(54, 128, 165);
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(235, 235, 229);
+        font-size: 2.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .form {
+        color: rgb(160, 132, 77);
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        width: 25rem;
+        /* padding: 1rem 0rem; */
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px 5px rgb(12, 13, 0);
+    }
+
+    .error-message{
+        position: relative;
+        top: -8.5rem;
+    }
+
+    /* This div contains bot the title and the form */
+    .form-container{
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin-top: 20vh;
+    }
+
+    /* Labels */
+    label{
+        font-size: 1.5em;
+        color: black;
+    }
+
+    #label-user-name{
+        position:relative;
+        top: -0.5rem;
+    }
+
+    input{
+
+        font-size: 1.5em;
+        border: 1px solid rgb(14, 14, 14);
+        /* padding-left: 0.5rem; */
+        background-color: white;
+        width: 20rem;
+    }
+
+    #user-name{
+        text-align: left;
+    }
+
+    .eye{
+        transform: translate(9.2rem, -6rem);
+    }
+
+    button {
+        margin-top: 0.5rem;
+        margin-bottom: -0.5rem;
+    }
+
+    body{
+        background-color: rgb(85, 98, 116);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

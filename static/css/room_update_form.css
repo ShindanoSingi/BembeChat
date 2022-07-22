@@ -1,0 +1,510 @@
+@media screen and (max-width: 3000px) {
+    h1 {
+        position: relative;
+        top: 25rem;
+        text-align: center;
+        color: rgb(215, 220, 250);
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    label{
+        font-size: 2rem;
+    }
+
+    #id_username, #id_slug, #id_name{
+        font-size: 1.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+    }
+
+    .form {
+        padding: 20px;
+        background-color: antiquewhite;
+        width: 30rem;
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+        border-radius: 1rem;
+    }
+
+    /* individual button */
+    .btn {
+        margin-top: 1rem;
+        width: 100px;
+        margin-top: 1rem;
+    }
+
+    .update-and-cancel-buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 13rem;
+    }
+
+    body {
+        background-color: rgb(2, 9, 60);
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    h1 {
+        position: relative;
+        top: 25rem;
+        text-align: center;
+        color: rgb(215, 220, 250);
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    label{
+        font-size: 2rem;
+    }
+
+    #id_username, #id_slug, #id_name{
+        font-size: 1.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+    }
+
+    .form {
+        padding: 20px;
+        background-color: antiquewhite;
+        width: 30rem;
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+        border-radius: 1rem;
+    }
+
+    /* individual button */
+    .btn {
+        margin-top: 1rem;
+        width: 100px;
+        margin-top: 1rem;
+    }
+
+    .update-and-cancel-buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 13rem;
+    }
+
+    body {
+        background-color: rgb(2, 9, 60);
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    h1 {
+        position: relative;
+        top: 25rem;
+        text-align: center;
+        color: rgb(215, 220, 250);
+    }
+
+    label{
+        font-size: 2rem;
+    }
+
+    #id_username, #id_slug, #id_name{
+        font-size: 1.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+    }
+
+    .form {
+        padding: 20px;
+        background-color: antiquewhite;
+        width: 30rem;
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+        border-radius: 1rem;
+    }
+
+    /* individual button */
+    .btn {
+        margin-top: 1rem;
+        width: 100px;
+        margin-top: 1rem;
+    }
+
+    .update-and-cancel-buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 13rem;
+    }
+
+    body {
+        background-color: rgb(2, 9, 60);
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    h1 {
+        position: relative;
+        top: 25rem;
+        text-align: center;
+        color: rgb(215, 220, 250);
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    label{
+        font-size: 2rem;
+    }
+
+    #id_username, #id_slug, #id_name{
+        font-size: 1.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+    }
+
+    .form {
+        padding: 20px;
+        background-color: antiquewhite;
+        width: 30rem;
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+        border-radius: 1rem;
+    }
+
+    /* individual button */
+    .btn {
+        margin-top: 1rem;
+        width: 100px;
+        margin-top: 1rem;
+    }
+
+    .update-and-cancel-buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 13rem;
+    }
+
+    body {
+        background-color: rgb(2, 9, 60);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    h1 {
+        position: relative;
+        top: 25rem;
+        text-align: center;
+        color: rgb(215, 220, 250);
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    label{
+        font-size: 2rem;
+    }
+
+    #id_username, #id_slug, #id_name{
+        font-size: 1.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+    }
+
+    .form {
+        padding: 20px;
+        background-color: antiquewhite;
+        width: 30rem;
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+        border-radius: 1rem;
+    }
+
+    /* individual button */
+    .btn {
+        margin-top: 1rem;
+        width: 100px;
+        margin-top: 1rem;
+    }
+
+    .update-and-cancel-buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 13rem;
+    }
+
+    body {
+        background-color: rgb(2, 9, 60);
+    }
+}
+
+@media screen and (max-width: 960px) {
+    h1 {
+        position: relative;
+        top: 25rem;
+        text-align: center;
+        color: rgb(215, 220, 250);
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    label{
+        font-size: 2rem;
+    }
+
+    #id_username, #id_slug, #id_name{
+        font-size: 1.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+    }
+
+    .form {
+        padding: 20px;
+        background-color: antiquewhite;
+        width: 30rem;
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+        border-radius: 1rem;
+    }
+
+    /* individual button */
+    .btn {
+        margin-top: 1rem;
+        width: 100px;
+        margin-top: 1rem;
+    }
+
+    .update-and-cancel-buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 13rem;
+    }
+
+    body {
+        background-color: rgb(2, 9, 60);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    h1 {
+        position: relative;
+        top: 25rem;
+        text-align: center;
+        color: rgb(215, 220, 250);;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    label{
+        font-size: 2rem;
+    }
+
+    #id_username, #id_slug, #id_name{
+        font-size: 1.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+    }
+
+    .form {
+        padding: 20px;
+        background-color: antiquewhite;
+        width: 30rem;
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+        border-radius: 1rem;
+    }
+
+    /* individual button */
+    .btn {
+        margin-top: 1rem;
+        width: 100px;
+        margin-top: 1rem;
+    }
+
+    .update-and-cancel-buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 13rem;
+    }
+
+    body {
+        background-color: rgb(2, 9, 60);
+    }
+}
+
+@media screen and (max-width: 720px) {
+    h1 {
+        position: relative;
+        top: 25rem;
+        text-align: center;
+        color: rgb(215, 220, 250);;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    label{
+        font-size: 2rem;
+    }
+
+    #id_username, #id_slug, #id_name{
+        font-size: 1.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+    }
+
+    .form {
+        padding: 20px;
+        background-color: antiquewhite;
+        width: 30rem;
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+        border-radius: 1rem;
+    }
+
+    /* individual button */
+    .btn {
+        margin-top: 1rem;
+        width: 100px;
+        margin-top: 1rem;
+    }
+
+    .update-and-cancel-buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 13rem;
+    }
+
+    body {
+        background-color: rgb(2, 9, 60);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        position: relative;
+        top: 25rem;
+        text-align: center;
+        color: rgb(215, 220, 250);;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    label{
+        font-size: 1.2rem;
+    }
+
+    #id_username, #id_slug, #id_name{
+        font-size: 1.1rem;
+    }
+
+    .container {
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+    }
+
+    .form {
+        padding: 20px;
+        background-color: antiquewhite;
+        width: 30rem;
+        margin: 0 auto;
+        margin-top: 50vh;
+        position: relative;
+        top: -240px;
+        border-radius: 1rem;
+    }
+
+    /* individual button */
+    .btn {
+        margin-top: 1rem;
+        width: 100px;
+        margin-top: 1rem;
+    }
+
+    /* Div containing both buttons */
+    .update-and-cancel-buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 13rem;
+    }
+
+    body {
+        background-color: rgb(2, 9, 60);
+    }
+}
+
+
