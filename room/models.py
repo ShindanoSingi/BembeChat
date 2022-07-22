@@ -4,8 +4,8 @@ from django.db import connections, models
 from django.urls import reverse
 
 # To check if the other user is online
-from django.core.cache import cache
-import datetime
+# from django.core.cache import cache
+# import datetime
 from bembechat_django import settings
 
 
