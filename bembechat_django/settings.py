@@ -68,7 +68,7 @@ INSTALLED_APPS = [
     'channels',
     'bembechat',
     # 'material',
-    'fontawesomefree',
+    # 'fontawesomefree',
     'room',
     'widget_tweaks',
     'online_users',
