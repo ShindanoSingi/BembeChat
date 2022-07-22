@@ -36,12 +36,7 @@
 			<form method="post">
 				{% csrf_token %}
 				<div class="buttons">
-
-					<button type="button" class="btn cancel btn-success">
-						<a href="{{ room.slug }}/delete">Delete</a>
-					</button>
-
-					{% comment %} <button
+					<button
 						type="submit"
 						value="Confirm"
 						class="btn btn-danger"
@@ -49,7 +44,7 @@
 						<span class="material-icons">
 							thumb_up_alt
 						</span>
-					</button> {% endcomment %}
+					</button>
 					<button type="button" class="btn cancel btn-success">
 						<a href="{% url 'room'  slug=room.slug %}"
 							>Cancel</a
