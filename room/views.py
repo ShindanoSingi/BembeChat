@@ -75,8 +75,8 @@ def got_offline(sender, user, request, **kwargs):
 class RoomCreate(CreateView):
       model = Room
       # fields = ['name', 'slug']
-      # fields = '__all__'
-      form_class = RoomForm
+      fields = '__all__'
+      # form_class = RoomForm
       template_name = 'room/room_form.html'
       success_url = '/rooms/'
 
@@ -91,7 +91,7 @@ class RoomUpdate(UpdateView):
 class RoomDelete(DeleteView):
       model = Room
       template_name = 'room/room_delete_form.html'
-      success_url = '/'
+      success_url = '/rooms'
 
 # MessageDelete a message:
 class MessageDelete(DeleteView):

@@ -47,26 +47,34 @@
 						{{ field.label_tag }}
 						{% render_field field class="form-control" %}
 						{% if field.help_text %}
-						  <small class="form-text text-muted">{{ field.help_text }}</small>
+						<small class="form-text text-muted">{{ field.help_text }}</small>
 						{% endif %}
-					  </div>
+					</div>
 					{% endfor %}
-					<button type="submit" class="btn btn-primary">Update
-				</button>
+					<div class="update-and-cancel-buttons">
+						<button type="submit" class="btn btn-primary">Update</button>
+						<button id="cancel-button" type="button" class="btn btn-secondary">
+							<a href="{% url 'room'  slug=room.slug %}"
+								>Cancel</a
+							>
+						</button>
+					</div>
+
 			</form>
 		</div>
         </form>
 	</body>
 	<script>
-		{% comment %} Grab the password field {% endcomment %}
+
+		// Grab the password field
 		const eye = document.getElementById("password");
 
-		{% comment %} eclare a function that shows the password by changing the type from password to text {% endcomment %}
+		// eclare a function that shows the password by changing the type from password to text
 		function showPassword(){
 			if (eye.type === 'password'){
 				eye.type = 'text';
 			} else{
-				 eye.type = "password";
+				eye.type = "password";
 			}
 		}
 	</script>

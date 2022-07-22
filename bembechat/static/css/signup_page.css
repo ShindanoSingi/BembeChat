@@ -71,7 +71,7 @@
     .error-message{
         font-size: 1rem;
         width: 21rem;
-        transform: translateY(-3rem)
+        transform: translate(0.1rem, -0.2rem)
     }
 
     body{
@@ -152,7 +152,7 @@
     .error-message{
         font-size: 1rem;
         width: 21rem;
-        transform: translateY(-3rem)
+        transform: translate(0.1rem, -0.2rem)
     }
 
     body{
@@ -233,7 +233,7 @@
     .error-message{
         font-size: 1rem;
         width: 21rem;
-        transform: translateY(-3rem)
+        transform: translate(0.1rem, -0.2rem)
     }
 
     body{
@@ -314,7 +314,7 @@
     .error-message{
         font-size: 1rem;
         width: 21rem;
-        transform: translateY(-3rem)
+        transform: translate(0.1rem, -0.5rem)
     }
 
     body{
@@ -394,7 +394,7 @@
     .error-message{
         font-size: 1rem;
         width: 21rem;
-        transform: translateY(-3rem)
+        transform: translate(0.1rem, -2rem)
     }
 
     body{

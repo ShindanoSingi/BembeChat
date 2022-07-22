@@ -1,6 +1,7 @@
 from turtle import up
 from django.contrib.auth.models import User
 from django.db import connections, models
+from django.urls import reverse
 
 # To check if the other user is online
 from django.core.cache import cache
@@ -15,6 +16,12 @@ class Room(models.Model):
       name = models.CharField(max_length=255)
       slug = models.SlugField(unique=True)
       username = models.CharField(max_length=255)
+
+      def __str__(self): # new
+            return self.slug
+
+      def get_absolute_url(self): # new
+            return reverse("room/room_page.html", args=[str(self.slug)])
 
 
 
