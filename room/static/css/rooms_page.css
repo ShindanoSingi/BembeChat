@@ -10,7 +10,7 @@
             width: 20rem;
             border-radius: 0.5rem;
             position: relative;
-            top: -13rem;
+            top: -8rem;
             display: none;
       }
 
@@ -101,7 +101,7 @@
             flex-direction: column;
             display: flex;
             position: relative;
-            top: 47vh;
+            top: 46vh;
             margin-top: -15rem;
             border-radius: 1rem;
             transform: translateY(-10rem);
@@ -128,7 +128,7 @@
       /* App logo */
       #app-logo{
             /* margin: 2rem; */
-            height: 40rem;
+            height: 35rem;
             position: relative;
             top: 37vh;
             margin-top: -465px;
@@ -158,7 +158,7 @@
             width: 20rem;
             border-radius: 0.5rem;
             position: relative;
-            top: -13rem;
+            top: -10rem;
             display: none;
       }
 
@@ -249,7 +249,7 @@
             flex-direction: column;
             display: flex;
             position: relative;
-            top: 47vh;
+            top: 48vh;
             margin-top: -15rem;
             border-radius: 1rem;
             transform: translateY(-10rem);
@@ -276,7 +276,7 @@
       /* App logo */
       #app-logo{
             /* margin: 2rem; */
-            height: 40rem;
+            height: 35rem;
             position: relative;
             top: 37vh;
             margin-top: -465px;
@@ -306,7 +306,7 @@
             width: 20rem;
             border-radius: 0.5rem;
             position: relative;
-            top: -13rem;
+            top: -10rem;
             display: none;
       }
 
@@ -397,7 +397,7 @@
             flex-direction: column;
             display: flex;
             position: relative;
-            top: 47vh;
+            top: 25.5rem;
             margin-top: -15rem;
             border-radius: 1rem;
             transform: translateY(-10rem);
@@ -424,7 +424,7 @@
       /* App logo */
       #app-logo{
             /* margin: 2rem; */
-            height: 40rem;
+            height: 35rem;
             position: relative;
             top: 37vh;
             margin-top: -465px;
@@ -453,7 +453,7 @@
             width: 20rem;
             border-radius: 0.5rem;
             position: relative;
-            top: -13rem;
+            top: -10rem;
             display: none;
       }
 
@@ -544,7 +544,7 @@
             flex-direction: column;
             display: flex;
             position: relative;
-            top: 47vh;
+            top: 47.5vh;
             margin-top: -15rem;
             border-radius: 1rem;
             transform: translateY(-10rem);
@@ -571,7 +571,7 @@
       /* App logo */
       #app-logo{
             /* margin: 2rem; */
-            height: 40rem;
+            height: 35rem;
             position: relative;
             top: 37vh;
             margin-top: -465px;
@@ -717,9 +717,9 @@
       /* App logo */
       #app-logo{
             /* margin: 2rem; */
-            height: 40rem;
+            height: 38rem;
             position: relative;
-            top: 37vh;
+            top: 36vh;
             margin-top: -465px;
       }
 
@@ -1280,9 +1280,10 @@
       /* App logo */
       #app-logo{
             margin: 0 auto;
-            height: 25rem;
+            height: 17rem;
             position: relative;
             top: 27rem;
+            left: 1rem;
             margin-top: -465px;
       }
 

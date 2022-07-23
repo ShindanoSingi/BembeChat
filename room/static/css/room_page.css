@@ -135,6 +135,8 @@
     position: relative;
     top: 2rem;
     margin-top: 1rem;
+    position: relative;
+    top: 3rem;
   }
 
   /* Edit and delete button divs. */
@@ -354,6 +356,8 @@
     position: relative;
     top: 2rem;
     margin-top: 1rem;
+    position: relative;
+    top: 72vh;
   }
 
   /* Edit and delete button divs. */
@@ -573,6 +577,8 @@
     position: relative;
     top: 2rem;
     margin-top: 1rem;
+    position: relative;
+    top: 5vh;
   }
 
   /* Edit and delete button divs. */
@@ -793,6 +799,8 @@
     position: relative;
     top: 2rem;
     margin-top: 1rem;
+    position: relative;
+    top: 3rem;
   }
 
   /* Edit and delete button divs. */
@@ -1013,6 +1021,8 @@
     position: relative;
     top: 2rem;
     margin-top: 1rem;
+    position: relative;
+    top: 3rem;
   }
 
   /* Edit and delete button divs. */
@@ -1050,9 +1060,9 @@
     margin: 0 auto;
     position: relative;
     top: 5.5rem;
-    left: -0.6rem;
+    left: 0rem;
     display: flex;
-    gap: 40.2rem;
+    gap: 46.8rem;
     justify-content: space-around;
     visibility: hidden;
   }
@@ -1164,7 +1174,7 @@
     margin-top: 3rem;
     border-radius: 1rem;
     padding: 0 1rem;
-    max-height: 75vh;
+    max-height: 33rem;
     overflow-y: auto;
     overflow-x: hidden;
     padding-top: -1rem;
@@ -1232,6 +1242,8 @@
     position: relative;
     top: 2rem;
     margin-top: 1rem;
+    position: relative;
+    top: 2rem;
   }
 
   /* Edit and delete button divs. */
@@ -1383,7 +1395,7 @@
     margin-top: 3rem;
     border-radius: 1rem;
     padding: 0 1rem;
-    max-height: 72vh;
+    max-height: 30rem;
     overflow-y: auto;
     overflow-x: hidden;
     padding-top: -1rem;
@@ -1451,6 +1463,8 @@
     position: relative;
     top: 2rem;
     margin-top: 1rem;
+    position: relative;
+    top: 5rem;
   }
 
   /* Edit and delete button divs. */
@@ -1601,7 +1615,7 @@
     margin-top: 3rem;
     border-radius: 1rem;
     padding: 0 1rem;
-    max-height: 73vh;
+    max-height: 30rem;
     overflow-y: auto;
     overflow-x: hidden;
     padding-top: -1rem;
@@ -1669,6 +1683,8 @@
     position: relative;
     top: 2rem;
     margin-top: 1rem;
+    position: relative;
+    top: 5rem;
   }
 
   /* Edit and delete button divs. */
@@ -1814,11 +1830,13 @@
 
   /* All Chat messages container */
   .chat-messages {
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 3rem;
     border-radius: 1rem;
     padding: 0 1rem;
-    max-height: 63vh;
+    max-height: 30rem;
     overflow-y: auto;
     overflow-x: hidden;
     padding-top: -1rem;
@@ -1886,6 +1904,8 @@
     position: relative;
     top: 2rem;
     margin-top: 1rem;
+    position: relative;
+    top: 5rem;
   }
 
   /* Edit and delete button divs. */
@@ -1923,7 +1943,7 @@
     position: relative;
     top: 5.5rem;
     gap: 30vw;
-    left: -13.8rem;
+    left: -13rem;
     display: flex;
     align-items: center;
     visibility: hidden;
@@ -1959,7 +1979,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: translateX(15rem);
+    transform: translateX(14.35rem);
   }
 
   body {
