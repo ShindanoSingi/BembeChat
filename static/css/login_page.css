@@ -1,4 +1,4 @@
-@media screen and (max-width: 3000px) {
+@media screen and (min-width: 3000px) {
     .sign-up-form-button{
         background-color: rgb(54, 128, 165);
     }
@@ -70,7 +70,7 @@
 
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 1440px) {
     .sign-up-form-button{
         background-color: rgb(54, 128, 165);
     }

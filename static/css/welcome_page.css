@@ -1,4 +1,4 @@
-@media screen and (max-width: 3000px) {
+@media screen and (min-width: 3000px) {
     /* App name */
     h1{
         text-align: center;
@@ -46,7 +46,7 @@
     }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 1440px) {
     /* App name */
     h1{
         text-align: center;

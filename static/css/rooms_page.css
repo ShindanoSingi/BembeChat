@@ -1,5 +1,5 @@
 
-@media screen and (max-width: 3000px) {
+@media screen and (min-width: 3000px) {
       div.single-room {
             margin: 0 auto;
             justify-content: center;
@@ -147,7 +147,7 @@
 }
 
 
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 1440px) {
       div.single-room {
             margin: 0 auto;
             justify-content: center;
